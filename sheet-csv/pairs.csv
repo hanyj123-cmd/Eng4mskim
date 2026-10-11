@@ -1,0 +1,33 @@
+group,a,a_ko,a_ex,b,b_ko,b_ex
+f_p,fan,"선풍기, 팬",,pan,프라이팬,
+f_p,fork,포크,"Could I get a fork, please?",pork,돼지고기,Is this pork?
+f_p,coffee,커피,"Can I get a coffee, please?",copy,복사본,"Can I get a copy, please?"
+f_p,fast,빠른,"Sorry, that was too fast.",past,"지난, ~지나서",It's past three o'clock.
+f_p,fine,괜찮은,"I'm fine, thanks.",pine,소나무,
+f_p,leaf,나뭇잎,,leap,뛰어오르다,
+v_b,very,매우,Thank you very much!,berry,베리(딸기류),
+v_b,vest,조끼,,best,최고의,This one is the best.
+v_b,van,밴(승합차),,ban,금지,
+v_b,vote,투표하다,,boat,배,
+v_b,curve,"곡선, 커브",,curb,도로 가장자리 턱,
+l_r,light,"빛, 전등",Turn off the light.,right,"오른쪽, 맞는",Turn right at the corner.
+l_r,lock,잠그다,Please lock the door.,rock,바위,
+l_r,long,긴,How long will it take?,wrong,틀린,I think this is wrong.
+l_r,glass,유리잔,Can I get a glass of water?,grass,"풀, 잔디",
+l_r,play,"놀다, 연주하다",,pray,기도하다,
+l_r,collect,"찾아가다, 모으다",I'm here to collect a package.,correct,"맞는, 정확한",That's correct.
+i_ee,ship,"배송하다, 배",I'd like to ship this to Korea.,sheep,양,
+i_ee,sit,앉다,Please sit down.,seat,자리,Is this seat taken?
+i_ee,fill,채우다,Can you fill this out?,feel,느끼다,I don't feel well.
+i_ee,hit,치다,,heat,"열, 난방","Turn on the heat, please."
+i_ee,bit,조금,,beat,"이기다, 두드리다",
+th_s,think,생각하다,I think so.,sink,"가라앉다, 싱크대",
+th_s,thank,감사하다,Thank you so much!,sank,가라앉았다,
+th_s,three,셋,,free,"무료, 자유로운",Is it free?
+th_s,mouth,입,,mouse,"쥐, 마우스",
+th_s,path,길,,pass,"지나가다, 통과",
+ae_e,bad,나쁜,I have a bad headache.,bed,침대,
+ae_e,man,남자,,men,남자들,
+ae_e,pan,팬,,pen,펜,Can I borrow a pen?
+ae_e,bat,"방망이, 박쥐",,bet,내기,
+ae_e,sat,앉았다,,set,설정하다,
