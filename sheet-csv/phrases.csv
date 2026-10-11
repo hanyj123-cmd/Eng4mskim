@@ -1,6 +1,125 @@
-id,en,ko,when,sound
-again,"Sorry, could you say that again?","죄송한데, 다시 한 번 말씀해 주시겠어요?",상대 말을 못 알아들었을 때. 병원·은행·마트 어디서든 쓸 수 있어요.,"쏘리, 쿠쥬 세이 댓 어겐?"
-slow,"Could you speak a little slower, please?",조금만 천천히 말씀해 주시겠어요?,상대가 너무 빨리 말할 때. 웃으면서 말하면 더 부드러워요.,"쿠쥬 스피크 어 리를 슬로워, 플리즈?"
-catch,"Sorry, I didn't catch that.","죄송해요, 못 알아들었어요.",한 번 듣고 놓쳤을 때. 가장 짧고 자연스러운 표현이에요.,"쏘리, 아이 디든 캐치 댓."
-write,Could you write that down for me?,그거 좀 적어 주시겠어요?,"주소, 전화번호, 약 이름처럼 중요한 걸 들었을 때. 적어 달라고 하면 틀릴 일이 없어요.",쿠쥬 라잇 댓 다운 포 미?
-mean,"Sorry, what does that mean?","죄송한데, 그게 무슨 뜻이에요?",모르는 단어가 나왔을 때. 그 단어를 가리키며 말해도 돼요.,"쏘리, 왓 더즈 댓 민?"
+id,place,who,en,ko,when,sound,reply
+again,rescue,me,"Sorry, could you say that again?","죄송한데, 다시 한 번 말씀해 주시겠어요?",상대 말을 못 알아들었을 때. 병원·은행·마트 어디서든 쓸 수 있어요.,"쏘리, 쿠쥬 세이 댓 어겐?",
+slow,rescue,me,"Could you speak a little slower, please?",조금만 천천히 말씀해 주시겠어요?,상대가 너무 빨리 말할 때. 웃으면서 말하면 더 부드러워요.,"쿠쥬 스피크 어 리를 슬로워, 플리즈?",
+catch,rescue,me,"Sorry, I didn't catch that.","죄송해요, 못 알아들었어요.",한 번 듣고 놓쳤을 때. 가장 짧고 자연스러운 표현이에요.,"쏘리, 아이 디든 캐치 댓.",
+write,rescue,me,Could you write that down for me?,그거 좀 적어 주시겠어요?,"주소, 전화번호, 약 이름처럼 중요한 걸 들었을 때. 적어 달라고 하면 틀릴 일이 없어요.",쿠쥬 라잇 댓 다운 포 미?,
+mean,rescue,me,"Sorry, what does that mean?","죄송한데, 그게 무슨 뜻이에요?",모르는 단어가 나왔을 때. 그 단어를 가리키며 말해도 돼요.,"쏘리, 왓 더즈 댓 민?",
+learning,rescue,me,"Sorry, I'm still learning English.","죄송해요, 아직 영어를 배우는 중이에요.","대화를 시작할 때 먼저 말하면 상대가 천천히, 쉬운 말로 해 줘요.","쏘리, 아임 스틸 러닝 잉글리시.",
+show,rescue,me,Can you show me?,보여 주실 수 있어요?,말로 설명이 어려울 때. 손으로 가리켜 달라는 뜻으로도 좋아요.,캔 유 쇼우 미?,
+spell,rescue,me,How do you spell that?,철자가 어떻게 돼요?,"이름, 거리 이름, 약 이름을 들었을 때.",하우 두 유 스펠 댓?,
+second,rescue,me,"Just a second, please.",잠깐만요.,"지갑이나 카드를 찾을 때, 생각할 시간이 필요할 때.","저스트 어 세컨, 플리즈.",
+washroom,rescue,me,Where's the washroom?,화장실이 어디예요?,캐나다에서는 toilet보다 washroom이라고 해요.,웨어즈 더 워시룸?,
+korean,rescue,me,Is there someone who speaks Korean?,한국어 하시는 분 있나요?,병원·은행처럼 중요한 곳에서. 큰 곳은 통역을 도와줄 때가 많아요.,이즈 데어 썸원 후 스픽스 코리안?,
+dd,cafe,me,Can I get a medium double-double?,미디엄 더블더블 하나 주세요.,"팀홀튼 대표 주문이에요. 더블더블 = 크림 2번, 설탕 2번.",캔 아이 겟 어 미디엄 더블 더블?,
+black,cafe,me,"Can I get a small coffee, black?","스몰 커피, 블랙으로 주세요.",아무것도 안 넣은 커피를 원할 때.,"캔 아이 겟 어 스몰 커피, 블랙?",
+forhere,cafe,me,"For here, please.",여기서 먹을게요.,"""For here or to go?""에 대한 대답.","포 히어, 플리즈.",
+togo,cafe,me,"To go, please.",가져갈게요.,"""For here or to go?""에 대한 대답.","투 고우, 플리즈.",
+thatsit,cafe,me,"That's it, thanks.","그게 다예요, 고마워요.","""Anything else?""라고 물으면 이렇게 끝내요.","댓츠 잇, 땡스.",
+timbits,cafe,me,Can I get a box of ten Timbits?,팀빗 10개 한 상자 주세요.,팀빗 = 팀홀튼의 동그란 미니 도넛.,캔 아이 겟 어 박스 오브 텐 팀빗츠?,
+whatcan,cafe,them,"Hi there, what can I get for you?","안녕하세요, 뭐 드릴까요?",차례가 되면 가장 먼저 듣는 말이에요.,,Can I get a medium double-double?
+herego,cafe,them,For here or to go?,"드시고 가세요, 가져가세요?",카페·패스트푸드에서 꼭 물어봐요.,,"To go, please."
+size,cafe,them,What size would you like?,사이즈는 뭘로 드릴까요?,"small, medium, large로 대답해요.",,"Medium, please."
+anything,cafe,them,Anything else?,더 필요한 거 있으세요?,"주문이 끝났으면 ""That's it""이라고 해요.",,"That's it, thanks."
+toasted,cafe,them,Would you like that toasted?,토스트해 드릴까요?,베이글이나 샌드위치를 시키면 물어봐요.,,"Yes, please."
+name,cafe,them,Can I get a name for the order?,주문하신 분 성함이요?,음료가 나오면 이 이름을 불러요.,,It's Kim.
+eggs,grocery,me,"Excuse me, where can I find the eggs?","실례지만, 계란은 어디 있어요?",eggs 대신 찾는 물건 이름을 넣으면 돼요.,"익스큐즈 미, 웨어 캔 아이 파인드 디 에그즈?",
+sale,grocery,me,Is this on sale?,이거 세일하는 거예요?,가격표가 헷갈릴 때.,이즈 디스 온 세일?,
+nobag,grocery,me,"No bag, thanks.",봉투는 괜찮아요.,캐나다 마트 봉투는 보통 돈을 받아요.,"노우 백, 땡스.",
+bagplease,grocery,me,"Can I get a bag, please?",봉투 하나 주세요.,봉투가 필요할 때.,"캔 아이 겟 어 백, 플리즈?",
+debit,grocery,me,Can I pay with debit?,데빗카드로 계산할 수 있어요?,데빗 = 은행 계좌에서 바로 빠지는 카드.,캔 아이 페이 위드 데빗?,
+bigger,grocery,me,Do you have this in a bigger size?,이거 더 큰 사이즈 있어요?,옷·신발·물건 크기를 물을 때. smaller로 바꾸면 '더 작은'.,두 유 해브 디스 인 어 비거 사이즈?,
+findok,grocery,them,Did you find everything okay?,찾으시는 건 다 찾으셨어요?,계산할 때 거의 항상 하는 인사예요.,,"Yes, thanks."
+needbag,grocery,them,Do you need a bag?,봉투 필요하세요?,봉투는 보통 유료예요.,,"No bag, thanks."
+points,grocery,them,Do you have a points card?,포인트 카드 있으세요?,마트·약국에서 포인트 카드를 꼭 물어봐요.,,"No, I don't."
+debitcredit,grocery,them,Debit or credit?,"데빗이에요, 신용카드예요?",카드 종류를 묻는 말이에요.,,"Debit, please."
+tap,grocery,them,You can tap whenever you're ready.,준비되시면 카드 대세요.,tap = 카드를 단말기에 갖다 대는 것.,,
+receipt,grocery,them,Do you want your receipt?,영수증 드릴까요?,"필요 없으면 ""No, thanks.""",,"No, thanks."
+goodone,grocery,them,Have a good one!,좋은 하루 보내세요!,헤어질 때 캐나다 사람들이 정말 많이 쓰는 인사예요.,,You too!
+table2,restaurant,me,"Table for two, please.",두 명이요.,식당 입구에서. two 대신 인원수를 넣어요.,"테이블 포 투, 플리즈.",
+thisone,restaurant,me,"Can I get this one, please?",이거 주세요.,메뉴를 손가락으로 가리키면서 말해요. 가장 쉬운 주문법!,"캔 아이 겟 디스 원, 플리즈?",
+recommend,restaurant,me,What do you recommend?,뭘 추천하세요?,메뉴를 고르기 어려울 때.,왓 두 유 레커멘드?,
+spicy,restaurant,me,Is it spicy?,매워요?,음식 맛을 물을 때.,이즈 잇 스파이시?,
+bill,restaurant,me,"Could we get the bill, please?",계산서 주세요.,캐나다 식당은 손님이 말해야 계산서를 가져와요.,"쿠드 위 겟 더 빌, 플리즈?",
+separate,restaurant,me,Can we pay separately?,따로 계산할 수 있어요?,각자 계산하고 싶을 때.,캔 위 페이 세퍼러틀리?,
+box,restaurant,me,Can I get a box for this?,남은 거 싸 갈 그릇 주세요.,음식이 남았을 때. 캐나다에선 아주 흔해요.,캔 아이 겟 어 박스 포 디스?,
+party,restaurant,them,How many in your party?,몇 분이세요?,party = 일행. 숫자로 대답하면 돼요.,,"Two, please."
+ready,restaurant,them,Are you ready to order?,주문하시겠어요?,"아직이면 ""A few more minutes, please.""",,"A few more minutes, please."
+howis,restaurant,them,How is everything?,음식 괜찮으세요?,식사 중에 직원이 꼭 한 번 와서 물어봐요.,,"Everything's great, thanks."
+getyou,restaurant,them,Can I get you anything else?,더 필요한 거 있으세요?,계산하고 싶으면 bill을 달라고 해요.,,"Just the bill, please."
+together,restaurant,them,Will that be together or separate?,"같이 계산하세요, 따로 하세요?",계산서를 가져오기 전에 물어봐요.,,"Together, please."
+wantbox,restaurant,them,Would you like a box for that?,남은 거 포장해 드릴까요?,음식이 남으면 먼저 물어보기도 해요.,,"Yes, please."
+appt,clinic,me,I have an appointment at two.,2시에 예약했어요.,접수할 때. two 대신 예약 시간을 넣어요.,아이 해브 언 어포인트먼트 앳 투.,
+seedoc,clinic,me,"I'd like to see a doctor, please.",진료를 받고 싶어요.,워크인 클리닉(예약 없는 병원)에서.,"아이드 라이크 투 씨 어 닥터, 플리즈.",
+hurts,clinic,me,It hurts here.,여기가 아파요.,아픈 곳을 손으로 가리키면서 말해요.,잇 허츠 히어.,
+fever,clinic,me,I've had a fever since yesterday.,어제부터 열이 나요.,증상이 언제 시작됐는지 말할 때.,아이브 해드 어 피버 씬스 예스터데이.,
+interp,clinic,me,"I need a Korean interpreter, please.",한국어 통역이 필요해요.,큰 병원은 통역을 무료로 불러 줄 때가 많아요.,"아이 니드 어 코리안 인터프리터, 플리즈.",
+rx,clinic,me,I'm here to pick up my prescription.,처방약 찾으러 왔어요.,약국(pharmacy)에서.,아임 히어 투 픽 업 마이 프리스크립션.,
+healthcard,clinic,them,Can I see your health card?,건강카드 보여 주시겠어요?,온타리오에서는 OHIP 카드를 매번 확인해요.,,Here you go.
+brings,clinic,them,What brings you in today?,오늘 어디가 불편해서 오셨어요?,의사가 처음에 꼭 하는 질문이에요.,,I've had a fever since yesterday.
+howlong,clinic,them,How long have you had it?,그런 지 얼마나 됐어요?,기간을 말하면 돼요.,,About three days.
+allergic,clinic,them,Are you allergic to any medication?,약 알레르기 있으세요?,약을 처방하기 전에 꼭 물어봐요.,,"No, I'm not."
+scale,clinic,them,"On a scale of one to ten, how bad is the pain?",1부터 10까지 중에 얼마나 아파요?,캐나다 병원에서 정말 자주 물어봐요. 숫자로 대답해요.,,About a six.
+twice,clinic,them,Take one pill twice a day.,"하루에 두 번, 한 알씩 드세요.",약 먹는 방법. 꼭 적어 달라고 해도 돼요.,,
+haveaseat,clinic,them,"Have a seat, and we'll call your name.",앉아 계시면 이름 불러 드릴게요.,접수가 끝나면 듣는 말이에요.,,
+cheque,bank,me,I'd like to deposit this cheque.,이 수표 입금하고 싶어요.,cheque = 수표(캐나다 철자).,아이드 라이크 투 디파짓 디스 첵.,
+cash,bank,me,I'd like to take out some cash.,현금을 좀 찾고 싶어요.,창구에서 돈을 찾을 때.,아이드 라이크 투 테이크 아웃 썸 캐시.,
+pin,bank,me,I forgot my PIN.,비밀번호를 잊어버렸어요.,PIN = 카드 비밀번호.,아이 포갓 마이 핀.,
+lost,bank,me,I lost my card.,카드를 잃어버렸어요.,바로 말해야 카드를 막을 수 있어요.,아이 로스트 마이 카드.,
+bookappt,bank,me,Can I make an appointment?,예약할 수 있어요?,상담이 길어질 것 같을 때.,캔 아이 메이크 언 어포인트먼트?,
+sendkr,bank,me,I'd like to send money to Korea.,한국으로 돈을 보내고 싶어요.,해외 송금할 때.,아이드 라이크 투 센드 머니 투 코리아.,
+helpyou,bank,them,How can I help you today?,무엇을 도와드릴까요?,창구에서 가장 먼저 듣는 말이에요.,,I'd like to deposit this cheque.
+id,bank,them,Can I see some ID?,신분증 보여 주시겠어요?,"ID = 신분증(운전면허증, 여권 등).",,Here you go.
+enterpin,bank,them,Please enter your PIN.,비밀번호 눌러 주세요.,카드 단말기를 내밀면서 하는 말.,,
+twenties,bank,them,How would you like it? In twenties?,어떻게 드릴까요? 20달러짜리로요?,현금을 찾으면 지폐 종류를 물어봐요.,,Twenties are fine.
+elsehelp,bank,them,Is there anything else I can help you with?,더 도와드릴 일 있으세요?,끝낼 때 듣는 말이에요.,,"No, that's all. Thank you."
+pickup,post,me,I'm here to pick up a package.,택배 찾으러 왔어요.,우체국이나 택배 보관소에서.,아임 히어 투 픽 업 어 패키지.,
+notice,post,me,I got this notice card.,이 안내 카드를 받았어요.,집에 없을 때 문에 붙어 있던 카드를 보여 주면서.,아이 갓 디스 노티스 카드.,
+sendthis,post,me,I'd like to send this to Korea.,이거 한국으로 보내고 싶어요.,소포를 보낼 때.,아이드 라이크 투 센드 디스 투 코리아.,
+takelong,post,me,How long will it take?,얼마나 걸려요?,배송 기간을 물을 때. 어디서든 쓸 수 있어요.,하우 롱 윌 잇 테이크?,
+tracking,post,me,Can I get a tracking number?,추적 번호 받을 수 있어요?,택배가 어디 있는지 확인하는 번호.,캔 아이 겟 어 트래킹 넘버?,
+cardid,post,them,Can I see the card and some ID?,안내 카드랑 신분증 보여 주세요.,택배를 찾을 때 듣는 말이에요.,,Here you go.
+fragile,post,them,Is there anything fragile or liquid inside?,안에 깨지는 거나 액체 있어요?,소포를 보낼 때 꼭 물어봐요.,,"No, just clothes."
+express,post,them,Regular or express?,"일반이요, 빠른 우편이요?",express는 빠르지만 비싸요.,,"Regular, please."
+sign,post,them,"Can you sign here, please?",여기 서명해 주시겠어요?,택배를 받을 때.,,
+twoweeks,post,them,It should take about two weeks.,2주 정도 걸릴 거예요.,배송 기간 안내.,,
+renew,office,me,I'm here to renew my health card.,건강카드 갱신하러 왔어요.,ServiceOntario 같은 곳에서. health card 대신 다른 서류 이름도 돼요.,아임 히어 투 리뉴 마이 헬스 카드.,
+address,office,me,I'd like to change my address.,주소를 바꾸고 싶어요.,이사한 뒤에.,아이드 라이크 투 체인지 마이 어드레스.,
+whichline,office,me,Which line should I be in?,어느 줄에 서야 해요?,줄이 여러 개일 때.,위치 라인 슈드 아이 비 인?,
+form,office,me,Do I need to fill out a form?,서류를 작성해야 하나요?,fill out = (서류를) 작성하다.,두 아이 니드 투 필 아웃 어 폼?,
+documents,office,me,What documents do I need?,어떤 서류가 필요해요?,준비물을 물을 때.,왓 다큐먼츠 두 아이 니드?,
+number,office,them,Please take a number and have a seat.,번호표 뽑고 앉아 계세요.,들어가자마자 듣는 말이에요.,,
+next,office,them,"Next, please!",다음 분이요!,내 차례가 됐다는 뜻이에요.,,
+proof,office,them,Do you have proof of address?,주소를 증명할 서류 있으세요?,은행 명세서나 고지서를 보여 주면 돼요.,,Is a bank statement okay?
+camera,office,them,Please look at the camera.,카메라를 봐 주세요.,사진 찍을 때.,,
+mail,office,them,You'll get it in the mail.,우편으로 받으실 거예요.,새 카드가 집으로 온다는 뜻이에요.,,
+howsit,smalltalk,me,"Hi, how's it going?","안녕하세요, 잘 지내세요?",캐나다식 가벼운 인사예요.,"하이, 하우즈 잇 고잉?",
+notbad,smalltalk,me,"Not bad, you?","나쁘지 않아요, 그쪽은요?","""How's it going?""에 대한 가장 흔한 대답.","낫 배드, 유?",
+socold,smalltalk,me,It's so cold today!,오늘 정말 춥네요!,캐나다에서 가장 무난한 스몰톡은 날씨예요.,잇츠 쏘우 코울드 투데이!,
+niceday,smalltalk,me,"Nice day, isn't it?",날씨 좋죠?,날씨가 좋은 날 먼저 건네는 말.,"나이스 데이, 이즌 잇?",
+weekend,smalltalk,me,Have a good weekend!,주말 잘 보내세요!,금요일에 헤어질 때.,해브 어 굿 위켄드!,
+youtoo,smalltalk,me,You too!,그쪽도요!,상대가 좋은 하루 보내라고 하면 이렇게 답해요.,유 투!,
+goingup,smalltalk,them,Going up?,올라가세요?,엘리베이터 문 앞에서.,,"Yes, thanks."
+floor,smalltalk,them,Which floor?,몇 층 가세요?,엘리베이터 버튼 앞에 선 사람이 물어봐요.,,"Twelve, please."
+coldenough,smalltalk,them,Cold enough for you?,꽤 춥죠?,캐나다 사람들이 겨울에 즐겨 하는 농담 섞인 인사예요.,,"Yes, it's freezing!"
+plans,smalltalk,them,Any plans for the weekend?,주말에 계획 있어요?,금요일에 자주 듣는 질문.,,"Not really, just relaxing."
+takecare,smalltalk,them,Take care!,잘 가요!,헤어질 때 인사.,,You too!
+subway,street,me,"Excuse me, where's the subway station?","실례지만, 지하철역이 어디예요?",길을 물을 때. subway station 대신 가고 싶은 곳을 넣어요.,"익스큐즈 미, 웨어즈 더 써브웨이 스테이션?",
+rightbus,street,me,Is this the right bus for Finch?,이거 핀치 가는 버스 맞아요?,버스에 타면서 기사님께. Finch 대신 가는 곳 이름을 넣어요.,이즈 디스 더 라잇 버스 포 핀치?,
+far,street,me,Is it far from here?,여기서 멀어요?,거리를 물을 때.,이즈 잇 파 프롬 히어?,
+getoff,street,me,Could you tell me when to get off?,어디서 내려야 하는지 알려 주실래요?,버스 기사님께 부탁할 때.,쿠쥬 텔 미 웬 투 겟 오프?,
+excuse,street,me,"Sorry, excuse me.","죄송해요, 좀 지나갈게요.",사람들 사이로 지나가거나 살짝 부딪혔을 때.,"쏘리, 익스큐즈 미.",
+straight,street,them,Go straight and turn left at the lights.,쭉 가서 신호등에서 왼쪽으로 도세요.,lights = 신호등.,,
+fivemin,street,them,It's about a five-minute walk.,걸어서 5분 정도예요.,거리를 알려 주는 말.,,
+onright,street,them,It's on your right.,오른쪽에 있어요.,on your left면 왼쪽.,,
+tapcard,street,them,Just tap your card here.,여기에 카드 대세요.,버스·지하철 탈 때 카드 단말기에.,,
+laststop,street,them,This is the last stop.,여기가 종점이에요.,모두 내려야 해요.,,
+doors,street,them,Please stand clear of the doors.,문에서 떨어져 주세요.,지하철 안내 방송. 문이 곧 닫힌다는 뜻이에요.,,
+calling,phone,me,"Hi, I'm calling about my appointment.",예약 때문에 전화드렸어요.,병원·은행에 전화할 때 첫마디.,"하이, 아임 콜링 어바웃 마이 어포인트먼트.",
+canthear,phone,me,"Sorry, I can't hear you very well.","죄송해요, 잘 안 들려요.",전화 소리가 작거나 끊길 때.,"쏘리, 아이 캔트 히어 유 베리 웰.",
+text,phone,me,Can you text me instead?,대신 문자로 보내 주실 수 있어요?,전화 영어가 어려울 때 아주 좋은 방법이에요.,캔 유 텍스트 미 인스테드?,
+lastname,phone,me,My last name is Kim. K-I-M.,"제 성은 김이에요. K, I, M.",이름은 철자까지 불러 주면 정확해요.,"마이 래스트 네임 이즈 킴. 케이, 아이, 엠.",
+dob,phone,them,Can I get your date of birth?,생년월일 알려 주시겠어요?,본인 확인할 때 꼭 물어봐요. 월-일-연도 순서로 말해요.,,
+spellname,phone,them,Can you spell your last name?,성 철자를 불러 주시겠어요?,알파벳 하나씩 말하면 돼요.,,K-I-M.
+hold,phone,them,Please hold.,잠시만 기다려 주세요.,끊지 말고 기다리라는 뜻이에요.,,
+whom,phone,them,Who am I speaking with?,누구시죠?,전화 건 사람 이름을 묻는 말이에요.,,This is Kim.
+callback,phone,them,We'll give you a call back.,다시 전화드릴게요.,나중에 연락 준다는 뜻이에요.,,"Okay, thank you."

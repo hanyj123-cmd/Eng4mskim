@@ -1,6 +1,6 @@
 // 오프라인에서도 열리게 하는 파일이에요.
 // 앱 파일을 고친 뒤에는 아래 버전 숫자를 올려 주세요 (예: v4 → v5). 그래야 기기에서 새 파일을 받아요.
-var CACHE = 'eng-mom-v4';
+var CACHE = 'eng-mom-v5';
 var ASSETS = [
   './', 'index.html', 'style.css', 'app.js', 'data.js', 'config.js', 'manifest.json',
   'icons/icon-192.png', 'icons/icon-512.png', 'icons/apple-touch-icon.png',
@@ -15,7 +15,14 @@ self.addEventListener('install', function (e) {
         return fetch('audio/manifest.json').then(function (r) { return r.json(); }).then(function (m) {
           var urls = ['audio/manifest.json'];
           (m.items || []).forEach(function (k) { urls.push('audio/' + k + '.mp3', 'audio/' + k + '.slow.mp3'); });
-          return c.addAll(urls);
+          // 하나가 실패해도 나머지는 저장되게, 몇 개씩 나눠서 받아요
+          var i = 0;
+          function next() {
+            var part = urls.slice(i, i + 20); i += 20;
+            if (!part.length) return Promise.resolve();
+            return Promise.all(part.map(function (u) { return c.add(u).catch(function () {}); })).then(next);
+          }
+          return next();
         }).catch(function () {});
       });
     }).then(function () { return self.skipWaiting(); })

@@ -30,6 +30,8 @@ for p in data["pairs"]:
             texts[p[k]] = "sentence"
 for ph in data["phrases"]:
     texts[ph["en"]] = "sentence"
+    if ph.get("reply"):
+        texts[ph["reply"]] = "sentence"
 for m in data["missions"]:
     mm = re.search(r"'(.+?)'(?=[을를은는이가도\s.,]|$)", m)
     if mm:
@@ -57,6 +59,8 @@ for i, (text, kind) in enumerate(sorted(texts.items())):
         name = slug(text) + (".slow" if slow else "")
         wav = os.path.join(TMP, name + ".wav")
         out = os.path.join(REPO, "audio", name + ".mp3")
+        if os.path.exists(out) and os.environ.get("ONLY_NEW"):
+            continue
         samples, sr = kokoro.create(text, voice=VOICE, speed=SPEED[(kind, slow)], lang="en-us")
         samples = np.asarray(samples, dtype=np.float32)
         sf.write(wav, samples, sr)
