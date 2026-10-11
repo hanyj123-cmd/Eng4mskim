@@ -181,7 +181,50 @@
     return voices.filter(function (v) { return /en[-_]CA/i.test(v.lang); })[0] ||
       voices.filter(function (v) { return /en[-_]US/i.test(v.lang); })[0] || voices[0] || null;
   }
-  var myAudio = null;
+  // 미리 만든 mp3(audio/ 폴더)를 먼저 재생하고, 없는 문장만 기기 내장 음성으로 읽어요.
+  var CLIPS = {};
+  var player = new Audio();   // 영어 소리 전용 (한 번 깨워 두면 이후엔 터치 없이도 재생돼요)
+  var myPlayer = new Audio(); // 내 녹음 재생 전용
+  player.preload = 'auto';
+  function slugOf(t) {
+    return String(t).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 80);
+  }
+  function loadClips() {
+    try {
+      fetch('audio/manifest.json').then(function (r) { return r.ok ? r.json() : null; }).then(function (m) {
+        if (m && m.items) m.items.forEach(function (k) { CLIPS[k] = 1; });
+      }).catch(function () {});
+    } catch (e) {}
+  }
+  function playClip(text, slow) {
+    return new Promise(function (resolve) {
+      var id = slugOf(text);
+      if (!CLIPS[id]) return resolve(false);
+      try { player.pause(); } catch (e) {}
+      player.onended = function () { if (realEnd(player)) resolve(true); };
+      player.onerror = function () { resolve(false); };
+      player.src = 'audio/' + id + (slow ? '.slow' : '') + '.mp3';
+      var pr;
+      try { pr = player.play(); } catch (e) { return resolve(false); }
+      if (pr && pr.catch) pr.catch(function (err) {
+        if (err && err.name === 'AbortError') return; // 다른 소리로 바뀌었어요
+        if (err && err.name === 'NotAllowedError') {
+          toast('🔊 버튼을 눌러서 들어 보세요');
+          return resolve(true);
+        }
+        resolve(false);
+      });
+    });
+  }
+  function speak(text, rate) {
+    var slow = (rate || 0.85) < 0.7;
+    return playClip(text, slow).then(function (played) {
+      if (played) return;
+      return speakTTS(text, rate);
+    });
+  }
+  // 깨워 두려고 재생한 무음의 늦은 '끝' 신호는 무시해요
+  function realEnd(a) { return a.duration > 0 && a.currentTime >= a.duration - 0.3; }
   function cancelSpeech() {
     // 말하는 중일 때만 멈춰요 (아이폰은 멈춘 직후 바로 말하게 하면 소리가 씹힐 때가 있어요)
     try {
@@ -192,11 +235,12 @@
   }
   function stopAudio() {
     cancelSpeech();
-    if (myAudio) { try { myAudio.pause(); } catch (e) {} myAudio = null; }
+    try { player.pause(); } catch (e) {}
+    try { myPlayer.pause(); } catch (e) {}
   }
   var curUtt = null; // 말하는 도중에 사라지지 않게 붙잡아 둬요
   var hintShown = false;
-  function speak(text, rate) {
+  function speakTTS(text, rate) {
     return new Promise(function (resolve) {
       var synth = window.speechSynthesis;
       if (!synth || typeof SpeechSynthesisUtterance === 'undefined') {
@@ -290,6 +334,7 @@
   function go(view, params) {
     stopAudio();
     if (ui.view === 'phrase' || view === 'phrase') cleanupRec();
+    if (view !== 'listen') ui.slow = false; // '천천히' 설정은 소리 들어 보기 화면에서만 유지돼요
     if (view === 'phrase') R = newR();
     ui.view = view;
     ui.params = params || {};
@@ -614,11 +659,15 @@
     return new Promise(function (resolve) {
       if (!R || !R.url) return resolve();
       stopAudio();
-      var a = new Audio(R.url);
-      myAudio = a;
-      a.onended = resolve; a.onerror = resolve;
-      var pr = a.play();
-      if (pr && pr.catch) pr.catch(function () { toast('내 목소리를 재생할 수 없어요'); resolve(); });
+      myPlayer.onended = function () { if (realEnd(myPlayer)) resolve(); }; myPlayer.onerror = resolve;
+      myPlayer.src = R.url;
+      var pr;
+      try { pr = myPlayer.play(); } catch (e) { toast('내 목소리를 재생할 수 없어요'); return resolve(); }
+      if (pr && pr.catch) pr.catch(function (err) {
+        if (err && err.name === 'AbortError') return;
+        toast('내 목소리를 재생할 수 없어요');
+        resolve();
+      });
     });
   }
   ACT.myplay = function () { playMine(); };
@@ -745,10 +794,18 @@
   ACT.modalnext = function () { nextModal(); };
 
   // 처음 화면을 누를 때 음성 기능을 깨워 둬요 (아이폰은 첫 터치가 있어야 소리가 나요)
+  var SILENT = 'data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQAAAAA=';
   var speechUnlocked = false;
   document.addEventListener('click', function () {
     if (speechUnlocked) return;
     speechUnlocked = true;
+    [player, myPlayer].forEach(function (a) {
+      try {
+        a.src = SILENT;
+        var pr = a.play();
+        if (pr && pr.catch) pr.catch(function () {});
+      } catch (e) {}
+    });
     try {
       var s = window.speechSynthesis;
       if (s && typeof SpeechSynthesisUtterance !== 'undefined') {
@@ -844,6 +901,7 @@
 
   /* ===== 시작 ===== */
   S = load();
+  loadClips();
   applyFont();
   render(false);
   loadSheet();
