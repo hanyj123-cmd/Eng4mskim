@@ -1,9 +1,10 @@
 // 오프라인에서도 열리게 하는 파일이에요.
-// 앱 파일을 고친 뒤에는 아래 버전 숫자를 올려 주세요 (예: v3 → v4). 그래야 기기에서 새 파일을 받아요.
-var CACHE = 'eng-mom-v3';
+// 앱 파일을 고친 뒤에는 아래 버전 숫자를 올려 주세요 (예: v4 → v5). 그래야 기기에서 새 파일을 받아요.
+var CACHE = 'eng-mom-v4';
 var ASSETS = [
   './', 'index.html', 'style.css', 'app.js', 'data.js', 'config.js', 'manifest.json',
-  'icons/icon-192.png', 'icons/icon-512.png', 'icons/apple-touch-icon.png'
+  'icons/icon-192.png', 'icons/icon-512.png', 'icons/apple-touch-icon.png',
+  'fonts/overpass-latin-400-normal.woff2', 'fonts/overpass-latin-600-normal.woff2', 'fonts/overpass-latin-800-normal.woff2'
 ];
 
 self.addEventListener('install', function (e) {

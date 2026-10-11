@@ -35,6 +35,8 @@ for m in data["missions"]:
     if mm:
         texts[re.sub(r"_{2,}", "the station", mm.group(1))] = "sentence"
 texts["Hello, how are you today?"] = "sentence"  # 설정 화면의 소리 확인
+for g in ("Good morning", "Good afternoon", "Good evening"):  # 홈 화면 인사
+    texts[g] = "sentence"
 
 # 겹치는 slug 확인
 seen = {}
