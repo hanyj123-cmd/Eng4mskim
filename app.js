@@ -182,26 +182,50 @@
       voices.filter(function (v) { return /en[-_]US/i.test(v.lang); })[0] || voices[0] || null;
   }
   var myAudio = null;
+  function cancelSpeech() {
+    // 말하는 중일 때만 멈춰요 (아이폰은 멈춘 직후 바로 말하게 하면 소리가 씹힐 때가 있어요)
+    try {
+      var s = window.speechSynthesis;
+      if (s && (s.speaking || s.pending)) { s.cancel(); return true; }
+    } catch (e) {}
+    return false;
+  }
   function stopAudio() {
-    try { if (window.speechSynthesis) speechSynthesis.cancel(); } catch (e) {}
+    cancelSpeech();
     if (myAudio) { try { myAudio.pause(); } catch (e) {} myAudio = null; }
   }
+  var curUtt = null; // 말하는 도중에 사라지지 않게 붙잡아 둬요
+  var hintShown = false;
   function speak(text, rate) {
     return new Promise(function (resolve) {
-      if (!window.speechSynthesis || typeof SpeechSynthesisUtterance === 'undefined') {
-        toast('이 기기에서는 소리를 낼 수 없어요');
+      var synth = window.speechSynthesis;
+      if (!synth || typeof SpeechSynthesisUtterance === 'undefined') {
+        toast('이 화면에서는 영어 소리를 낼 수 없어요. Safari로 열어 주세요.');
         return resolve();
       }
-      try { speechSynthesis.cancel(); } catch (e) {}
+      var wasBusy = cancelSpeech();
+      try { if (synth.paused) synth.resume(); } catch (e) {}
+      if (!voices.length) loadVoices();
       var u = new SpeechSynthesisUtterance(text);
       var v = pickVoice();
-      if (v) { u.voice = v; u.lang = v.lang; } else { u.lang = 'en-CA'; }
+      if (v) { u.voice = v; u.lang = v.lang; } else { u.lang = 'en-US'; }
       u.rate = rate || 0.85;
-      var done = false, timer;
-      function fin() { if (!done) { done = true; clearTimeout(timer); resolve(); } }
+      u.volume = 1;
+      curUtt = u;
+      var done = false, started = false, timer, hintTimer;
+      function fin() { if (!done) { done = true; clearTimeout(timer); clearTimeout(hintTimer); resolve(); } }
+      u.onstart = function () { started = true; };
       u.onend = fin; u.onerror = fin;
       timer = setTimeout(fin, 2000 + text.length * 130); // 일부 기기는 onend가 안 올 때가 있어요
-      setTimeout(function () { try { speechSynthesis.speak(u); } catch (e) { fin(); } }, 30);
+      // 소리가 시작되지 않으면 원인을 알려 줘요 (무음 스위치, 볼륨 등)
+      hintTimer = setTimeout(function () {
+        if (!started && !done && !hintShown) {
+          hintShown = true;
+          toast('소리가 안 나나요? 아이폰 옆 무음 스위치와 볼륨을 확인해 주세요.');
+        }
+      }, 1500);
+      function go() { try { synth.speak(u); } catch (e) { fin(); } }
+      if (wasBusy) setTimeout(go, 80); else go(); // 평소엔 누르는 즉시 말해요 (아이폰 규칙)
     });
   }
   var actx = null;
@@ -692,7 +716,8 @@
       '<label class="setrow"><span>효과음</span><input type="checkbox" class="sw" ' + (s.sfx ? 'checked' : '') + ' data-chg="sfx"></label>' +
       '<div class="setrow col"><span>영어 목소리</span><select class="txt" data-chg="voice"' + (voices.length ? '' : ' disabled') + '>' + vopts + '</select>' +
       (voices.length ? '' : '<small class="muted">사용할 수 있는 영어 음성이 아직 없어요.</small>') +
-      '<button class="btn sm alt" data-act="say" data-w="Hello, how are you today?">🔊 소리 확인</button></div></section>' +
+      '<button class="btn sm alt" data-act="say" data-w="Hello, how are you today?">🔊 소리 확인</button>' +
+      '<small class="muted">소리가 안 나면: 아이폰 옆 무음 스위치(주황색이 보이면 무음)와 볼륨을 확인하고, Safari에서 열어 보세요.</small></div></section>' +
       '<section class="card"><p class="muted small">단어·문장 출처: ' + esc(dataSource) + '<br>진도는 이 기기에 저장돼요.</p>' +
       '<button class="btn ghost" data-act="reset">🗑️ 처음부터 다시 시작</button></section>';
     return { title: '설정', html: html };
@@ -719,6 +744,20 @@
   };
   ACT.modalnext = function () { nextModal(); };
 
+  // 처음 화면을 누를 때 음성 기능을 깨워 둬요 (아이폰은 첫 터치가 있어야 소리가 나요)
+  var speechUnlocked = false;
+  document.addEventListener('click', function () {
+    if (speechUnlocked) return;
+    speechUnlocked = true;
+    try {
+      var s = window.speechSynthesis;
+      if (s && typeof SpeechSynthesisUtterance !== 'undefined') {
+        var u = new SpeechSynthesisUtterance(' ');
+        u.volume = 0;
+        s.speak(u);
+      }
+    } catch (e) {}
+  }, true);
   document.addEventListener('click', function (e) {
     var el = e.target.closest ? e.target.closest('[data-act]') : null;
     if (!el || el.disabled) return;
