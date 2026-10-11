@@ -23,8 +23,14 @@
   ];
   var FONT_SIZES = [19, 22, 26];
   var FONT_LABELS = ['보통', '크게', '최대'];
-  var GOAL_QUIZ = 1;
-  var GOAL_PHRASES = 2;
+  // 하루 분량: 새 표현 / 복습 표현 개수 (소리 구분 1판 + 실전 듣기 1판은 항상 포함)
+  var AMOUNTS = [
+    { name: '가볍게', nw: 2, rv: 3 },
+    { name: '보통', nw: 3, rv: 5 },
+    { name: '알차게', nw: 5, rv: 8 }
+  ];
+  // 표현 복습 간격(일): 성공할 때마다 한 칸씩 늘어나요
+  var INTERVALS = [1, 1, 3, 7, 14, 30];
 
   /* ===== 작은 도구들 ===== */
   function $(s) { return document.querySelector(s); }
@@ -60,10 +66,10 @@
   function defaults() {
     return {
       v: 1, xp: 0,
-      settings: { name: '어머니', fs: 1, ko: true, sfx: true, voice: '' },
+      settings: { name: '어머니', fs: 1, amt: 1, ko: true, sfx: true, voice: '' },
       days: {}, streak: { count: 0, last: '', best: 0 },
       groups: {}, places: {}, phrases: {}, badges: {}, missions: {}, weekly: {},
-      wxp: {}, beat: {}, rec: { combo: 0 }
+      wxp: {}, beat: {}, rec: { combo: 0 }, stamps: {}, plan: { n: 0, cur: null }
     };
   }
   var S = defaults();
@@ -74,6 +80,15 @@
         var out = Object.assign(defaults(), r);
         out.settings = Object.assign(defaults().settings, r.settings || {});
         out.rec = Object.assign({ combo: 0 }, r.rec || {});
+        out.plan = Object.assign({ n: 0, cur: null }, r.plan || {});
+        if (!r.stamps) {
+          // 이전 버전에서 '오늘 목표'를 끝낸 날은 도장으로 옮겨 줘요
+          out.stamps = {};
+          Object.keys(out.days || {}).sort().forEach(function (k) {
+            if (out.days[k].done) out.stamps[k] = Object.keys(out.stamps).length + 1;
+          });
+          out.plan.n = Object.keys(out.stamps).length;
+        }
         return out;
       }
     } catch (e) {}
@@ -81,12 +96,16 @@
   }
   function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} }
 
+  function newDay() { return { quiz: 0, sound: 0, listen: 0, phrases: [], xp: 0, done: false }; }
   function dayRec() {
     var t = today();
-    if (!S.days[t]) S.days[t] = { quiz: 0, phrases: [], xp: 0, done: false };
-    return S.days[t];
+    if (!S.days[t]) S.days[t] = newDay();
+    var d = S.days[t];
+    if (d.sound == null) d.sound = 0;
+    if (d.listen == null) d.listen = 0;
+    return d;
   }
-  function peekDay() { return S.days[today()] || { quiz: 0, phrases: [], xp: 0, done: false }; }
+  function peekDay() { return S.days[today()] || newDay(); }
   function weekRec(k) { if (!S.weekly[k]) S.weekly[k] = { c: 0, t: 0 }; return S.weekly[k]; }
   function accOf(w) { return w && w.t ? Math.round(100 * w.c / w.t) : null; }
   function blankStat() { return { plays: 0, best: 0, last: null, hist: [] }; }
@@ -107,6 +126,7 @@
   function groupUnlocked(g) {
     var i = DATA.groups.indexOf(g);
     if (i < 3 || g.core) return true;
+    if (S.plan && S.plan.cur && DATA.groups.indexOf(gById(S.plan.cur.gid)) >= i) return true;
     return gs(DATA.groups[i - 1].id).plays > 0;
   }
   function placeById(id) { return DATA.places.filter(function (p) { return p.id === id; })[0]; }
@@ -157,6 +177,9 @@
     doc: '<path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 12h6M9 16h6"/>',
     sign: '<path d="M12 3v18M8.5 21h7"/><path d="M5 5.5h11l2.5 2.5-2.5 2.5H5zM19 12.5H8l-2.5 2.5L8 17.5h11z"/>',
     phone: '<path d="M6.5 3.5h3l1.5 4.5-2 1.5a11 11 0 0 0 5.5 5.5l1.5-2 4.5 1.5v3a2 2 0 0 1-2 2A16.5 16.5 0 0 1 4.5 5.5a2 2 0 0 1 2-2z"/>',
+    stamp: '<circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="5.6"/><path d="M9.6 12.2l1.8 1.8 3.2-3.6"/>',
+    calendar: '<rect x="4" y="5.5" width="16" height="14.5" rx="2.5"/><path d="M4 10h16M8.5 3.5v4M15.5 3.5v4"/>',
+    refresh: '<path d="M4.5 12a7.5 7.5 0 0 1 13-5l2 2M19.5 12a7.5 7.5 0 0 1-13 5l-2-2"/><path d="M19.5 4v5h-5M4.5 20v-5h5"/>',
     trophy: '<path d="M7.5 4h9v5a4.5 4.5 0 0 1-9 0z"/><path d="M7.5 6h-3a3 3 0 0 0 3 4M16.5 6h3a3 3 0 0 1-3 4M12 13.5V17M9.5 17h5v3.5h-5z"/>',
     bolt: '<path d="M13 2.5L5 13.5h6l-1 8 8-11h-6z"/>',
     grid: '<rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/>'
@@ -167,6 +190,14 @@
   // 레벨 표지 (고속도로 노선 표지판 모양)
   function crest(n) {
     return '<svg class="crest" viewBox="0 0 40 44" aria-hidden="true" focusable="false"><path d="M20 2l15 5v12c0 11-7 19-15 23C12 38 5 30 5 19V7z"/><text x="20" y="29" text-anchor="middle">' + n + '</text></svg>';
+  }
+  // 출석 도장 (학교 선생님 도장처럼 붉은 동그라미). mini = 달력용 작은 도장
+  function stampSvg(n, mini) {
+    var h = '<svg class="stamp' + (mini ? ' mini' : '') + '" viewBox="0 0 100 100" aria-hidden="true" focusable="false">' +
+      '<circle cx="50" cy="50" r="45" class="s-o"/><circle cx="50" cy="50" r="38" class="s-i"/>';
+    if (mini) h += '<text x="50" y="64" text-anchor="middle" class="s-n mini">' + n + '</text>';
+    else h += '<text x="50" y="35" text-anchor="middle" class="s-t">참 잘했어요</text><text x="50" y="68" text-anchor="middle" class="s-n">' + n + '</text><text x="50" y="82" text-anchor="middle" class="s-t">일째</text>';
+    return h + '</svg>';
   }
   function emblem(g) { return String(g.id).replace(/_/g, '/').slice(0, 6); }
   function stars(n, cls) {
@@ -214,6 +245,10 @@
       { id: 'stars40', icon: 'star', name: '별 40개', desc: '게임 별을 40개 모았어요' },
       { id: 'phrase10', icon: 'chat', name: '표현 10개', desc: '표현 10개를 마스터했어요' },
       { id: 'rescue', icon: 'lifebuoy', name: '구조 요청 마스터', desc: '되물을 때 표현을 모두 마스터했어요' },
+      { id: 'stamp1', icon: 'stamp', name: '첫 도장', desc: '오늘의 학습을 모두 마치고 도장을 받았어요' },
+      { id: 'stamp7', icon: 'stamp', name: '도장 7개', desc: '출석 도장을 7개 모았어요' },
+      { id: 'stamp30', icon: 'stamp', name: '도장 30개', desc: '출석 도장을 30개 모았어요' },
+      { id: 'review20', icon: 'refresh', name: '복습 20번', desc: '표현을 복습 일정대로 20번 복습했어요' },
       { id: 'mission1', icon: 'pin', name: '실전 용사', desc: '실전 미션을 처음 해냈어요' },
       { id: 'bonus', icon: 'unlock', name: '스테이지 확장', desc: '첫 세 스테이지를 모두 해 봤어요' },
       { id: 'allstages', icon: 'grid', name: '전 스테이지 도전', desc: '소리 구분 스테이지를 모두 해 봤어요' }
@@ -233,22 +268,105 @@
     if (n >= 15) award('stars15', q);
     if (n >= 40) award('stars40', q);
   }
-  function checkDaily(q) {
-    var d = dayRec();
-    if (d.done) return;
-    if (d.quiz >= GOAL_QUIZ && d.phrases.length >= GOAL_PHRASES) {
-      d.done = true;
-      var t = today();
-      if (S.streak.last === addDays(t, -1)) S.streak.count++;
-      else if (S.streak.last !== t) S.streak.count = 1;
-      S.streak.last = t;
-      S.streak.best = Math.max(S.streak.best, S.streak.count);
-      addXP(30, q);
-      q.push({ icon: ic('flame'), title: '오늘 목표 완료!', text: S.streak.count + '일 연속! 보너스 +30점' });
-      if (S.streak.count >= 3) award('streak3', q);
-      if (S.streak.count >= 7) award('streak7', q);
-      logEvent('daily_done', { streak: S.streak.count });
+  /* ===== 표현 반복 복습 (간격 복습) ===== */
+  function phraseRec(id) { return S.phrases[id]; }
+  function isDue(p) {
+    var r = S.phrases[p.id];
+    return !!(r && r.tries > 0 && (!r.due || r.due <= today()));
+  }
+  function dueList() {
+    return DATA.phrases.filter(isDue).sort(function (a, b) {
+      var x = S.phrases[a.id].due || '', y = S.phrases[b.id].due || '';
+      return x < y ? -1 : x > y ? 1 : 0;
+    });
+  }
+  function dueIn(place) { return dueList().filter(function (p) { return !place || p.place === place; }).length; }
+  function daysText(n) { return n <= 1 ? '내일' : n + '일 뒤'; }
+  // 표현 연습 결과를 복습 일정에 반영해요 (하루에 한 번만 단계가 바뀌어요)
+  function schedule(rec, ok) {
+    var t = today();
+    rec.last = t;
+    if (rec.bd !== t) {
+      rec.bd = t;
+      rec.box = ok ? Math.min(INTERVALS.length - 1, (rec.box || 0) + 1) : Math.max(0, (rec.box || 0) - 1);
+      rec.due = addDays(t, INTERVALS[rec.box]);
+      return true;
     }
+    return false;
+  }
+
+  /* ===== 하루 학습 계획 ===== */
+  function amt() { return AMOUNTS[S.settings.amt == null ? 1 : S.settings.amt] || AMOUNTS[1]; }
+  function interleave(a, b) {
+    var out = [], n = Math.max(a.length, b.length);
+    for (var i = 0; i < n; i++) { if (a[i]) out.push(a[i]); if (b[i]) out.push(b[i]); }
+    return out;
+  }
+  // 새로 배울 표현 순서: 장소 순서대로, 장소 안에서는 "들리는 말 → 내가 하는 말"을 번갈아
+  function learnOrder() {
+    var out = [];
+    DATA.places.forEach(function (pl) {
+      var l = phrasesOf(pl.id);
+      out = out.concat(interleave(l.filter(function (x) { return x.who === 'them'; }), l.filter(function (x) { return x.who !== 'them'; })));
+    });
+    return out;
+  }
+  function phraseById(id) { return DATA.phrases.filter(function (p) { return p.id === id; })[0]; }
+  function ensurePlan() {
+    var t = today(), c = S.plan.cur;
+    if (c && c.date === t && gById(c.gid)) return c;
+    var a = amt();
+    var fresh = learnOrder().filter(function (p) { return !(S.phrases[p.id] && S.phrases[p.id].tries > 0); });
+    var newIds = fresh.slice(0, a.nw).map(function (p) { return p.id; });
+    var revIds = dueList().filter(function (p) { return newIds.indexOf(p.id) < 0; }).slice(0, a.rv).map(function (p) { return p.id; });
+    var n = S.plan.n || 0;
+    var g = DATA.groups[Math.floor(n / 2) % DATA.groups.length];
+    var pl = newIds.length ? (phraseById(newIds[0]) || {}).place : '';
+    var places = DATA.places.filter(function (x) { return phrasesOf(x.id).length >= 3; });
+    if (!pl || phrasesOf(pl).length < 3) pl = places.length ? places[n % places.length].id : '';
+    S.plan.cur = { date: t, n: n, gid: g.id, pid: pl, newIds: newIds, revIds: revIds };
+    save();
+    return S.plan.cur;
+  }
+  function learned(id) { var r = S.phrases[id]; return !!(r && r.tries > 0); }
+  function planTasks() {
+    var c = ensurePlan(), d = peekDay(), t = today(), tasks = [];
+    var g = gById(c.gid), pl = placeById(c.pid);
+    var nw = c.newIds.filter(phraseById), rv = c.revIds.filter(phraseById);
+    var places = [];
+    nw.forEach(function (id) { var x = placeById((phraseById(id) || {}).place); if (x && places.indexOf(x.title) < 0) places.push(x.title); });
+    tasks.push({ id: 'sound', label: '소리 구분 게임 1판', sub: '스테이지 ' + (DATA.groups.indexOf(g) + 1) + ' · ' + g.title, cur: Math.min(d.sound, 1), tot: 1, min: 3 });
+    if (nw.length) tasks.push({ id: 'new', label: '새 표현 ' + nw.length + '개 배우기', sub: places.join(', '), cur: nw.filter(learned).length, tot: nw.length, min: 1.5 * nw.length });
+    if (rv.length) tasks.push({ id: 'rev', label: '복습 ' + rv.length + '개', sub: '전에 배운 표현 다시 말해 보기', cur: rv.filter(function (id) { var r = S.phrases[id]; return r && r.last === t; }).length, tot: rv.length, min: rv.length });
+    if (pl) tasks.push({ id: 'listen', label: '실전 듣기 1판', sub: pl.title, cur: Math.min(d.listen, 1), tot: 1, min: 3 });
+    tasks.forEach(function (k) { k.done = k.cur >= k.tot; });
+    return tasks;
+  }
+  function planMinutes(tasks) { return Math.round(tasks.reduce(function (a, k) { return a + k.min; }, 0)); }
+  function stampedCount() { return Object.keys(S.stamps).length; }
+  function stampsInMonth(ym) { return Object.keys(S.stamps).filter(function (k) { return k.slice(0, 7) === ym; }).length; }
+
+  // 오늘 분량을 모두 끝내면 도장을 찍어 줘요
+  function checkDaily(q) {
+    var t = today();
+    if (S.stamps[t]) return;
+    var tasks = planTasks();
+    if (!tasks.every(function (k) { return k.done; })) return;
+    S.plan.n = (S.plan.n || 0) + 1;
+    S.stamps[t] = S.plan.n;
+    dayRec().done = true;
+    if (S.streak.last === addDays(t, -1)) S.streak.count++;
+    else if (S.streak.last !== t) S.streak.count = 1;
+    S.streak.last = t;
+    S.streak.best = Math.max(S.streak.best, S.streak.count);
+    addXP(40, q);
+    q.push({ cls: 'stamp', icon: stampSvg(S.plan.n), title: '출석 도장 쾅!', text: '오늘 학습을 모두 마쳤어요. 연속 ' + S.streak.count + '일 · 보너스 +40점' });
+    award('stamp1', q);
+    if (stampedCount() >= 7) award('stamp7', q);
+    if (stampedCount() >= 30) award('stamp30', q);
+    if (S.streak.count >= 3) award('streak3', q);
+    if (S.streak.count >= 7) award('streak7', q);
+    logEvent('stamp', { n: S.plan.n, streak: S.streak.count });
   }
 
   /* ===== 시트 기록 (선택) ===== */
@@ -405,7 +523,8 @@
     if (!it) { m.hidden = true; m.innerHTML = ''; return; }
     beep('win');
     m.hidden = false;
-    m.innerHTML = '<div class="pop sign" role="dialog" aria-live="assertive"><div class="sign-in"><div class="pop-ic">' + it.icon + '</div><h3>' +
+    var icon = it.cls === 'stamp' ? '<div class="pop-stamp">' + it.icon + '</div>' : '<div class="pop-ic">' + it.icon + '</div>';
+    m.innerHTML = '<div class="pop sign' + (it.cls ? ' ' + it.cls : '') + '" role="dialog" aria-live="assertive"><div class="sign-in">' + icon + '<h3>' +
       esc(it.title) + '</h3><p>' + esc(it.text) + '</p><button class="btn light" data-act="modalnext">' +
       (modalQ.length ? '다음' : '확인') + '</button></div></div>';
   }
@@ -418,8 +537,9 @@
   }
 
   /* ===== 화면 이동 ===== */
-  var PARENT = { pairs: 'home', listen: 'pairs', phrases: 'home', place: 'phrases', mission: 'home', records: 'home', settings: 'home' };
-  var ui = { view: 'home', params: {}, slow: false };
+  var PARENT = { pairs: 'home', listen: 'pairs', phrases: 'home', place: 'phrases', mission: 'home', records: 'home', settings: 'home', stamps: 'home' };
+  var ui = { view: 'home', params: {}, slow: false, lshow: 8 };
+  var RV = null;  // 오늘의 학습에서 새 표현·복습을 차례로 하는 중일 때 {ids}
   var VIEWS = {}, ACT = {}, CHG = {};
   var Q = null;   // 진행 중인 게임
   var R = null;   // 진행 중인 문장 연습
@@ -436,6 +556,8 @@
     stopAudio();
     if (ui.view === 'phrase' || view === 'phrase') cleanupRec();
     if (view !== 'listen') ui.slow = false; // '천천히' 설정은 소리 들어 보기 화면에서만 유지돼요
+    if (view === 'listen') ui.lshow = 8;
+    if (view !== 'phrase') RV = null;
     if (view === 'phrase') R = newR();
     ui.view = view;
     ui.params = params || {};
@@ -484,7 +606,26 @@
       return (starsOf(sa) - starsOf(sb)) || (sa.best - sb.best);
     })[0];
   }
+  function startRV(kind) {
+    var c = ensurePlan(), t = today();
+    var all = (kind === 'new' ? c.newIds : c.revIds).filter(phraseById);
+    var pend = all.filter(function (id) { var r = S.phrases[id]; return kind === 'new' ? !(r && r.tries > 0) : !(r && r.last === t); });
+    var ids = pend.length ? pend : all;
+    if (!ids.length) { toast('지금은 할 표현이 없어요'); return; }
+    stopAudio(); cleanupRec();
+    go('phrase', { id: ids[0] });
+    RV = { kind: kind, ids: ids };
+    render(false);
+  }
+  ACT.planGo = function (d) {
+    var c = ensurePlan();
+    if (d.t === 'sound') ACT.startQuiz({ gid: c.gid });
+    else if (d.t === 'listen') ACT.startListen({ pid: c.pid });
+    else if (d.t === 'new' || d.t === 'rev') startRV(d.t);
+  };
   ACT.quick = function () {
+    var next = planTasks().filter(function (k) { return !k.done; })[0];
+    if (next) return ACT.planGo({ t: next.id });
     var d = peekDay();
     var listenPlaces = DATA.places.filter(function (p) { return phrasesOf(p.id).length >= 3; });
     if (d.quiz % 2 === 1 && listenPlaces.length) {
@@ -494,11 +635,19 @@
     var g = pickNext(DATA.groups, gs, function (x) { return groupUnlocked(x) && pairsOf(x.id).length >= 2; });
     if (g) ACT.startQuiz({ gid: g.id });
   };
+  // 복습 일정이 된 표현을 한꺼번에 복습
+  ACT.reviewAll = function () {
+    var ids = dueList().slice(0, 10).map(function (p) { return p.id; });
+    if (!ids.length) return toast('복습할 표현이 없어요');
+    stopAudio(); cleanupRec();
+    go('phrase', { id: ids[0] });
+    RV = { kind: 'rev', ids: ids };
+    render(false);
+  };
 
   VIEWS.home = function () {
     var li = levelOf(S.xp), L = LEVELS[li], N = LEVELS[li + 1];
     var pct = N ? Math.round(100 * (S.xp - L.xp) / (N.xp - L.xp)) : 100;
-    var d = peekDay();
     var st = streakNow();
     var wk = weekKey();
     var missionNew = !S.missions[wk];
@@ -509,10 +658,14 @@
       tw > lw ? '지난주의 나보다 <b>' + (tw - lw) + '점</b> 앞서고 있어요!' :
         '<b>' + (lw - tw + 1) + '점</b>만 더 얻으면 지난주의 나를 이겨요.';
     var openStages = DATA.groups.filter(groupUnlocked).length;
+    var tasks = planTasks();
+    var stamped = !!S.stamps[today()];
+    var weekCells = '';
+    ['월', '화', '수', '목', '금', '토', '일'].forEach(function (nm, i) {
+      var ds = addDays(wk, i), got = S.stamps[ds], isT = ds === today();
+      weekCells += '<span class="wd' + (got ? ' got' : '') + (isT ? ' today' : '') + '"><i>' + (got ? ic('check') : '') + '</i><em>' + nm + '</em></span>';
+    });
     var allPh = DATA.phrases.length, mst = masteredCount(DATA.phrases);
-    function goal(ok, label, prog) {
-      return '<li class="' + (ok ? 'done' : '') + '"><span class="chk">' + (ok ? ic('check') : '') + '</span><span class="t">' + label + '</span><b>' + prog + '</b></li>';
-    }
     function row(v, pic, color, title, sub) {
       return '<button class="menu-btn" data-act="go" data-v="' + v + '"><span class="pic ' + color + '">' + ic(pic) + '</span>' +
         '<span class="mt"><b>' + title + '</b><small>' + sub + '</small></span>' + ic('chevR') + '</button>';
@@ -530,15 +683,21 @@
       '<div class="lane"><span class="who">지난주</span><div class="bar ghost"><i style="width:' + Math.round(100 * lw / top) + '%"></i></div><b>' + lw + '</b></div>' +
       '<div class="lane me"><span class="who">이번 주</span><div class="bar"><i style="width:' + Math.round(100 * tw / top) + '%"></i></div><b>' + tw + '</b></div>' +
       '<p class="race-msg">' + raceMsg + '</p></section>' +
-      '<section class="panel goals"><h3>오늘 할 일</h3><ul>' +
-      goal(d.quiz >= GOAL_QUIZ, '게임 1판', Math.min(d.quiz, GOAL_QUIZ) + '/' + GOAL_QUIZ) +
-      goal(d.phrases.length >= GOAL_PHRASES, '표현 2개 따라 하기', Math.min(d.phrases.length, GOAL_PHRASES) + '/' + GOAL_PHRASES) +
-      '</ul>' + (d.done ? '<p class="done-msg">오늘 목표 끝! 더 하면 점수가 계속 쌓여요.</p>' :
-        '<p class="hint">둘 다 끝내면 ' + (st + 1) + '일 연속이 돼요 (+30점)</p>') +
-      '<button class="btn accent cta" data-act="quick">' + ic('play', true) + '<span>바로 한 판 하기</span></button></section>' +
+      '<section class="panel plan"><div class="plan-h"><div><h3>오늘의 학습 <span class="dayno">' + (stamped ? S.plan.n : S.plan.n + 1) + '일차</span></h3>' +
+      '<p class="sub">약 ' + planMinutes(tasks) + '분 · ' + amt().name + '</p></div>' +
+      (stamped ? '<div class="slot got">' + stampSvg(S.stamps[today()]) + '</div>' : '<div class="slot" aria-label="도장 칸"><span>도장</span></div>') + '</div>' +
+      '<ul class="tasks">' + tasks.map(function (k) {
+        return '<li><button class="task' + (k.done ? ' done' : '') + '" data-act="planGo" data-t="' + k.id + '"><span class="chk">' + (k.done ? ic('check') : '') + '</span>' +
+          '<span class="tt"><b>' + esc(k.label) + '</b><small>' + esc(k.sub) + '</small></span><span class="tp">' + k.cur + '/' + k.tot + '</span></button></li>';
+      }).join('') + '</ul>' +
+      '<div class="week">' + weekCells + '</div>' +
+      (stamped ? '<p class="done-msg">오늘 학습 끝! 도장을 받았어요. 더 하면 점수가 계속 쌓여요.</p>' :
+        '<p class="hint">모두 끝내면 도장을 찍어요 (+40점)' + (st ? ' · ' + (st + 1) + '일 연속이 돼요' : '') + '</p>') +
+      '<button class="btn accent cta" data-act="quick">' + ic('play', true) + '<span>' + (stamped ? '더 연습하기' : (tasks.some(function (k) { return k.cur > 0; }) ? '이어서 하기' : '오늘 학습 시작')) + '</span></button></section>' +
       '<nav class="menu">' +
       row('pairs', 'headphones', 'blue', '소리 구분 게임', '스테이지 ' + openStages + '/' + DATA.groups.length + ' 열림') +
       row('phrases', 'chat', 'blue', '실전 영어', DATA.places.length + '곳 · 표현 마스터 ' + mst + '/' + allPh) +
+      row('stamps', 'calendar', 'blue', '출석 도장판', '도장 ' + stampedCount() + '개 · 이번 달 ' + stampsInMonth(today().slice(0, 7)) + '일') +
       row('mission', 'pin', 'brown', '이번 주 실전 미션', missionNew ? '새 미션이 기다려요' : '이번 주 미션 완료') +
       row('records', 'medal', 'blue', '내 기록', '배지 ' + Object.keys(S.badges).filter(function (k) { return badgeList().some(function (b) { return b.id === k; }); }).length + '/' + badgeList().length + ' · 최고 콤보 ' + S.rec.combo) +
       '</nav>';
@@ -566,7 +725,8 @@
   VIEWS.listen = function (p) {
     var g = gById(p.gid);
     if (!g) return VIEWS.pairs();
-    var rows = pairsOf(g.id).map(function (x) {
+    var all = pairsOf(g.id), shown = all.slice(0, ui.lshow);
+    var rows = shown.map(function (x) {
       function tile(w, k) {
         return '<button class="tile" data-act="say" data-w="' + esc(w) + '"><span class="w" lang="en">' + esc(w) + '</span><span class="k">' + esc(k) + '</span><span class="sp">' + ic('speaker') + '</span></button>';
       }
@@ -577,7 +737,8 @@
       '<div class="toolbar"><p class="muted small">단어를 눌러서 두 소리를 번갈아 들어 보세요.</p>' +
       '<button class="pill ' + (ui.slow ? 'on' : '') + '" data-act="toggleSlow" aria-pressed="' + (ui.slow ? 'true' : 'false') + '"><span class="lbl">' + (ui.slow ? '천천히: 켜짐' : '천천히: 꺼짐') + '</span></button></div>' +
       rows +
-      '<button class="btn" data-act="startQuiz" data-gid="' + esc(g.id) + '">' + ic('play', true) + '<span>게임 시작</span></button>';
+      (all.length > shown.length ? '<button class="btn alt more" data-act="moreListen">' + ic('chevR') + '<span>더 보기 (남은 ' + (all.length - shown.length) + '쌍)</span></button>' : '') +
+      '<button class="btn" data-act="startQuiz" data-gid="' + esc(g.id) + '">' + ic('play', true) + '<span>게임 시작 (' + all.length + '쌍에서 출제)</span></button>';
     return { title: g.title, html: html };
   };
 
@@ -754,7 +915,9 @@
     if (perfect) addXP(30, q);
     var comboRec = Q.maxCombo > (S.rec.combo || 0);
     if (comboRec) S.rec.combo = Q.maxCombo;
-    dayRec().quiz++;
+    var dd = dayRec();
+    dd.quiz++;
+    if (kind === 'place') dd.listen++; else dd.sound++;
     award(kind === 'place' ? 'first_listen' : 'first_quiz', q);
     if (perfect) award('perfect', q);
     if (Q.maxCombo >= 5) award('combo5', q);
@@ -820,9 +983,11 @@
       return '<button class="place-tile' + (m === list.length ? ' done' : '') + '" data-act="go" data-v="place" data-pid="' + esc(pl.id) + '">' +
         '<span class="pic ' + (pl.id === 'rescue' ? 'red' : 'blue') + '">' + ic(ICONS[pl.icon] ? pl.icon : 'chat') + '</span>' +
         '<b>' + esc(pl.title) + '</b>' + stars(starsOf(ps(pl.id)), 'sm') +
-        '<small>마스터 ' + m + '/' + list.length + '</small></button>';
+        '<small>마스터 ' + m + '/' + list.length + (dueIn(pl.id) ? ' · <i class="due-n">복습 ' + dueIn(pl.id) + '</i>' : '') + '</small></button>';
     }).join('');
-    var html = '<p class="lead">캐나다 생활에서 실제로 <b>듣는 말</b>과 <b>하는 말</b>이에요. 장소를 골라서 듣기 게임으로 별을 모으고, 따라 말하기로 마스터해 보세요.</p>' +
+    var dn = dueList().length;
+    var html = (dn ? '<section class="panel review"><span class="pic">' + ic('refresh') + '</span><div class="rv-t"><b>복습할 표현 ' + dn + '개</b><small>배운 표현은 잊기 전에 다시 말해 봐요</small></div>' +
+      '<button class="btn sm" data-act="reviewAll">' + ic('play', true) + '<span>복습</span></button></section>' : '') + '<p class="lead">캐나다 생활에서 실제로 <b>듣는 말</b>과 <b>하는 말</b>이에요. 장소를 골라서 듣기 게임으로 별을 모으고, 따라 말하기로 마스터해 보세요.</p>' +
       '<p class="muted c mcount">표현 마스터 ' + masteredCount(DATA.phrases) + ' / ' + DATA.phrases.length + '</p>' +
       '<div class="places">' + tiles + '</div>';
     return { title: '실전 영어', html: html };
@@ -832,7 +997,8 @@
   function phraseCard(p) {
     var ok = phraseOk(p), n = Math.min(3, ok);
     return '<button class="phrase-card ' + (p.who === 'them' ? 'them' : 'me') + '" data-act="go" data-v="phrase" data-id="' + esc(p.id) + '"><div class="pc-main"><div class="en" lang="en">' + esc(p.en) +
-      '</div><div class="ko">' + esc(p.ko) + '</div><div class="prog">' + stars(n, 'sm') + (ok >= 3 ? '<span class="mst">마스터</span>' : '') + '</div></div>' + ic('chevR') + '</button>';
+      '</div><div class="ko">' + esc(p.ko) + '</div><div class="prog">' + stars(n, 'sm') + (ok >= 3 ? '<span class="mst">마스터</span>' : '') +
+      (isDue(p) ? '<span class="due">복습</span>' : '') + '</div></div>' + ic('chevR') + '</button>';
   }
   VIEWS.place = function (p) {
     var pl = placeById(p.pid) || DATA.places[0];
@@ -861,8 +1027,11 @@
     var okN = Math.min(3, phraseOk(ph));
     var list = phrasesOf(ph.place);
     var nextP = list[list.indexOf(ph) + 1];
+    var rvi = RV ? RV.ids.indexOf(ph.id) : -1;
+    if (RV) nextP = rvi >= 0 ? phraseById(RV.ids[rvi + 1]) : null;
     var them = ph.who === 'them';
-    var html = '<section class="sign big-en"><div class="sign-in"><span class="tag">' + (them ? '이런 말이 들려요' : '이렇게 말해요') + '</span>' +
+    var html = (RV ? '<p class="rv-prog c">' + (RV.kind === 'rev' ? '복습' : '새 표현') + ' ' + (rvi + 1) + ' / ' + RV.ids.length + '</p>' : '') +
+      '<section class="sign big-en"><div class="sign-in"><span class="tag">' + (RV && RV.kind === 'rev' ? '복습' : them ? '이런 말이 들려요' : '이렇게 말해요') + '</span>' +
       '<div class="en" lang="en">' + esc(ph.en) + '</div><div class="ko-big">' + esc(ph.ko) + '</div>' +
       (S.settings.ko && ph.sound ? '<div class="sound">' + esc(ph.sound) + '</div>' : '') + '</div></section>' +
       '<p class="when">' + ic('info') + '<span>' + esc(ph.when) + '</span></p>' +
@@ -882,13 +1051,22 @@
     }
     html += '<div class="step"><span class="n">4</span><span>확인</span></div>';
     if (R.evald) {
-      html += '<div class="fb ' + (R.ok ? 'good' : 'try') + '"><span class="fi">' + ic(R.ok ? 'check' : 'repeat') + '</span><div class="fbt"><b>' + (R.ok ? '잘했어요! +15점' : '좋아요, 다시 해 보는 게 중요해요! +5점') + '</b></div></div>' +
-        (nextP ? '<button class="btn" data-act="go" data-v="phrase" data-id="' + esc(nextP.id) + '"><span>다음 표현</span>' + ic('chevR') + '</button>' : '<button class="btn" data-act="go" data-v="place" data-pid="' + esc(ph.place) + '"><span>표현 목록으로</span>' + ic('chevR') + '</button>') +
+      html += '<div class="fb ' + (R.ok ? 'good' : 'try') + '"><span class="fi">' + ic(R.ok ? 'check' : 'repeat') + '</span><div class="fbt"><b>' + (R.ok ? '잘했어요! +15점' : '좋아요, 다시 해 보는 게 중요해요! +5점') + '</b>' +
+        (R.nd ? '<p class="small">다음 복습: ' + daysText(R.nd) + '</p>' : '') + '</div></div>' +
+        (nextP ? '<button class="btn" data-act="rvnext" data-id="' + esc(nextP.id) + '"><span>다음 표현</span>' + ic('chevR') + '</button>' :
+          (RV ? '<button class="btn accent" data-act="go" data-v="home"><span>오늘의 학습으로</span>' + ic('chevR') + '</button>' :
+            '<button class="btn" data-act="go" data-v="place" data-pid="' + esc(ph.place) + '"><span>표현 목록으로</span>' + ic('chevR') + '</button>')) +
         '<button class="btn alt" data-act="again">' + ic('repeat') + '<span>한 번 더 연습</span></button>';
     } else {
       html += '<div class="row"><button class="btn" data-act="eval" data-ok="1">' + ic('check') + '<span>잘 됐어요</span></button><button class="btn alt" data-act="eval" data-ok="0">' + ic('repeat') + '<span>다시 해볼게요</span></button></div>';
     }
     return { title: '따라 말하기', html: html };
+  };
+  ACT.rvnext = function (d) {
+    var keep = RV;
+    go('phrase', { id: d.id });
+    RV = keep;
+    if (RV) render(false);
   };
   ACT.pplay = function () { speak(curPhrase().en, 0.85); };
   ACT.pslow = function () { speak(curPhrase().en, 0.55); };
@@ -960,6 +1138,10 @@
     var dr = dayRec();
     if (dr.phrases.indexOf(ph.id) < 0) dr.phrases.push(ph.id);
     if (ok) { rec.ok++; addXP(15, q); } else { addXP(5, q); }
+    var wasDue = isDue(ph) && rec.tries > 1;
+    schedule(rec, ok);
+    R.nd = INTERVALS[rec.box];
+    if (wasDue) { S.rec.revs = (S.rec.revs || 0) + 1; if (S.rec.revs >= 20) award('review20', q); }
     if (before < 3 && rec.ok >= 3) q.push({ icon: ic('star', true), title: '표현 마스터!', text: ph.en });
     var rescue = phrasesOf('rescue');
     if (rescue.length && rescue.every(function (x) { return phraseOk(x) >= 3; })) award('rescue', q);
@@ -1009,7 +1191,9 @@
     var wk = weekKey(), tw = accOf(S.weekly[wk]), lw = accOf(S.weekly[addDays(wk, -7)]);
     var bestWeek = Object.keys(S.wxp).reduce(function (a, k) { return Math.max(a, S.wxp[k]); }, 0);
     function li2(label, val) { return '<li><span class="rl">' + label + '</span><b>' + val + '</b></li>'; }
-    var recs = li2(ic('bolt', true) + '최고 콤보', S.rec.combo + '연속') +
+    var recs = li2(ic('stamp') + '받은 도장', stampedCount() + '개') +
+      li2(ic('refresh') + '복습한 표현', (S.rec.revs || 0) + '번') +
+      li2(ic('bolt', true) + '최고 콤보', S.rec.combo + '연속') +
       li2(ic('star', true) + '모은 별', totalStars() + ' / ' + maxStars()) +
       li2(ic('chat') + '마스터한 표현', masteredCount(DATA.phrases) + ' / ' + DATA.phrases.length) +
       li2(ic('trophy') + '한 주 최고 점수', bestWeek + '점') +
@@ -1036,16 +1220,51 @@
     return { title: '내 기록', html: html };
   };
 
+  /* ===== 출석 도장판 ===== */
+  VIEWS.stamps = function () {
+    var t = today(), ym = ui.params.m || t.slice(0, 7);
+    var y = Number(ym.slice(0, 4)), m = Number(ym.slice(5, 7));
+    var first = new Date(y, m - 1, 1), dim = new Date(y, m, 0).getDate();
+    var lead = (first.getDay() + 6) % 7;
+    function shift(k) { var d = new Date(y, m - 1 + k, 1); return d.getFullYear() + '-' + pad(d.getMonth() + 1); }
+    var head = ['월', '화', '수', '목', '금', '토', '일'].map(function (n) { return '<span class="dh">' + n + '</span>'; }).join('');
+    var cells = '';
+    for (var i = 0; i < lead; i++) cells += '<span class="dc empty"></span>';
+    for (var d = 1; d <= dim; d++) {
+      var ds = ym + '-' + pad(d), got = S.stamps[ds];
+      cells += '<span class="dc' + (got ? ' got' : '') + (ds === t ? ' today' : '') + (ds > t ? ' future' : '') + '"' + (got ? ' aria-label="' + d + '일 도장"' : '') + '>' +
+        (got ? stampSvg(got, true) : '<i>' + d + '</i>') + '</span>';
+    }
+    var cnt = stampsInMonth(ym), st = streakNow();
+    var next = [1, 7, 30].filter(function (n) { return stampedCount() < n; })[0];
+    var html = '<section class="panel stamps-top"><div class="stat-row"><div><b class="num">' + stampedCount() + '</b><span>받은 도장</span></div>' +
+      '<div><b class="num">' + st + '</b><span>연속 (최고 ' + S.streak.best + ')</span></div>' +
+      '<div><b class="num">' + cnt + '</b><span>이번 달</span></div></div>' +
+      (next ? '<p class="hint">도장 ' + next + '개가 되면 배지를 받아요 (' + stampedCount() + '/' + next + ')</p>' : '') + '</section>' +
+      '<section class="panel cal"><div class="cal-h"><button class="ib" data-act="stampMonth" data-m="' + shift(-1) + '" aria-label="이전 달">' + ic('chevL') + '</button>' +
+      '<h3>' + y + '년 ' + m + '월</h3>' +
+      '<button class="ib" data-act="stampMonth" data-m="' + shift(1) + '" aria-label="다음 달"' + (shift(1) > t.slice(0, 7) ? ' disabled' : '') + '>' + ic('chevR') + '</button></div>' +
+      '<div class="cal-g">' + head + cells + '</div></section>' +
+      '<p class="muted small c">오늘의 학습을 모두 마치면 도장이 찍혀요. 하루 쉬어도 도장은 그대로 남아요.</p>';
+    return { title: '출석 도장판', html: html };
+  };
+
   /* ===== 설정 ===== */
   VIEWS.settings = function () {
     var s = S.settings;
     var seg = FONT_LABELS.map(function (l, i) {
       return '<button class="seg-b ' + (s.fs === i ? 'on' : '') + '" data-act="fs" data-i="' + i + '" aria-pressed="' + (s.fs === i) + '">' + l + '</button>';
     }).join('');
+    var segA = AMOUNTS.map(function (a, i) {
+      return '<button class="seg-b ' + (s.amt === i ? 'on' : '') + '" data-act="amt" data-i="' + i + '" aria-pressed="' + (s.amt === i) + '">' + a.name + '</button>';
+    }).join('');
+    var ca = amt();
     var vopts = '<option value="">자동 (추천)</option>' + voices.map(function (v) {
       return '<option value="' + esc(v.voiceURI) + '"' + (s.voice === v.voiceURI ? ' selected' : '') + '>' + esc(v.name + ' (' + v.lang + ')') + '</option>';
     }).join('');
     var html = '<section class="panel"><label class="setrow"><span>부르는 이름</span><input class="txt" maxlength="12" value="' + esc(s.name) + '" data-chg="name"></label>' +
+      '<div class="setrow col"><span>하루 분량</span><div class="seg">' + segA + '</div>' +
+      '<small class="muted">소리 구분 1판 + 새 표현 ' + ca.nw + '개 + 복습 최대 ' + ca.rv + '개 + 실전 듣기 1판. 바꾼 분량은 내일부터 적용돼요.</small></div>' +
       '<div class="setrow col"><span>글자 크기</span><div class="seg">' + seg + '</div></div>' +
       '<label class="setrow"><span>한글 발음 표기 보기</span><input type="checkbox" class="sw" ' + (s.ko ? 'checked' : '') + ' data-chg="ko"></label>' +
       '<label class="setrow"><span>효과음</span><input type="checkbox" class="sw" ' + (s.sfx ? 'checked' : '') + ' data-chg="sfx"></label></section>' +
@@ -1062,6 +1281,7 @@
   CHG.ko = function (v, el, c) { S.settings.ko = c; save(); };
   CHG.sfx = function (v, el, c) { S.settings.sfx = c; save(); };
   CHG.voice = function (v) { S.settings.voice = v; save(); };
+  ACT.amt = function (d) { S.settings.amt = Number(d.i); save(); rerender(); };
   ACT.fs = function (d) { S.settings.fs = Number(d.i); save(); rerender(); };
   ACT.reset = function () {
     if (window.confirm('모든 진도와 기록이 지워져요. 정말 처음부터 다시 할까요?')) {
@@ -1071,9 +1291,11 @@
 
   /* ===== 공통 동작 ===== */
   ACT.go = function (d) { go(d.v, { gid: d.gid, id: d.id, pid: d.pid }); };
+  ACT.moreListen = function () { ui.lshow += 8; rerender(); };
+  ACT.stampMonth = function (d) { go('stamps', { m: d.m }); };
   ACT.back = function () {
     var v = ui.view, p = ui.params || {};
-    if (v === 'phrase') return go('place', { pid: (curPhrase() || {}).place });
+    if (v === 'phrase') return RV ? go('home') : go('place', { pid: (curPhrase() || {}).place });
     if (v === 'quiz' || v === 'result') {
       var kind = v === 'quiz' ? (Q && Q.kind) : p.kind, id = v === 'quiz' ? (Q && Q.id) : p.id;
       return kind === 'place' ? go('place', { pid: id }) : go('pairs');

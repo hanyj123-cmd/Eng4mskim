@@ -816,6 +816,3003 @@ window.DEFAULT_DATA = {
    "b": "write",
    "bKo": "쓰다",
    "bEx": "Could you write that down?"
+  },
+  {
+   "g": "f_p",
+   "a": "fat",
+   "aKo": "뚱뚱한, 지방",
+   "aEx": "",
+   "b": "pat",
+   "bKo": "토닥이다",
+   "bEx": ""
+  },
+  {
+   "g": "f_p",
+   "a": "fit",
+   "aKo": "꼭 맞다",
+   "aEx": "",
+   "b": "pit",
+   "bKo": "구덩이, 씨",
+   "bEx": ""
+  },
+  {
+   "g": "f_p",
+   "a": "fig",
+   "aKo": "무화과",
+   "aEx": "",
+   "b": "pig",
+   "bKo": "돼지",
+   "bEx": ""
+  },
+  {
+   "g": "f_p",
+   "a": "file",
+   "aKo": "파일, 서류철",
+   "aEx": "",
+   "b": "pile",
+   "bKo": "더미",
+   "bEx": ""
+  },
+  {
+   "g": "f_p",
+   "a": "fool",
+   "aKo": "바보",
+   "aEx": "",
+   "b": "pool",
+   "bKo": "수영장",
+   "bEx": ""
+  },
+  {
+   "g": "f_p",
+   "a": "four",
+   "aKo": "넷",
+   "aEx": "Table for four, please.",
+   "b": "pour",
+   "bKo": "붓다",
+   "bEx": ""
+  },
+  {
+   "g": "f_p",
+   "a": "fun",
+   "aKo": "재미",
+   "aEx": "That sounds fun!",
+   "b": "pun",
+   "bKo": "말장난",
+   "bEx": ""
+  },
+  {
+   "g": "f_p",
+   "a": "fear",
+   "aKo": "두려움",
+   "aEx": "",
+   "b": "peer",
+   "bKo": "동료, 응시하다",
+   "bEx": ""
+  },
+  {
+   "g": "f_p",
+   "a": "feel",
+   "aKo": "느끼다",
+   "aEx": "I don't feel well.",
+   "b": "peel",
+   "bKo": "껍질을 벗기다",
+   "bEx": ""
+  },
+  {
+   "g": "f_p",
+   "a": "fail",
+   "aKo": "실패하다",
+   "aEx": "",
+   "b": "pail",
+   "bKo": "양동이",
+   "bEx": ""
+  },
+  {
+   "g": "f_p",
+   "a": "fair",
+   "aKo": "공정한",
+   "aEx": "That's not fair.",
+   "b": "pair",
+   "bKo": "한 쌍",
+   "bEx": ""
+  },
+  {
+   "g": "f_p",
+   "a": "face",
+   "aKo": "얼굴",
+   "aEx": "",
+   "b": "pace",
+   "bKo": "걸음 속도",
+   "bEx": ""
+  },
+  {
+   "g": "f_p",
+   "a": "fact",
+   "aKo": "사실",
+   "aEx": "",
+   "b": "pact",
+   "bKo": "협정",
+   "bEx": ""
+  },
+  {
+   "g": "f_p",
+   "a": "found",
+   "aKo": "찾았다",
+   "aEx": "I found it.",
+   "b": "pound",
+   "bKo": "파운드, 두드리다",
+   "bEx": ""
+  },
+  {
+   "g": "f_p",
+   "a": "fond",
+   "aKo": "좋아하는",
+   "aEx": "",
+   "b": "pond",
+   "bKo": "연못",
+   "bEx": ""
+  },
+  {
+   "g": "f_p",
+   "a": "fees",
+   "aKo": "요금들",
+   "aEx": "",
+   "b": "peas",
+   "bKo": "완두콩들",
+   "bEx": ""
+  },
+  {
+   "g": "f_p",
+   "a": "beef",
+   "aKo": "소고기",
+   "aEx": "",
+   "b": "beep",
+   "bKo": "삐 소리",
+   "bEx": ""
+  },
+  {
+   "g": "f_p",
+   "a": "deaf",
+   "aKo": "귀가 먼",
+   "aEx": "",
+   "b": "deep",
+   "bKo": "깊은",
+   "bEx": "Take a deep breath."
+  },
+  {
+   "g": "f_p",
+   "a": "reef",
+   "aKo": "암초",
+   "aEx": "",
+   "b": "reap",
+   "bKo": "거두다",
+   "bEx": ""
+  },
+  {
+   "g": "f_p",
+   "a": "chief",
+   "aKo": "우두머리",
+   "aEx": "",
+   "b": "cheap",
+   "bKo": "싼",
+   "bEx": ""
+  },
+  {
+   "g": "f_p",
+   "a": "laugh",
+   "aKo": "웃다",
+   "aEx": "Don't laugh!",
+   "b": "lap",
+   "bKo": "무릎",
+   "bEx": "Sit on my lap."
+  },
+  {
+   "g": "f_p",
+   "a": "few",
+   "aKo": "몇 개의",
+   "aEx": "",
+   "b": "pew",
+   "bKo": "교회 긴 의자",
+   "bEx": ""
+  },
+  {
+   "g": "f_p",
+   "a": "cuff",
+   "aKo": "소맷부리",
+   "aEx": "",
+   "b": "cup",
+   "bKo": "컵",
+   "bEx": ""
+  },
+  {
+   "g": "f_p",
+   "a": "fort",
+   "aKo": "요새",
+   "aEx": "",
+   "b": "port",
+   "bKo": "항구",
+   "bEx": ""
+  },
+  {
+   "g": "f_p",
+   "a": "firm",
+   "aKo": "단단한, 회사",
+   "aEx": "",
+   "b": "perm",
+   "bKo": "파마",
+   "bEx": "I'd like a perm."
+  },
+  {
+   "g": "v_b",
+   "a": "vase",
+   "aKo": "꽃병",
+   "aEx": "",
+   "b": "base",
+   "bKo": "기초, 기지",
+   "bEx": ""
+  },
+  {
+   "g": "v_b",
+   "a": "vent",
+   "aKo": "환기구",
+   "aEx": "",
+   "b": "bent",
+   "bKo": "구부러진",
+   "bEx": ""
+  },
+  {
+   "g": "v_b",
+   "a": "volt",
+   "aKo": "전압 단위",
+   "aEx": "",
+   "b": "bolt",
+   "bKo": "볼트, 빗장",
+   "bEx": ""
+  },
+  {
+   "g": "v_b",
+   "a": "vend",
+   "aKo": "판매하다",
+   "aEx": "",
+   "b": "bend",
+   "bKo": "구부리다",
+   "bEx": ""
+  },
+  {
+   "g": "v_b",
+   "a": "veer",
+   "aKo": "방향을 틀다",
+   "aEx": "",
+   "b": "beer",
+   "bKo": "맥주",
+   "bEx": "Can I get a beer?"
+  },
+  {
+   "g": "v_b",
+   "a": "vanish",
+   "aKo": "사라지다",
+   "aEx": "",
+   "b": "banish",
+   "bKo": "추방하다",
+   "bEx": ""
+  },
+  {
+   "g": "v_b",
+   "a": "vowel",
+   "aKo": "모음",
+   "aEx": "",
+   "b": "bowel",
+   "bKo": "장",
+   "bEx": ""
+  },
+  {
+   "g": "v_b",
+   "a": "vile",
+   "aKo": "몹시 불쾌한",
+   "aEx": "",
+   "b": "bile",
+   "bKo": "담즙",
+   "bEx": ""
+  },
+  {
+   "g": "v_b",
+   "a": "vain",
+   "aKo": "헛된, 허영심 많은",
+   "aEx": "",
+   "b": "bane",
+   "bKo": "골칫거리",
+   "bEx": ""
+  },
+  {
+   "g": "v_b",
+   "a": "vie",
+   "aKo": "경쟁하다",
+   "aEx": "",
+   "b": "buy",
+   "bKo": "사다",
+   "bEx": "I'd like to buy this."
+  },
+  {
+   "g": "v_b",
+   "a": "vat",
+   "aKo": "큰 통",
+   "aEx": "",
+   "b": "bat",
+   "bKo": "방망이, 박쥐",
+   "bEx": ""
+  },
+  {
+   "g": "v_b",
+   "a": "veil",
+   "aKo": "베일",
+   "aEx": "",
+   "b": "bail",
+   "bKo": "보석금",
+   "bEx": ""
+  },
+  {
+   "g": "v_b",
+   "a": "vary",
+   "aKo": "달라지다",
+   "aEx": "",
+   "b": "bury",
+   "bKo": "묻다",
+   "bEx": ""
+  },
+  {
+   "g": "v_b",
+   "a": "marvel",
+   "aKo": "경이로워하다",
+   "aEx": "",
+   "b": "marble",
+   "bKo": "대리석, 구슬",
+   "bEx": ""
+  },
+  {
+   "g": "v_b",
+   "a": "revel",
+   "aKo": "흥청거리다",
+   "aEx": "",
+   "b": "rebel",
+   "bKo": "반역자",
+   "bEx": ""
+  },
+  {
+   "g": "v_b",
+   "a": "rove",
+   "aKo": "돌아다니다",
+   "aEx": "",
+   "b": "robe",
+   "bKo": "가운",
+   "bEx": ""
+  },
+  {
+   "g": "v_b",
+   "a": "novel",
+   "aKo": "소설",
+   "aEx": "It's a good novel.",
+   "b": "noble",
+   "bKo": "고귀한",
+   "bEx": ""
+  },
+  {
+   "g": "v_b",
+   "a": "rover",
+   "aKo": "방랑자",
+   "aEx": "",
+   "b": "robber",
+   "bKo": "강도",
+   "bEx": ""
+  },
+  {
+   "g": "v_b",
+   "a": "savor",
+   "aKo": "음미하다",
+   "aEx": "",
+   "b": "saber",
+   "bKo": "사브르(칼)",
+   "bEx": ""
+  },
+  {
+   "g": "v_b",
+   "a": "dove",
+   "aKo": "비둘기",
+   "aEx": "",
+   "b": "dub",
+   "bKo": "더빙하다",
+   "bEx": ""
+  },
+  {
+   "g": "l_r",
+   "a": "lime",
+   "aKo": "라임",
+   "aEx": "",
+   "b": "rhyme",
+   "bKo": "운율",
+   "bEx": ""
+  },
+  {
+   "g": "l_r",
+   "a": "lice",
+   "aKo": "이",
+   "aEx": "",
+   "b": "rice",
+   "bKo": "쌀",
+   "bEx": "Can I get rice with that?"
+  },
+  {
+   "g": "l_r",
+   "a": "lamp",
+   "aKo": "램프",
+   "aEx": "Turn on the lamp.",
+   "b": "ramp",
+   "bKo": "경사로",
+   "bEx": ""
+  },
+  {
+   "g": "l_r",
+   "a": "lane",
+   "aKo": "차선, 좁은 길",
+   "aEx": "",
+   "b": "rain",
+   "bKo": "비",
+   "bEx": "Is it going to rain?"
+  },
+  {
+   "g": "l_r",
+   "a": "law",
+   "aKo": "법",
+   "aEx": "",
+   "b": "raw",
+   "bKo": "날것의",
+   "bEx": ""
+  },
+  {
+   "g": "l_r",
+   "a": "lace",
+   "aKo": "레이스",
+   "aEx": "",
+   "b": "race",
+   "bKo": "경주",
+   "bEx": "It's a long race."
+  },
+  {
+   "g": "l_r",
+   "a": "lap",
+   "aKo": "무릎",
+   "aEx": "Sit on my lap.",
+   "b": "rap",
+   "bKo": "랩, 두드리다",
+   "bEx": ""
+  },
+  {
+   "g": "l_r",
+   "a": "lent",
+   "aKo": "빌려줬다",
+   "aEx": "",
+   "b": "rent",
+   "bKo": "집세",
+   "bEx": "How much is the rent?"
+  },
+  {
+   "g": "l_r",
+   "a": "lip",
+   "aKo": "입술",
+   "aEx": "",
+   "b": "rip",
+   "bKo": "찢다",
+   "bEx": ""
+  },
+  {
+   "g": "l_r",
+   "a": "load",
+   "aKo": "짐",
+   "aEx": "",
+   "b": "road",
+   "bKo": "길",
+   "bEx": "Is this the right road?"
+  },
+  {
+   "g": "l_r",
+   "a": "lot",
+   "aKo": "많음",
+   "aEx": "Thanks a lot!",
+   "b": "rot",
+   "bKo": "썩다",
+   "bEx": ""
+  },
+  {
+   "g": "l_r",
+   "a": "loyal",
+   "aKo": "충실한",
+   "aEx": "",
+   "b": "royal",
+   "bKo": "왕실의",
+   "bEx": ""
+  },
+  {
+   "g": "l_r",
+   "a": "link",
+   "aKo": "연결",
+   "aEx": "",
+   "b": "rink",
+   "bKo": "스케이트장",
+   "bEx": ""
+  },
+  {
+   "g": "l_r",
+   "a": "clown",
+   "aKo": "광대",
+   "aEx": "",
+   "b": "crown",
+   "bKo": "왕관",
+   "bEx": ""
+  },
+  {
+   "g": "l_r",
+   "a": "cloud",
+   "aKo": "구름",
+   "aEx": "",
+   "b": "crowd",
+   "bKo": "군중",
+   "bEx": ""
+  },
+  {
+   "g": "l_r",
+   "a": "glow",
+   "aKo": "빛나다",
+   "aEx": "",
+   "b": "grow",
+   "bKo": "자라다",
+   "bEx": ""
+  },
+  {
+   "g": "l_r",
+   "a": "blush",
+   "aKo": "얼굴 붉히다",
+   "aEx": "",
+   "b": "brush",
+   "bKo": "솔",
+   "bEx": ""
+  },
+  {
+   "g": "l_r",
+   "a": "flame",
+   "aKo": "불꽃",
+   "aEx": "",
+   "b": "frame",
+   "bKo": "틀",
+   "bEx": ""
+  },
+  {
+   "g": "l_r",
+   "a": "flee",
+   "aKo": "달아나다",
+   "aEx": "",
+   "b": "free",
+   "bKo": "무료",
+   "bEx": "Is it free?"
+  },
+  {
+   "g": "l_r",
+   "a": "tile",
+   "aKo": "타일",
+   "aEx": "",
+   "b": "tire",
+   "bKo": "타이어",
+   "bEx": "I have a flat tire."
+  },
+  {
+   "g": "l_r",
+   "a": "towel",
+   "aKo": "수건",
+   "aEx": "Can I get a towel?",
+   "b": "tower",
+   "bKo": "탑",
+   "bEx": ""
+  },
+  {
+   "g": "l_r",
+   "a": "file",
+   "aKo": "파일",
+   "aEx": "",
+   "b": "fire",
+   "bKo": "불",
+   "bEx": "Call 911, there's a fire!"
+  },
+  {
+   "g": "l_r",
+   "a": "wall",
+   "aKo": "벽",
+   "aEx": "It's on the wall.",
+   "b": "war",
+   "bKo": "전쟁",
+   "bEx": ""
+  },
+  {
+   "g": "l_r",
+   "a": "steal",
+   "aKo": "훔치다",
+   "aEx": "",
+   "b": "steer",
+   "bKo": "조종하다",
+   "bEx": ""
+  },
+  {
+   "g": "l_r",
+   "a": "feel",
+   "aKo": "느끼다",
+   "aEx": "I don't feel well.",
+   "b": "fear",
+   "bKo": "두려움",
+   "bEx": ""
+  },
+  {
+   "g": "l_r",
+   "a": "pole",
+   "aKo": "막대, 극",
+   "aEx": "",
+   "b": "pore",
+   "bKo": "모공",
+   "bEx": ""
+  },
+  {
+   "g": "y_ear",
+   "a": "yearn",
+   "aKo": "갈망하다",
+   "aEx": "",
+   "b": "earn",
+   "bKo": "벌다",
+   "bEx": ""
+  },
+  {
+   "g": "y_ear",
+   "a": "yore",
+   "aKo": "옛날",
+   "aEx": "",
+   "b": "oar",
+   "bKo": "노",
+   "bEx": ""
+  },
+  {
+   "g": "y_ear",
+   "a": "Yale",
+   "aKo": "예일대",
+   "aEx": "",
+   "b": "ail",
+   "bKo": "아프게 하다",
+   "bEx": ""
+  },
+  {
+   "g": "y_ear",
+   "a": "yearly",
+   "aKo": "매년의",
+   "aEx": "",
+   "b": "early",
+   "bKo": "이른",
+   "bEx": "I'm early."
+  },
+  {
+   "g": "y_ear",
+   "a": "years",
+   "aKo": "해들",
+   "aEx": "",
+   "b": "ears",
+   "bKo": "귀들",
+   "bEx": ""
+  },
+  {
+   "g": "y_ear",
+   "a": "year",
+   "aKo": "해",
+   "aEx": "",
+   "b": "hear",
+   "bKo": "듣다",
+   "bEx": "I can't hear you."
+  },
+  {
+   "g": "y_ear",
+   "a": "yell",
+   "aKo": "소리치다",
+   "aEx": "",
+   "b": "hell",
+   "bKo": "지옥",
+   "bEx": ""
+  },
+  {
+   "g": "y_ear",
+   "a": "yellow",
+   "aKo": "노란",
+   "aEx": "The yellow one, please.",
+   "b": "hello",
+   "bKo": "안녕",
+   "bEx": "Hello, how are you?"
+  },
+  {
+   "g": "y_ear",
+   "a": "yard",
+   "aKo": "마당",
+   "aEx": "",
+   "b": "hard",
+   "bKo": "단단한, 어려운",
+   "bEx": "It's too hard."
+  },
+  {
+   "g": "y_ear",
+   "a": "young",
+   "aKo": "어린",
+   "aEx": "",
+   "b": "hung",
+   "bKo": "걸었다",
+   "bEx": ""
+  },
+  {
+   "g": "y_ear",
+   "a": "yum",
+   "aKo": "맛있는",
+   "aEx": "",
+   "b": "hum",
+   "bKo": "흥얼거리다",
+   "bEx": ""
+  },
+  {
+   "g": "y_ear",
+   "a": "yield",
+   "aKo": "양보하다",
+   "aEx": "",
+   "b": "heel",
+   "bKo": "발뒤꿈치",
+   "bEx": ""
+  },
+  {
+   "g": "y_ear",
+   "a": "yam",
+   "aKo": "얌, 고구마",
+   "aEx": "",
+   "b": "jam",
+   "bKo": "잼",
+   "bEx": "Can I get some jam?"
+  },
+  {
+   "g": "y_ear",
+   "a": "yet",
+   "aKo": "아직",
+   "aEx": "",
+   "b": "jet",
+   "bKo": "제트기",
+   "bEx": ""
+  },
+  {
+   "g": "y_ear",
+   "a": "yoke",
+   "aKo": "멍에",
+   "aEx": "",
+   "b": "joke",
+   "bKo": "농담",
+   "bEx": ""
+  },
+  {
+   "g": "y_ear",
+   "a": "yaw",
+   "aKo": "흔들리다",
+   "aEx": "",
+   "b": "jaw",
+   "bKo": "턱",
+   "bEx": ""
+  },
+  {
+   "g": "y_ear",
+   "a": "yen",
+   "aKo": "엔(일본 화폐)",
+   "aEx": "",
+   "b": "end",
+   "bKo": "끝",
+   "bEx": "That's the end."
+  },
+  {
+   "g": "y_ear",
+   "a": "yacht",
+   "aKo": "요트",
+   "aEx": "",
+   "b": "hot",
+   "bKo": "뜨거운",
+   "bEx": "It's so hot today!"
+  },
+  {
+   "g": "y_ear",
+   "a": "yelp",
+   "aKo": "비명",
+   "aEx": "",
+   "b": "help",
+   "bKo": "도움",
+   "bEx": "I need some help."
+  },
+  {
+   "g": "y_ear",
+   "a": "yip",
+   "aKo": "짖다",
+   "aEx": "",
+   "b": "hip",
+   "bKo": "엉덩이",
+   "bEx": ""
+  },
+  {
+   "g": "w_wait",
+   "a": "quick",
+   "aKo": "빠른",
+   "aEx": "Just a quick question.",
+   "b": "kick",
+   "bKo": "차다",
+   "bEx": ""
+  },
+  {
+   "g": "w_wait",
+   "a": "quit",
+   "aKo": "그만두다",
+   "aEx": "",
+   "b": "kit",
+   "bKo": "도구 세트",
+   "bEx": ""
+  },
+  {
+   "g": "w_wait",
+   "a": "queen",
+   "aKo": "여왕",
+   "aEx": "",
+   "b": "keen",
+   "bKo": "열망하는",
+   "bEx": ""
+  },
+  {
+   "g": "w_wait",
+   "a": "quote",
+   "aKo": "인용, 견적",
+   "aEx": "",
+   "b": "coat",
+   "bKo": "코트",
+   "bEx": "Can I take your coat?"
+  },
+  {
+   "g": "w_wait",
+   "a": "quart",
+   "aKo": "쿼트(액체 단위)",
+   "aEx": "",
+   "b": "court",
+   "bKo": "법정, 코트",
+   "bEx": ""
+  },
+  {
+   "g": "w_wait",
+   "a": "quake",
+   "aKo": "지진",
+   "aEx": "",
+   "b": "cake",
+   "bKo": "케이크",
+   "bEx": "A piece of cake, please."
+  },
+  {
+   "g": "w_wait",
+   "a": "quite",
+   "aKo": "꽤",
+   "aEx": "",
+   "b": "kite",
+   "bKo": "연",
+   "bEx": ""
+  },
+  {
+   "g": "w_wait",
+   "a": "quilt",
+   "aKo": "누비 이불",
+   "aEx": "",
+   "b": "kilt",
+   "bKo": "킬트(치마)",
+   "bEx": ""
+  },
+  {
+   "g": "w_wait",
+   "a": "square",
+   "aKo": "정사각형, 광장",
+   "aEx": "",
+   "b": "scare",
+   "bKo": "겁주다",
+   "bEx": ""
+  },
+  {
+   "g": "w_wait",
+   "a": "twin",
+   "aKo": "쌍둥이",
+   "aEx": "",
+   "b": "tin",
+   "bKo": "주석, 통조림통",
+   "bEx": ""
+  },
+  {
+   "g": "w_wait",
+   "a": "swing",
+   "aKo": "그네, 흔들다",
+   "aEx": "",
+   "b": "sing",
+   "bKo": "노래하다",
+   "bEx": ""
+  },
+  {
+   "g": "w_wait",
+   "a": "sweet",
+   "aKo": "달콤한",
+   "aEx": "Is it too sweet?",
+   "b": "seat",
+   "bKo": "자리",
+   "bEx": "Is this seat taken?"
+  },
+  {
+   "g": "w_wait",
+   "a": "swell",
+   "aKo": "부풀다",
+   "aEx": "",
+   "b": "sell",
+   "bKo": "팔다",
+   "bEx": ""
+  },
+  {
+   "g": "w_wait",
+   "a": "wake",
+   "aKo": "깨다",
+   "aEx": "What time do I wake up?",
+   "b": "ache",
+   "bKo": "아프다",
+   "bEx": "I have a stomachache."
+  },
+  {
+   "g": "w_wait",
+   "a": "wage",
+   "aKo": "임금",
+   "aEx": "",
+   "b": "age",
+   "bKo": "나이",
+   "bEx": "What's your age?"
+  },
+  {
+   "g": "w_wait",
+   "a": "wail",
+   "aKo": "울부짖다",
+   "aEx": "",
+   "b": "ale",
+   "bKo": "에일 맥주",
+   "bEx": ""
+  },
+  {
+   "g": "w_wait",
+   "a": "wedge",
+   "aKo": "쐐기",
+   "aEx": "",
+   "b": "edge",
+   "bKo": "가장자리",
+   "bEx": ""
+  },
+  {
+   "g": "w_wait",
+   "a": "wit",
+   "aKo": "재치",
+   "aEx": "",
+   "b": "it",
+   "bKo": "그것",
+   "bEx": ""
+  },
+  {
+   "g": "w_wait",
+   "a": "wink",
+   "aKo": "윙크",
+   "aEx": "",
+   "b": "ink",
+   "bKo": "잉크",
+   "bEx": ""
+  },
+  {
+   "g": "w_wait",
+   "a": "wore",
+   "aKo": "입었다",
+   "aEx": "",
+   "b": "or",
+   "bKo": "또는",
+   "bEx": ""
+  },
+  {
+   "g": "w_wait",
+   "a": "wax",
+   "aKo": "왁스",
+   "aEx": "",
+   "b": "ax",
+   "bKo": "도끼",
+   "bEx": ""
+  },
+  {
+   "g": "w_wait",
+   "a": "wheel",
+   "aKo": "바퀴",
+   "aEx": "It's a big wheel.",
+   "b": "eel",
+   "bKo": "뱀장어",
+   "bEx": ""
+  },
+  {
+   "g": "w_wait",
+   "a": "wise",
+   "aKo": "현명한",
+   "aEx": "",
+   "b": "eyes",
+   "bKo": "눈들",
+   "bEx": "My eyes are tired."
+  },
+  {
+   "g": "w_wait",
+   "a": "woe",
+   "aKo": "슬픔",
+   "aEx": "",
+   "b": "oh",
+   "bKo": "아",
+   "bEx": ""
+  },
+  {
+   "g": "i_ee",
+   "a": "bin",
+   "aKo": "통",
+   "aEx": "",
+   "b": "bean",
+   "bKo": "콩",
+   "bEx": ""
+  },
+  {
+   "g": "i_ee",
+   "a": "his",
+   "aKo": "그의",
+   "aEx": "",
+   "b": "he's",
+   "bKo": "그는 ~이다",
+   "bEx": ""
+  },
+  {
+   "g": "i_ee",
+   "a": "it",
+   "aKo": "그것",
+   "aEx": "",
+   "b": "eat",
+   "bKo": "먹다",
+   "bEx": ""
+  },
+  {
+   "g": "i_ee",
+   "a": "mill",
+   "aKo": "방앗간",
+   "aEx": "",
+   "b": "meal",
+   "bKo": "식사",
+   "bEx": "Is a meal included?"
+  },
+  {
+   "g": "i_ee",
+   "a": "hill",
+   "aKo": "언덕",
+   "aEx": "",
+   "b": "heal",
+   "bKo": "낫다",
+   "bEx": "It will heal soon."
+  },
+  {
+   "g": "i_ee",
+   "a": "rich",
+   "aKo": "부유한",
+   "aEx": "",
+   "b": "reach",
+   "bKo": "닿다",
+   "bEx": ""
+  },
+  {
+   "g": "i_ee",
+   "a": "slip",
+   "aKo": "미끄러지다",
+   "aEx": "",
+   "b": "sleep",
+   "bKo": "자다",
+   "bEx": "I can't sleep."
+  },
+  {
+   "g": "i_ee",
+   "a": "still",
+   "aKo": "아직",
+   "aEx": "",
+   "b": "steel",
+   "bKo": "강철",
+   "bEx": ""
+  },
+  {
+   "g": "i_ee",
+   "a": "wick",
+   "aKo": "심지",
+   "aEx": "",
+   "b": "week",
+   "bKo": "주",
+   "bEx": "See you next week."
+  },
+  {
+   "g": "i_ee",
+   "a": "pick",
+   "aKo": "고르다",
+   "aEx": "Pick one, please.",
+   "b": "peak",
+   "bKo": "정상",
+   "bEx": ""
+  },
+  {
+   "g": "i_ee",
+   "a": "lick",
+   "aKo": "핥다",
+   "aEx": "",
+   "b": "leak",
+   "bKo": "새다",
+   "bEx": ""
+  },
+  {
+   "g": "i_ee",
+   "a": "grin",
+   "aKo": "활짝 웃다",
+   "aEx": "",
+   "b": "green",
+   "bKo": "초록",
+   "bEx": ""
+  },
+  {
+   "g": "i_ee",
+   "a": "dip",
+   "aKo": "살짝 담그다",
+   "aEx": "",
+   "b": "deep",
+   "bKo": "깊은",
+   "bEx": "Take a deep breath."
+  },
+  {
+   "g": "i_ee",
+   "a": "fit",
+   "aKo": "꼭 맞다",
+   "aEx": "",
+   "b": "feet",
+   "bKo": "발",
+   "bEx": "My feet hurt."
+  },
+  {
+   "g": "i_ee",
+   "a": "knit",
+   "aKo": "뜨개질하다",
+   "aEx": "",
+   "b": "neat",
+   "bKo": "깔끔한",
+   "bEx": ""
+  },
+  {
+   "g": "i_ee",
+   "a": "chick",
+   "aKo": "병아리",
+   "aEx": "",
+   "b": "cheek",
+   "bKo": "뺨",
+   "bEx": ""
+  },
+  {
+   "g": "i_ee",
+   "a": "sin",
+   "aKo": "죄",
+   "aEx": "",
+   "b": "seen",
+   "bKo": "본",
+   "bEx": ""
+  },
+  {
+   "g": "i_ee",
+   "a": "tin",
+   "aKo": "통조림통",
+   "aEx": "",
+   "b": "teen",
+   "bKo": "십대",
+   "bEx": "She's a teenager."
+  },
+  {
+   "g": "i_ee",
+   "a": "sick",
+   "aKo": "아픈",
+   "aEx": "I feel sick.",
+   "b": "seek",
+   "bKo": "찾다",
+   "bEx": ""
+  },
+  {
+   "g": "i_ee",
+   "a": "grid",
+   "aKo": "격자",
+   "aEx": "",
+   "b": "greed",
+   "bKo": "탐욕",
+   "bEx": ""
+  },
+  {
+   "g": "i_ee",
+   "a": "fist",
+   "aKo": "주먹",
+   "aEx": "",
+   "b": "feast",
+   "bKo": "잔치",
+   "bEx": ""
+  },
+  {
+   "g": "i_ee",
+   "a": "list",
+   "aKo": "목록",
+   "aEx": "Is it on the list?",
+   "b": "least",
+   "bKo": "가장 적은",
+   "bEx": ""
+  },
+  {
+   "g": "i_ee",
+   "a": "bid",
+   "aKo": "입찰",
+   "aEx": "",
+   "b": "bead",
+   "bKo": "구슬",
+   "bEx": ""
+  },
+  {
+   "g": "i_ee",
+   "a": "rip",
+   "aKo": "찢다",
+   "aEx": "",
+   "b": "reap",
+   "bKo": "거두다",
+   "bEx": ""
+  },
+  {
+   "g": "i_ee",
+   "a": "mitt",
+   "aKo": "장갑",
+   "aEx": "",
+   "b": "meet",
+   "bKo": "만나다",
+   "bEx": ""
+  },
+  {
+   "g": "s_sh",
+   "a": "sip",
+   "aKo": "홀짝이다",
+   "aEx": "",
+   "b": "ship",
+   "bKo": "배",
+   "bEx": ""
+  },
+  {
+   "g": "s_sh",
+   "a": "sin",
+   "aKo": "죄",
+   "aEx": "",
+   "b": "shin",
+   "bKo": "정강이",
+   "bEx": ""
+  },
+  {
+   "g": "s_sh",
+   "a": "sock",
+   "aKo": "양말",
+   "aEx": "",
+   "b": "shock",
+   "bKo": "충격",
+   "bEx": ""
+  },
+  {
+   "g": "s_sh",
+   "a": "sack",
+   "aKo": "자루",
+   "aEx": "",
+   "b": "shack",
+   "bKo": "오두막",
+   "bEx": ""
+  },
+  {
+   "g": "s_sh",
+   "a": "sore",
+   "aKo": "아픈",
+   "aEx": "My throat is sore.",
+   "b": "shore",
+   "bKo": "해안",
+   "bEx": "Let's walk along the shore."
+  },
+  {
+   "g": "s_sh",
+   "a": "so",
+   "aKo": "그래서",
+   "aEx": "",
+   "b": "show",
+   "bKo": "보여 주다",
+   "bEx": "Can you show me?"
+  },
+  {
+   "g": "s_sh",
+   "a": "sigh",
+   "aKo": "한숨",
+   "aEx": "",
+   "b": "shy",
+   "bKo": "수줍은",
+   "bEx": ""
+  },
+  {
+   "g": "s_sh",
+   "a": "self",
+   "aKo": "자기",
+   "aEx": "",
+   "b": "shelf",
+   "bKo": "선반",
+   "bEx": "Is it on the shelf?"
+  },
+  {
+   "g": "s_sh",
+   "a": "sine",
+   "aKo": "사인(수학)",
+   "aEx": "",
+   "b": "shine",
+   "bKo": "빛나다",
+   "bEx": ""
+  },
+  {
+   "g": "s_sh",
+   "a": "sake",
+   "aKo": "~를 위해",
+   "aEx": "",
+   "b": "shake",
+   "bKo": "흔들다",
+   "bEx": "Let's shake hands."
+  },
+  {
+   "g": "s_sh",
+   "a": "said",
+   "aKo": "말했다",
+   "aEx": "",
+   "b": "shed",
+   "bKo": "헛간",
+   "bEx": ""
+  },
+  {
+   "g": "s_sh",
+   "a": "sear",
+   "aKo": "그슬리다",
+   "aEx": "",
+   "b": "sheer",
+   "bKo": "완전한, 얇은",
+   "bEx": ""
+  },
+  {
+   "g": "s_sh",
+   "a": "sift",
+   "aKo": "체로 치다",
+   "aEx": "",
+   "b": "shift",
+   "bKo": "교대 근무, 이동",
+   "bEx": ""
+  },
+  {
+   "g": "s_sh",
+   "a": "class",
+   "aKo": "수업",
+   "aEx": "",
+   "b": "clash",
+   "bKo": "충돌",
+   "bEx": ""
+  },
+  {
+   "g": "s_sh",
+   "a": "cast",
+   "aKo": "던지다",
+   "aEx": "",
+   "b": "cash",
+   "bKo": "현금",
+   "bEx": "Do you take cash?"
+  },
+  {
+   "g": "s_sh",
+   "a": "mess",
+   "aKo": "엉망",
+   "aEx": "Sorry about the mess.",
+   "b": "mesh",
+   "bKo": "그물망",
+   "bEx": ""
+  },
+  {
+   "g": "s_sh",
+   "a": "wise",
+   "aKo": "현명한",
+   "aEx": "",
+   "b": "wish",
+   "bKo": "바라다",
+   "bEx": "I wish you the best."
+  },
+  {
+   "g": "s_sh",
+   "a": "gas",
+   "aKo": "가스",
+   "aEx": "Where's the gas station?",
+   "b": "gash",
+   "bKo": "깊은 상처",
+   "bEx": ""
+  },
+  {
+   "g": "s_sh",
+   "a": "mass",
+   "aKo": "덩어리",
+   "aEx": "",
+   "b": "mash",
+   "bKo": "으깨다",
+   "bEx": ""
+  },
+  {
+   "g": "s_sh",
+   "a": "lass",
+   "aKo": "소녀",
+   "aEx": "",
+   "b": "lash",
+   "bKo": "채찍, 속눈썹",
+   "bEx": ""
+  },
+  {
+   "g": "s_sh",
+   "a": "sun",
+   "aKo": "해",
+   "aEx": "",
+   "b": "shun",
+   "bKo": "피하다",
+   "bEx": ""
+  },
+  {
+   "g": "s_sh",
+   "a": "seen",
+   "aKo": "본",
+   "aEx": "",
+   "b": "sheen",
+   "bKo": "광택",
+   "bEx": ""
+  },
+  {
+   "g": "s_sh",
+   "a": "suit",
+   "aKo": "정장",
+   "aEx": "Nice suit!",
+   "b": "shoot",
+   "bKo": "쏘다",
+   "bEx": ""
+  },
+  {
+   "g": "u_o",
+   "a": "cut",
+   "aKo": "자르다",
+   "aEx": "",
+   "b": "cot",
+   "bKo": "간이침대",
+   "bEx": ""
+  },
+  {
+   "g": "u_o",
+   "a": "bus",
+   "aKo": "버스",
+   "aEx": "Which bus goes downtown?",
+   "b": "boss",
+   "bKo": "상사",
+   "bEx": "I have to call my boss."
+  },
+  {
+   "g": "u_o",
+   "a": "bug",
+   "aKo": "벌레",
+   "aEx": "",
+   "b": "bog",
+   "bKo": "늪",
+   "bEx": ""
+  },
+  {
+   "g": "u_o",
+   "a": "but",
+   "aKo": "하지만",
+   "aEx": "",
+   "b": "bot",
+   "bKo": "봇",
+   "bEx": ""
+  },
+  {
+   "g": "u_o",
+   "a": "cub",
+   "aKo": "새끼 곰",
+   "aEx": "",
+   "b": "cob",
+   "bKo": "옥수수 속대",
+   "bEx": ""
+  },
+  {
+   "g": "u_o",
+   "a": "gut",
+   "aKo": "장",
+   "aEx": "",
+   "b": "got",
+   "bKo": "얻었다",
+   "bEx": ""
+  },
+  {
+   "g": "u_o",
+   "a": "hug",
+   "aKo": "포옹",
+   "aEx": "",
+   "b": "hog",
+   "bKo": "돼지",
+   "bEx": ""
+  },
+  {
+   "g": "u_o",
+   "a": "mud",
+   "aKo": "진흙",
+   "aEx": "",
+   "b": "mod",
+   "bKo": "모드",
+   "bEx": ""
+  },
+  {
+   "g": "u_o",
+   "a": "pup",
+   "aKo": "강아지",
+   "aEx": "",
+   "b": "pop",
+   "bKo": "팝, 펑 소리",
+   "bEx": ""
+  },
+  {
+   "g": "u_o",
+   "a": "putt",
+   "aKo": "퍼팅",
+   "aEx": "",
+   "b": "pot",
+   "bKo": "냄비",
+   "bEx": ""
+  },
+  {
+   "g": "u_o",
+   "a": "rub",
+   "aKo": "문지르다",
+   "aEx": "",
+   "b": "rob",
+   "bKo": "강도질하다",
+   "bEx": ""
+  },
+  {
+   "g": "u_o",
+   "a": "shut",
+   "aKo": "닫다",
+   "aEx": "",
+   "b": "shot",
+   "bKo": "주사, 한 방",
+   "bEx": "I got a flu shot."
+  },
+  {
+   "g": "u_o",
+   "a": "sub",
+   "aKo": "샌드위치, 대체",
+   "aEx": "",
+   "b": "sob",
+   "bKo": "흐느끼다",
+   "bEx": ""
+  },
+  {
+   "g": "u_o",
+   "a": "suck",
+   "aKo": "빨다",
+   "aEx": "",
+   "b": "sock",
+   "bKo": "양말",
+   "bEx": ""
+  },
+  {
+   "g": "u_o",
+   "a": "stuck",
+   "aKo": "갇힌",
+   "aEx": "",
+   "b": "stock",
+   "bKo": "재고, 주식",
+   "bEx": ""
+  },
+  {
+   "g": "u_o",
+   "a": "dug",
+   "aKo": "팠다",
+   "aEx": "",
+   "b": "dog",
+   "bKo": "개",
+   "bEx": "Can I bring my dog?"
+  },
+  {
+   "g": "u_o",
+   "a": "lunch",
+   "aKo": "점심",
+   "aEx": "What's for lunch?",
+   "b": "launch",
+   "bKo": "시작하다, 발사",
+   "bEx": ""
+  },
+  {
+   "g": "u_o",
+   "a": "cluck",
+   "aKo": "꼬꼬댁",
+   "aEx": "",
+   "b": "clock",
+   "bKo": "시계",
+   "bEx": "What's wrong with the clock?"
+  },
+  {
+   "g": "u_o",
+   "a": "dull",
+   "aKo": "무딘",
+   "aEx": "",
+   "b": "doll",
+   "bKo": "인형",
+   "bEx": ""
+  },
+  {
+   "g": "u_o",
+   "a": "gun",
+   "aKo": "총",
+   "aEx": "",
+   "b": "gone",
+   "bKo": "가 버린",
+   "bEx": ""
+  },
+  {
+   "g": "u_o",
+   "a": "color",
+   "aKo": "색",
+   "aEx": "What color is it?",
+   "b": "collar",
+   "bKo": "옷깃",
+   "bEx": ""
+  },
+  {
+   "g": "u_o",
+   "a": "bucks",
+   "aKo": "달러(속어)",
+   "aEx": "",
+   "b": "box",
+   "bKo": "상자",
+   "bEx": "Can I get a box for this?"
+  },
+  {
+   "g": "u_o",
+   "a": "ducks",
+   "aKo": "오리들",
+   "aEx": "",
+   "b": "docks",
+   "bKo": "부두들",
+   "bEx": ""
+  },
+  {
+   "g": "u_o",
+   "a": "cuss",
+   "aKo": "욕하다",
+   "aEx": "",
+   "b": "cost",
+   "bKo": "비용",
+   "bEx": "How much does it cost?"
+  },
+  {
+   "g": "walk_work",
+   "a": "pause",
+   "aKo": "잠깐 멈춤",
+   "aEx": "",
+   "b": "purse",
+   "bKo": "지갑",
+   "bEx": "I lost my purse."
+  },
+  {
+   "g": "walk_work",
+   "a": "pork",
+   "aKo": "돼지고기",
+   "aEx": "",
+   "b": "perk",
+   "bKo": "혜택",
+   "bEx": ""
+  },
+  {
+   "g": "walk_work",
+   "a": "cord",
+   "aKo": "줄, 코드",
+   "aEx": "",
+   "b": "curd",
+   "bKo": "응유",
+   "bEx": ""
+  },
+  {
+   "g": "walk_work",
+   "a": "horse",
+   "aKo": "말",
+   "aEx": "",
+   "b": "hearse",
+   "bKo": "영구차",
+   "bEx": ""
+  },
+  {
+   "g": "walk_work",
+   "a": "torn",
+   "aKo": "찢어진",
+   "aEx": "",
+   "b": "turn",
+   "bKo": "돌다",
+   "bEx": ""
+  },
+  {
+   "g": "walk_work",
+   "a": "sport",
+   "aKo": "스포츠",
+   "aEx": "",
+   "b": "spurt",
+   "bKo": "분출",
+   "bEx": ""
+  },
+  {
+   "g": "walk_work",
+   "a": "hoard",
+   "aKo": "비축하다",
+   "aEx": "",
+   "b": "heard",
+   "bKo": "들었다",
+   "bEx": ""
+  },
+  {
+   "g": "walk_work",
+   "a": "board",
+   "aKo": "판자, 탑승하다",
+   "aEx": "",
+   "b": "bird",
+   "bKo": "새",
+   "bEx": "Look at that bird!"
+  },
+  {
+   "g": "walk_work",
+   "a": "form",
+   "aKo": "양식",
+   "aEx": "Do I need to fill out a form?",
+   "b": "firm",
+   "bKo": "회사, 단단한",
+   "bEx": ""
+  },
+  {
+   "g": "walk_work",
+   "a": "course",
+   "aKo": "코스, 과정",
+   "aEx": "Of course!",
+   "b": "curse",
+   "bKo": "저주",
+   "bEx": ""
+  },
+  {
+   "g": "walk_work",
+   "a": "shorts",
+   "aKo": "반바지",
+   "aEx": "",
+   "b": "shirts",
+   "bKo": "셔츠들",
+   "bEx": ""
+  },
+  {
+   "g": "walk_work",
+   "a": "fawn",
+   "aKo": "새끼 사슴",
+   "aEx": "",
+   "b": "fern",
+   "bKo": "고사리",
+   "bEx": ""
+  },
+  {
+   "g": "walk_work",
+   "a": "call",
+   "aKo": "부르다",
+   "aEx": "Please call me back.",
+   "b": "curl",
+   "bKo": "곱슬곱슬하게 하다",
+   "bEx": ""
+  },
+  {
+   "g": "walk_work",
+   "a": "gall",
+   "aKo": "뻔뻔함",
+   "aEx": "",
+   "b": "girl",
+   "bKo": "소녀",
+   "bEx": ""
+  },
+  {
+   "g": "walk_work",
+   "a": "lawn",
+   "aKo": "잔디밭",
+   "aEx": "",
+   "b": "learn",
+   "bKo": "배우다",
+   "bEx": "I want to learn English."
+  },
+  {
+   "g": "walk_work",
+   "a": "store",
+   "aKo": "가게",
+   "aEx": "Is the store open?",
+   "b": "stir",
+   "bKo": "젓다",
+   "bEx": ""
+  },
+  {
+   "g": "walk_work",
+   "a": "for",
+   "aKo": "~를 위해",
+   "aEx": "This is for you.",
+   "b": "fur",
+   "bKo": "털",
+   "bEx": ""
+  },
+  {
+   "g": "walk_work",
+   "a": "sore",
+   "aKo": "아픈",
+   "aEx": "My throat is sore.",
+   "b": "sir",
+   "bKo": "선생님",
+   "bEx": ""
+  },
+  {
+   "g": "walk_work",
+   "a": "war",
+   "aKo": "전쟁",
+   "aEx": "",
+   "b": "were",
+   "bKo": "~였다",
+   "bEx": ""
+  },
+  {
+   "g": "walk_work",
+   "a": "lord",
+   "aKo": "주인, 주님",
+   "aEx": "",
+   "b": "learned",
+   "bKo": "배운",
+   "bEx": ""
+  },
+  {
+   "g": "walk_work",
+   "a": "Paul",
+   "aKo": "폴(이름)",
+   "aEx": "",
+   "b": "pearl",
+   "bKo": "진주",
+   "bEx": ""
+  },
+  {
+   "g": "walk_work",
+   "a": "haul",
+   "aKo": "끌다",
+   "aEx": "",
+   "b": "hurl",
+   "bKo": "내던지다",
+   "bEx": ""
+  },
+  {
+   "g": "walk_work",
+   "a": "yawn",
+   "aKo": "하품",
+   "aEx": "",
+   "b": "yearn",
+   "bKo": "갈망하다",
+   "bEx": ""
+  },
+  {
+   "g": "o_oh",
+   "a": "caught",
+   "aKo": "잡았다",
+   "aEx": "",
+   "b": "coat",
+   "bKo": "코트",
+   "bEx": "Can I take your coat?"
+  },
+  {
+   "g": "o_oh",
+   "a": "ought",
+   "aKo": "~해야 한다",
+   "aEx": "",
+   "b": "oat",
+   "bKo": "귀리",
+   "bEx": ""
+  },
+  {
+   "g": "o_oh",
+   "a": "pause",
+   "aKo": "잠깐 멈춤",
+   "aEx": "",
+   "b": "pose",
+   "bKo": "자세",
+   "bEx": ""
+  },
+  {
+   "g": "o_oh",
+   "a": "flaw",
+   "aKo": "결함",
+   "aEx": "",
+   "b": "flow",
+   "bKo": "흐르다",
+   "bEx": ""
+  },
+  {
+   "g": "o_oh",
+   "a": "gnaw",
+   "aKo": "갉다",
+   "aEx": "",
+   "b": "no",
+   "bKo": "아니요",
+   "bEx": ""
+  },
+  {
+   "g": "o_oh",
+   "a": "tall",
+   "aKo": "키가 큰",
+   "aEx": "",
+   "b": "toll",
+   "bKo": "통행료",
+   "bEx": "Is there a toll?"
+  },
+  {
+   "g": "o_oh",
+   "a": "fall",
+   "aKo": "가을, 떨어지다",
+   "aEx": "",
+   "b": "foal",
+   "bKo": "망아지",
+   "bEx": ""
+  },
+  {
+   "g": "o_oh",
+   "a": "hall",
+   "aKo": "복도",
+   "aEx": "",
+   "b": "hole",
+   "bKo": "구멍",
+   "bEx": "There's a hole here."
+  },
+  {
+   "g": "o_oh",
+   "a": "mall",
+   "aKo": "쇼핑몰",
+   "aEx": "Is there a mall nearby?",
+   "b": "mole",
+   "bKo": "점, 두더지",
+   "bEx": ""
+  },
+  {
+   "g": "o_oh",
+   "a": "stall",
+   "aKo": "가판대",
+   "aEx": "",
+   "b": "stole",
+   "bKo": "훔쳤다",
+   "bEx": ""
+  },
+  {
+   "g": "o_oh",
+   "a": "wall",
+   "aKo": "벽",
+   "aEx": "It's on the wall.",
+   "b": "whole",
+   "bKo": "전체의",
+   "bEx": "The whole thing, please."
+  },
+  {
+   "g": "o_oh",
+   "a": "call",
+   "aKo": "전화하다",
+   "aEx": "Please call me back.",
+   "b": "coal",
+   "bKo": "석탄",
+   "bEx": ""
+  },
+  {
+   "g": "o_oh",
+   "a": "gall",
+   "aKo": "뻔뻔함",
+   "aEx": "",
+   "b": "goal",
+   "bKo": "목표",
+   "bEx": "What's your goal?"
+  },
+  {
+   "g": "o_oh",
+   "a": "lawn",
+   "aKo": "잔디",
+   "aEx": "",
+   "b": "loan",
+   "bKo": "대출",
+   "bEx": "I'd like to apply for a loan."
+  },
+  {
+   "g": "o_oh",
+   "a": "sauce",
+   "aKo": "소스",
+   "aEx": "",
+   "b": "sews",
+   "bKo": "바느질한다",
+   "bEx": ""
+  },
+  {
+   "g": "o_oh",
+   "a": "taught",
+   "aKo": "가르쳤다",
+   "aEx": "",
+   "b": "tote",
+   "bKo": "들고 다니다",
+   "bEx": ""
+  },
+  {
+   "g": "o_oh",
+   "a": "chalk",
+   "aKo": "분필",
+   "aEx": "",
+   "b": "choke",
+   "bKo": "질식하다",
+   "bEx": ""
+  },
+  {
+   "g": "o_oh",
+   "a": "walk",
+   "aKo": "걷다",
+   "aEx": "It's a five-minute walk.",
+   "b": "woke",
+   "bKo": "깼다",
+   "bEx": ""
+  },
+  {
+   "g": "o_oh",
+   "a": "stalk",
+   "aKo": "줄기",
+   "aEx": "",
+   "b": "stoke",
+   "bKo": "불을 지피다",
+   "bEx": ""
+  },
+  {
+   "g": "o_oh",
+   "a": "cord",
+   "aKo": "줄",
+   "aEx": "",
+   "b": "code",
+   "bKo": "암호",
+   "bEx": "What's the code?"
+  },
+  {
+   "g": "o_oh",
+   "a": "born",
+   "aKo": "태어난",
+   "aEx": "",
+   "b": "bone",
+   "bKo": "뼈",
+   "bEx": "I think I broke a bone."
+  },
+  {
+   "g": "o_oh",
+   "a": "corn",
+   "aKo": "옥수수",
+   "aEx": "Can I get corn with that?",
+   "b": "cone",
+   "bKo": "원뿔",
+   "bEx": ""
+  },
+  {
+   "g": "o_oh",
+   "a": "fork",
+   "aKo": "포크",
+   "aEx": "",
+   "b": "folk",
+   "bKo": "사람들, 민속",
+   "bEx": ""
+  },
+  {
+   "g": "o_oh",
+   "a": "lord",
+   "aKo": "주인, 주님",
+   "aEx": "",
+   "b": "load",
+   "bKo": "짐",
+   "bEx": ""
+  },
+  {
+   "g": "th_s",
+   "a": "thick",
+   "aKo": "두꺼운",
+   "aEx": "Is it too thick?",
+   "b": "sick",
+   "bKo": "아픈",
+   "bEx": "I feel sick."
+  },
+  {
+   "g": "th_s",
+   "a": "thing",
+   "aKo": "것",
+   "aEx": "What is this thing?",
+   "b": "sing",
+   "bKo": "노래하다",
+   "bEx": ""
+  },
+  {
+   "g": "th_s",
+   "a": "thumb",
+   "aKo": "엄지",
+   "aEx": "",
+   "b": "sum",
+   "bKo": "합계",
+   "bEx": ""
+  },
+  {
+   "g": "th_s",
+   "a": "theme",
+   "aKo": "주제",
+   "aEx": "",
+   "b": "seem",
+   "bKo": "~처럼 보이다",
+   "bEx": ""
+  },
+  {
+   "g": "th_s",
+   "a": "thin",
+   "aKo": "얇은",
+   "aEx": "",
+   "b": "sin",
+   "bKo": "죄",
+   "bEx": ""
+  },
+  {
+   "g": "th_s",
+   "a": "thought",
+   "aKo": "생각했다",
+   "aEx": "",
+   "b": "sought",
+   "bKo": "찾았다",
+   "bEx": ""
+  },
+  {
+   "g": "th_s",
+   "a": "thaw",
+   "aKo": "녹다",
+   "aEx": "",
+   "b": "saw",
+   "bKo": "보았다",
+   "bEx": ""
+  },
+  {
+   "g": "th_s",
+   "a": "thigh",
+   "aKo": "허벅지",
+   "aEx": "",
+   "b": "sigh",
+   "bKo": "한숨",
+   "bEx": ""
+  },
+  {
+   "g": "th_s",
+   "a": "math",
+   "aKo": "수학",
+   "aEx": "",
+   "b": "mass",
+   "bKo": "덩어리",
+   "bEx": ""
+  },
+  {
+   "g": "th_s",
+   "a": "faith",
+   "aKo": "믿음",
+   "aEx": "Have some faith.",
+   "b": "face",
+   "bKo": "얼굴",
+   "bEx": ""
+  },
+  {
+   "g": "th_s",
+   "a": "worth",
+   "aKo": "가치",
+   "aEx": "Is it worth it?",
+   "b": "worse",
+   "bKo": "더 나쁜",
+   "bEx": ""
+  },
+  {
+   "g": "th_s",
+   "a": "moth",
+   "aKo": "나방",
+   "aEx": "",
+   "b": "moss",
+   "bKo": "이끼",
+   "bEx": ""
+  },
+  {
+   "g": "th_s",
+   "a": "myth",
+   "aKo": "신화",
+   "aEx": "",
+   "b": "miss",
+   "bKo": "놓치다, 그리워하다",
+   "bEx": ""
+  },
+  {
+   "g": "th_s",
+   "a": "truth",
+   "aKo": "진실",
+   "aEx": "That's the truth.",
+   "b": "truce",
+   "bKo": "휴전",
+   "bEx": ""
+  },
+  {
+   "g": "th_s",
+   "a": "booth",
+   "aKo": "부스",
+   "aEx": "",
+   "b": "boost",
+   "bKo": "북돋우다",
+   "bEx": ""
+  },
+  {
+   "g": "th_s",
+   "a": "tenth",
+   "aKo": "열 번째",
+   "aEx": "",
+   "b": "tense",
+   "bKo": "긴장한",
+   "bEx": ""
+  },
+  {
+   "g": "th_s",
+   "a": "thorn",
+   "aKo": "가시",
+   "aEx": "",
+   "b": "sworn",
+   "bKo": "맹세한",
+   "bEx": ""
+  },
+  {
+   "g": "th_s",
+   "a": "thinks",
+   "aKo": "생각한다",
+   "aEx": "",
+   "b": "sinks",
+   "bKo": "가라앉는다",
+   "bEx": ""
+  },
+  {
+   "g": "th_s",
+   "a": "both",
+   "aKo": "둘 다",
+   "aEx": "Both, please.",
+   "b": "boast",
+   "bKo": "자랑하다",
+   "bEx": ""
+  },
+  {
+   "g": "th_s",
+   "a": "thickness",
+   "aKo": "두께",
+   "aEx": "",
+   "b": "sickness",
+   "bKo": "병",
+   "bEx": ""
+  },
+  {
+   "g": "th_s",
+   "a": "thinner",
+   "aKo": "더 얇은",
+   "aEx": "",
+   "b": "sinner",
+   "bKo": "죄인",
+   "bEx": ""
+  },
+  {
+   "g": "th_d",
+   "a": "there",
+   "aKo": "저기",
+   "aEx": "Is there a washroom?",
+   "b": "dare",
+   "bKo": "감히 ~하다",
+   "bEx": ""
+  },
+  {
+   "g": "th_d",
+   "a": "thy",
+   "aKo": "너의",
+   "aEx": "",
+   "b": "die",
+   "bKo": "죽다",
+   "bEx": ""
+  },
+  {
+   "g": "th_d",
+   "a": "other",
+   "aKo": "다른",
+   "aEx": "Do you have any other size?",
+   "b": "udder",
+   "bKo": "젖통",
+   "bEx": ""
+  },
+  {
+   "g": "th_d",
+   "a": "father",
+   "aKo": "아버지",
+   "aEx": "This is my father.",
+   "b": "fodder",
+   "bKo": "사료",
+   "bEx": ""
+  },
+  {
+   "g": "th_d",
+   "a": "wither",
+   "aKo": "시들다",
+   "aEx": "",
+   "b": "wider",
+   "bKo": "더 넓은",
+   "bEx": ""
+  },
+  {
+   "g": "th_d",
+   "a": "lather",
+   "aKo": "거품",
+   "aEx": "",
+   "b": "ladder",
+   "bKo": "사다리",
+   "bEx": "Do you have a ladder?"
+  },
+  {
+   "g": "th_d",
+   "a": "loathe",
+   "aKo": "몹시 싫어하다",
+   "aEx": "",
+   "b": "load",
+   "bKo": "짐",
+   "bEx": ""
+  },
+  {
+   "g": "th_d",
+   "a": "worthy",
+   "aKo": "가치 있는",
+   "aEx": "",
+   "b": "wordy",
+   "bKo": "장황한",
+   "bEx": ""
+  },
+  {
+   "g": "th_d",
+   "a": "breathing",
+   "aKo": "호흡",
+   "aEx": "",
+   "b": "breeding",
+   "bKo": "번식",
+   "bEx": ""
+  },
+  {
+   "g": "th_d",
+   "a": "weather",
+   "aKo": "날씨",
+   "aEx": "How's the weather today?",
+   "b": "wetter",
+   "bKo": "더 젖은",
+   "bEx": ""
+  },
+  {
+   "g": "th_d",
+   "a": "leather",
+   "aKo": "가죽",
+   "aEx": "Is this leather?",
+   "b": "letter",
+   "bKo": "편지",
+   "bEx": "I got a letter."
+  },
+  {
+   "g": "th_d",
+   "a": "feather",
+   "aKo": "깃털",
+   "aEx": "",
+   "b": "fetter",
+   "bKo": "족쇄",
+   "bEx": ""
+  },
+  {
+   "g": "th_d",
+   "a": "thread",
+   "aKo": "실",
+   "aEx": "Do you have a needle and thread?",
+   "b": "dread",
+   "bKo": "두려움",
+   "bEx": ""
+  },
+  {
+   "g": "th_d",
+   "a": "thrill",
+   "aKo": "짜릿함",
+   "aEx": "",
+   "b": "drill",
+   "bKo": "드릴, 훈련",
+   "bEx": ""
+  },
+  {
+   "g": "th_d",
+   "a": "thin",
+   "aKo": "얇은",
+   "aEx": "",
+   "b": "din",
+   "bKo": "소음",
+   "bEx": ""
+  },
+  {
+   "g": "th_d",
+   "a": "thing",
+   "aKo": "것",
+   "aEx": "What is this thing?",
+   "b": "ding",
+   "bKo": "땡 소리",
+   "bEx": ""
+  },
+  {
+   "g": "th_d",
+   "a": "thump",
+   "aKo": "쿵",
+   "aEx": "",
+   "b": "dump",
+   "bKo": "버리다",
+   "bEx": ""
+  },
+  {
+   "g": "th_d",
+   "a": "thud",
+   "aKo": "쿵 소리",
+   "aEx": "",
+   "b": "dud",
+   "bKo": "불량품",
+   "bEx": ""
+  },
+  {
+   "g": "th_d",
+   "a": "thumb",
+   "aKo": "엄지",
+   "aEx": "",
+   "b": "dumb",
+   "bKo": "말 못 하는, 멍청한",
+   "bEx": ""
+  },
+  {
+   "g": "th_d",
+   "a": "theme",
+   "aKo": "주제",
+   "aEx": "",
+   "b": "deem",
+   "bKo": "~로 여기다",
+   "bEx": ""
+  },
+  {
+   "g": "th_d",
+   "a": "bath",
+   "aKo": "목욕",
+   "aEx": "I need to take a bath.",
+   "b": "bad",
+   "bKo": "나쁜",
+   "bEx": ""
+  },
+  {
+   "g": "th_d",
+   "a": "path",
+   "aKo": "길",
+   "aEx": "Is there a path?",
+   "b": "pad",
+   "bKo": "패드",
+   "bEx": ""
+  },
+  {
+   "g": "th_d",
+   "a": "math",
+   "aKo": "수학",
+   "aEx": "",
+   "b": "mad",
+   "bKo": "화난",
+   "bEx": "Are you mad?"
+  },
+  {
+   "g": "th_d",
+   "a": "both",
+   "aKo": "둘 다",
+   "aEx": "Both, please.",
+   "b": "bode",
+   "bKo": "징조가 되다",
+   "bEx": ""
+  },
+  {
+   "g": "th_d",
+   "a": "faith",
+   "aKo": "믿음",
+   "aEx": "Have some faith.",
+   "b": "fade",
+   "bKo": "희미해지다",
+   "bEx": ""
+  },
+  {
+   "g": "th_d",
+   "a": "oath",
+   "aKo": "맹세",
+   "aEx": "",
+   "b": "owed",
+   "bKo": "빚진",
+   "bEx": ""
+  },
+  {
+   "g": "ae_e",
+   "a": "band",
+   "aKo": "밴드, 띠",
+   "aEx": "",
+   "b": "bend",
+   "bKo": "구부리다",
+   "bEx": ""
+  },
+  {
+   "g": "ae_e",
+   "a": "pat",
+   "aKo": "토닥이다",
+   "aEx": "",
+   "b": "pet",
+   "bKo": "반려동물",
+   "bEx": "Are pets allowed?"
+  },
+  {
+   "g": "ae_e",
+   "a": "gas",
+   "aKo": "가스",
+   "aEx": "Where's the gas station?",
+   "b": "guess",
+   "bKo": "추측하다",
+   "bEx": "I guess so."
+  },
+  {
+   "g": "ae_e",
+   "a": "land",
+   "aKo": "땅",
+   "aEx": "The plane will land soon.",
+   "b": "lend",
+   "bKo": "빌려주다",
+   "bEx": ""
+  },
+  {
+   "g": "ae_e",
+   "a": "sand",
+   "aKo": "모래",
+   "aEx": "",
+   "b": "send",
+   "bKo": "보내다",
+   "bEx": "I'd like to send this."
+  },
+  {
+   "g": "ae_e",
+   "a": "dad",
+   "aKo": "아빠",
+   "aEx": "",
+   "b": "dead",
+   "bKo": "죽은",
+   "bEx": "My phone is dead."
+  },
+  {
+   "g": "ae_e",
+   "a": "marry",
+   "aKo": "결혼하다",
+   "aEx": "",
+   "b": "merry",
+   "bKo": "즐거운",
+   "bEx": ""
+  },
+  {
+   "g": "ae_e",
+   "a": "pack",
+   "aKo": "싸다",
+   "aEx": "",
+   "b": "peck",
+   "bKo": "쪼다",
+   "bEx": ""
+  },
+  {
+   "g": "ae_e",
+   "a": "tan",
+   "aKo": "햇볕에 탄",
+   "aEx": "",
+   "b": "ten",
+   "bKo": "열",
+   "bEx": "Ten dollars, please."
+  },
+  {
+   "g": "ae_e",
+   "a": "gal",
+   "aKo": "여자애",
+   "aEx": "",
+   "b": "gel",
+   "bKo": "젤",
+   "bEx": ""
+  },
+  {
+   "g": "ae_e",
+   "a": "lad",
+   "aKo": "소년",
+   "aEx": "",
+   "b": "led",
+   "bKo": "이끌었다",
+   "bEx": ""
+  },
+  {
+   "g": "ae_e",
+   "a": "mass",
+   "aKo": "덩어리",
+   "aEx": "",
+   "b": "mess",
+   "bKo": "엉망",
+   "bEx": "Sorry about the mess."
+  },
+  {
+   "g": "ae_e",
+   "a": "rack",
+   "aKo": "선반",
+   "aEx": "",
+   "b": "wreck",
+   "bKo": "난파, 망가뜨리다",
+   "bEx": ""
+  },
+  {
+   "g": "ae_e",
+   "a": "bag",
+   "aKo": "가방",
+   "aEx": "Do you need a bag?",
+   "b": "beg",
+   "bKo": "간청하다",
+   "bEx": ""
+  },
+  {
+   "g": "ae_e",
+   "a": "lag",
+   "aKo": "뒤처지다",
+   "aEx": "",
+   "b": "leg",
+   "bKo": "다리",
+   "bEx": "My leg hurts."
+  },
+  {
+   "g": "ae_e",
+   "a": "ham",
+   "aKo": "햄",
+   "aEx": "",
+   "b": "hem",
+   "bKo": "옷단",
+   "bEx": ""
+  },
+  {
+   "g": "ae_e",
+   "a": "fad",
+   "aKo": "유행",
+   "aEx": "",
+   "b": "fed",
+   "bKo": "먹였다",
+   "bEx": ""
+  },
+  {
+   "g": "ae_e",
+   "a": "ant",
+   "aKo": "개미",
+   "aEx": "",
+   "b": "end",
+   "bKo": "끝",
+   "bEx": "That's the end."
+  },
+  {
+   "g": "ae_e",
+   "a": "axe",
+   "aKo": "도끼",
+   "aEx": "",
+   "b": "ex",
+   "bKo": "전 연인",
+   "bEx": ""
+  },
+  {
+   "g": "ae_e",
+   "a": "than",
+   "aKo": "~보다",
+   "aEx": "It's better than before.",
+   "b": "then",
+   "bKo": "그러고 나서",
+   "bEx": "And then?"
+  },
+  {
+   "g": "ae_e",
+   "a": "flash",
+   "aKo": "번쩍임",
+   "aEx": "",
+   "b": "flesh",
+   "bKo": "살",
+   "bEx": ""
+  },
+  {
+   "g": "ae_e",
+   "a": "mat",
+   "aKo": "매트",
+   "aEx": "",
+   "b": "met",
+   "bKo": "만났다",
+   "bEx": "We met before."
+  },
+  {
+   "g": "ae_e",
+   "a": "gnat",
+   "aKo": "각다귀",
+   "aEx": "",
+   "b": "net",
+   "bKo": "그물",
+   "bEx": "Is there a net?"
+  },
+  {
+   "g": "ae_e",
+   "a": "jam",
+   "aKo": "잼",
+   "aEx": "Can I get some jam?",
+   "b": "gem",
+   "bKo": "보석",
+   "bEx": ""
+  },
+  {
+   "g": "ae_e",
+   "a": "tack",
+   "aKo": "압정",
+   "aEx": "",
+   "b": "tech",
+   "bKo": "기술",
+   "bEx": ""
+  },
+  {
+   "g": "end_dt",
+   "a": "seed",
+   "aKo": "씨앗",
+   "aEx": "",
+   "b": "seat",
+   "bKo": "자리",
+   "bEx": "Is this seat taken?"
+  },
+  {
+   "g": "end_dt",
+   "a": "feed",
+   "aKo": "먹이다",
+   "aEx": "",
+   "b": "feet",
+   "bKo": "발",
+   "bEx": "My feet hurt."
+  },
+  {
+   "g": "end_dt",
+   "a": "bead",
+   "aKo": "구슬",
+   "aEx": "",
+   "b": "beat",
+   "bKo": "두드리다",
+   "bEx": ""
+  },
+  {
+   "g": "end_dt",
+   "a": "code",
+   "aKo": "암호",
+   "aEx": "What's the code?",
+   "b": "coat",
+   "bKo": "코트",
+   "bEx": "Can I take your coat?"
+  },
+  {
+   "g": "end_dt",
+   "a": "mad",
+   "aKo": "화난",
+   "aEx": "Are you mad?",
+   "b": "mat",
+   "bKo": "매트",
+   "bEx": ""
+  },
+  {
+   "g": "end_dt",
+   "a": "pad",
+   "aKo": "패드",
+   "aEx": "",
+   "b": "pat",
+   "bKo": "토닥이다",
+   "bEx": ""
+  },
+  {
+   "g": "end_dt",
+   "a": "pig",
+   "aKo": "돼지",
+   "aEx": "",
+   "b": "pick",
+   "bKo": "고르다",
+   "bEx": "Pick one, please."
+  },
+  {
+   "g": "end_dt",
+   "a": "bug",
+   "aKo": "벌레",
+   "aEx": "",
+   "b": "buck",
+   "bKo": "수사슴, 달러",
+   "bEx": ""
+  },
+  {
+   "g": "end_dt",
+   "a": "rag",
+   "aKo": "걸레",
+   "aEx": "",
+   "b": "rack",
+   "bKo": "선반",
+   "bEx": ""
+  },
+  {
+   "g": "end_dt",
+   "a": "tag",
+   "aKo": "꼬리표",
+   "aEx": "",
+   "b": "tack",
+   "bKo": "압정",
+   "bEx": ""
+  },
+  {
+   "g": "end_dt",
+   "a": "log",
+   "aKo": "통나무",
+   "aEx": "",
+   "b": "lock",
+   "bKo": "잠금",
+   "bEx": "Please lock the door."
+  },
+  {
+   "g": "end_dt",
+   "a": "bid",
+   "aKo": "입찰",
+   "aEx": "",
+   "b": "bit",
+   "bKo": "조금",
+   "bEx": ""
+  },
+  {
+   "g": "end_dt",
+   "a": "hid",
+   "aKo": "숨었다",
+   "aEx": "",
+   "b": "hit",
+   "bKo": "치다",
+   "bEx": ""
+  },
+  {
+   "g": "end_dt",
+   "a": "kid",
+   "aKo": "아이",
+   "aEx": "Is this for kids?",
+   "b": "kit",
+   "bKo": "도구 세트",
+   "bEx": ""
+  },
+  {
+   "g": "end_dt",
+   "a": "lid",
+   "aKo": "뚜껑",
+   "aEx": "",
+   "b": "lit",
+   "bKo": "불이 켜진",
+   "bEx": ""
+  },
+  {
+   "g": "end_dt",
+   "a": "bed",
+   "aKo": "침대",
+   "aEx": "I need a bed.",
+   "b": "bet",
+   "bKo": "내기",
+   "bEx": ""
+  },
+  {
+   "g": "end_dt",
+   "a": "prize",
+   "aKo": "상",
+   "aEx": "",
+   "b": "price",
+   "bKo": "가격",
+   "bEx": "What's the price?"
+  },
+  {
+   "g": "end_dt",
+   "a": "peas",
+   "aKo": "완두콩",
+   "aEx": "",
+   "b": "piece",
+   "bKo": "조각",
+   "bEx": "A piece of cake, please."
+  },
+  {
+   "g": "end_dt",
+   "a": "rise",
+   "aKo": "오르다",
+   "aEx": "",
+   "b": "rice",
+   "bKo": "쌀",
+   "bEx": "Can I get rice with that?"
+  },
+  {
+   "g": "end_dt",
+   "a": "knees",
+   "aKo": "무릎들",
+   "aEx": "",
+   "b": "niece",
+   "bKo": "조카딸",
+   "bEx": ""
+  },
+  {
+   "g": "end_dt",
+   "a": "advise",
+   "aKo": "조언하다",
+   "aEx": "",
+   "b": "advice",
+   "bKo": "조언",
+   "bEx": "Can I get some advice?"
+  },
+  {
+   "g": "end_dt",
+   "a": "cab",
+   "aKo": "택시",
+   "aEx": "Can you call a cab?",
+   "b": "cap",
+   "bKo": "모자",
+   "bEx": "Can I get a cap?"
+  },
+  {
+   "g": "end_dt",
+   "a": "tab",
+   "aKo": "탭",
+   "aEx": "",
+   "b": "tap",
+   "bKo": "수도꼭지, 톡 치다",
+   "bEx": "Can I tap?"
+  },
+  {
+   "g": "end_dt",
+   "a": "robe",
+   "aKo": "가운",
+   "aEx": "",
+   "b": "rope",
+   "bKo": "밧줄",
+   "bEx": "Do you have a rope?"
+  },
+  {
+   "g": "end_dt",
+   "a": "have",
+   "aKo": "가지다",
+   "aEx": "",
+   "b": "half",
+   "bKo": "절반",
+   "bEx": "Half, please."
+  },
+  {
+   "g": "end_dt",
+   "a": "leave",
+   "aKo": "떠나다",
+   "aEx": "Please leave a message.",
+   "b": "leaf",
+   "bKo": "나뭇잎",
+   "bEx": "It's a maple leaf."
+  },
+  {
+   "g": "end_dt",
+   "a": "lab",
+   "aKo": "실험실",
+   "aEx": "",
+   "b": "lap",
+   "bKo": "무릎",
+   "bEx": "Sit on my lap."
   }
  ],
  "places": [

@@ -80,3 +80,336 @@ end_dt,card,카드,Can I pay by card?,cart,카트,Where are the carts?
 end_dt,eyes,눈(두 개),My eyes are itchy.,ice,얼음,"No ice, please."
 end_dt,need,필요하다,I need some help.,neat,"깔끔한, 멋진",
 end_dt,ride,타다,Do you need a ride?,write,쓰다,Could you write that down?
+f_p,fat,"뚱뚱한, 지방",,pat,토닥이다,
+f_p,fit,꼭 맞다,,pit,"구덩이, 씨",
+f_p,fig,무화과,,pig,돼지,
+f_p,file,"파일, 서류철",,pile,더미,
+f_p,fool,바보,,pool,수영장,
+f_p,four,넷,"Table for four, please.",pour,붓다,
+f_p,fun,재미,That sounds fun!,pun,말장난,
+f_p,fear,두려움,,peer,"동료, 응시하다",
+f_p,feel,느끼다,I don't feel well.,peel,껍질을 벗기다,
+f_p,fail,실패하다,,pail,양동이,
+f_p,fair,공정한,That's not fair.,pair,한 쌍,
+f_p,face,얼굴,,pace,걸음 속도,
+f_p,fact,사실,,pact,협정,
+f_p,found,찾았다,I found it.,pound,"파운드, 두드리다",
+f_p,fond,좋아하는,,pond,연못,
+f_p,fees,요금들,,peas,완두콩들,
+f_p,beef,소고기,,beep,삐 소리,
+f_p,deaf,귀가 먼,,deep,깊은,Take a deep breath.
+f_p,reef,암초,,reap,거두다,
+f_p,chief,우두머리,,cheap,싼,
+f_p,laugh,웃다,Don't laugh!,lap,무릎,Sit on my lap.
+f_p,few,몇 개의,,pew,교회 긴 의자,
+f_p,cuff,소맷부리,,cup,컵,
+f_p,fort,요새,,port,항구,
+f_p,firm,"단단한, 회사",,perm,파마,I'd like a perm.
+v_b,vase,꽃병,,base,"기초, 기지",
+v_b,vent,환기구,,bent,구부러진,
+v_b,volt,전압 단위,,bolt,"볼트, 빗장",
+v_b,vend,판매하다,,bend,구부리다,
+v_b,veer,방향을 틀다,,beer,맥주,Can I get a beer?
+v_b,vanish,사라지다,,banish,추방하다,
+v_b,vowel,모음,,bowel,장,
+v_b,vile,몹시 불쾌한,,bile,담즙,
+v_b,vain,"헛된, 허영심 많은",,bane,골칫거리,
+v_b,vie,경쟁하다,,buy,사다,I'd like to buy this.
+v_b,vat,큰 통,,bat,"방망이, 박쥐",
+v_b,veil,베일,,bail,보석금,
+v_b,vary,달라지다,,bury,묻다,
+v_b,marvel,경이로워하다,,marble,"대리석, 구슬",
+v_b,revel,흥청거리다,,rebel,반역자,
+v_b,rove,돌아다니다,,robe,가운,
+v_b,novel,소설,It's a good novel.,noble,고귀한,
+v_b,rover,방랑자,,robber,강도,
+v_b,savor,음미하다,,saber,사브르(칼),
+v_b,dove,비둘기,,dub,더빙하다,
+l_r,lime,라임,,rhyme,운율,
+l_r,lice,이,,rice,쌀,Can I get rice with that?
+l_r,lamp,램프,Turn on the lamp.,ramp,경사로,
+l_r,lane,"차선, 좁은 길",,rain,비,Is it going to rain?
+l_r,law,법,,raw,날것의,
+l_r,lace,레이스,,race,경주,It's a long race.
+l_r,lap,무릎,Sit on my lap.,rap,"랩, 두드리다",
+l_r,lent,빌려줬다,,rent,집세,How much is the rent?
+l_r,lip,입술,,rip,찢다,
+l_r,load,짐,,road,길,Is this the right road?
+l_r,lot,많음,Thanks a lot!,rot,썩다,
+l_r,loyal,충실한,,royal,왕실의,
+l_r,link,연결,,rink,스케이트장,
+l_r,clown,광대,,crown,왕관,
+l_r,cloud,구름,,crowd,군중,
+l_r,glow,빛나다,,grow,자라다,
+l_r,blush,얼굴 붉히다,,brush,솔,
+l_r,flame,불꽃,,frame,틀,
+l_r,flee,달아나다,,free,무료,Is it free?
+l_r,tile,타일,,tire,타이어,I have a flat tire.
+l_r,towel,수건,Can I get a towel?,tower,탑,
+l_r,file,파일,,fire,불,"Call 911, there's a fire!"
+l_r,wall,벽,It's on the wall.,war,전쟁,
+l_r,steal,훔치다,,steer,조종하다,
+l_r,feel,느끼다,I don't feel well.,fear,두려움,
+l_r,pole,"막대, 극",,pore,모공,
+y_ear,yearn,갈망하다,,earn,벌다,
+y_ear,yore,옛날,,oar,노,
+y_ear,Yale,예일대,,ail,아프게 하다,
+y_ear,yearly,매년의,,early,이른,I'm early.
+y_ear,years,해들,,ears,귀들,
+y_ear,year,해,,hear,듣다,I can't hear you.
+y_ear,yell,소리치다,,hell,지옥,
+y_ear,yellow,노란,"The yellow one, please.",hello,안녕,"Hello, how are you?"
+y_ear,yard,마당,,hard,"단단한, 어려운",It's too hard.
+y_ear,young,어린,,hung,걸었다,
+y_ear,yum,맛있는,,hum,흥얼거리다,
+y_ear,yield,양보하다,,heel,발뒤꿈치,
+y_ear,yam,"얌, 고구마",,jam,잼,Can I get some jam?
+y_ear,yet,아직,,jet,제트기,
+y_ear,yoke,멍에,,joke,농담,
+y_ear,yaw,흔들리다,,jaw,턱,
+y_ear,yen,엔(일본 화폐),,end,끝,That's the end.
+y_ear,yacht,요트,,hot,뜨거운,It's so hot today!
+y_ear,yelp,비명,,help,도움,I need some help.
+y_ear,yip,짖다,,hip,엉덩이,
+w_wait,quick,빠른,Just a quick question.,kick,차다,
+w_wait,quit,그만두다,,kit,도구 세트,
+w_wait,queen,여왕,,keen,열망하는,
+w_wait,quote,"인용, 견적",,coat,코트,Can I take your coat?
+w_wait,quart,쿼트(액체 단위),,court,"법정, 코트",
+w_wait,quake,지진,,cake,케이크,"A piece of cake, please."
+w_wait,quite,꽤,,kite,연,
+w_wait,quilt,누비 이불,,kilt,킬트(치마),
+w_wait,square,"정사각형, 광장",,scare,겁주다,
+w_wait,twin,쌍둥이,,tin,"주석, 통조림통",
+w_wait,swing,"그네, 흔들다",,sing,노래하다,
+w_wait,sweet,달콤한,Is it too sweet?,seat,자리,Is this seat taken?
+w_wait,swell,부풀다,,sell,팔다,
+w_wait,wake,깨다,What time do I wake up?,ache,아프다,I have a stomachache.
+w_wait,wage,임금,,age,나이,What's your age?
+w_wait,wail,울부짖다,,ale,에일 맥주,
+w_wait,wedge,쐐기,,edge,가장자리,
+w_wait,wit,재치,,it,그것,
+w_wait,wink,윙크,,ink,잉크,
+w_wait,wore,입었다,,or,또는,
+w_wait,wax,왁스,,ax,도끼,
+w_wait,wheel,바퀴,It's a big wheel.,eel,뱀장어,
+w_wait,wise,현명한,,eyes,눈들,My eyes are tired.
+w_wait,woe,슬픔,,oh,아,
+i_ee,bin,통,,bean,콩,
+i_ee,his,그의,,he's,그는 ~이다,
+i_ee,it,그것,,eat,먹다,
+i_ee,mill,방앗간,,meal,식사,Is a meal included?
+i_ee,hill,언덕,,heal,낫다,It will heal soon.
+i_ee,rich,부유한,,reach,닿다,
+i_ee,slip,미끄러지다,,sleep,자다,I can't sleep.
+i_ee,still,아직,,steel,강철,
+i_ee,wick,심지,,week,주,See you next week.
+i_ee,pick,고르다,"Pick one, please.",peak,정상,
+i_ee,lick,핥다,,leak,새다,
+i_ee,grin,활짝 웃다,,green,초록,
+i_ee,dip,살짝 담그다,,deep,깊은,Take a deep breath.
+i_ee,fit,꼭 맞다,,feet,발,My feet hurt.
+i_ee,knit,뜨개질하다,,neat,깔끔한,
+i_ee,chick,병아리,,cheek,뺨,
+i_ee,sin,죄,,seen,본,
+i_ee,tin,통조림통,,teen,십대,She's a teenager.
+i_ee,sick,아픈,I feel sick.,seek,찾다,
+i_ee,grid,격자,,greed,탐욕,
+i_ee,fist,주먹,,feast,잔치,
+i_ee,list,목록,Is it on the list?,least,가장 적은,
+i_ee,bid,입찰,,bead,구슬,
+i_ee,rip,찢다,,reap,거두다,
+i_ee,mitt,장갑,,meet,만나다,
+s_sh,sip,홀짝이다,,ship,배,
+s_sh,sin,죄,,shin,정강이,
+s_sh,sock,양말,,shock,충격,
+s_sh,sack,자루,,shack,오두막,
+s_sh,sore,아픈,My throat is sore.,shore,해안,Let's walk along the shore.
+s_sh,so,그래서,,show,보여 주다,Can you show me?
+s_sh,sigh,한숨,,shy,수줍은,
+s_sh,self,자기,,shelf,선반,Is it on the shelf?
+s_sh,sine,사인(수학),,shine,빛나다,
+s_sh,sake,~를 위해,,shake,흔들다,Let's shake hands.
+s_sh,said,말했다,,shed,헛간,
+s_sh,sear,그슬리다,,sheer,"완전한, 얇은",
+s_sh,sift,체로 치다,,shift,"교대 근무, 이동",
+s_sh,class,수업,,clash,충돌,
+s_sh,cast,던지다,,cash,현금,Do you take cash?
+s_sh,mess,엉망,Sorry about the mess.,mesh,그물망,
+s_sh,wise,현명한,,wish,바라다,I wish you the best.
+s_sh,gas,가스,Where's the gas station?,gash,깊은 상처,
+s_sh,mass,덩어리,,mash,으깨다,
+s_sh,lass,소녀,,lash,"채찍, 속눈썹",
+s_sh,sun,해,,shun,피하다,
+s_sh,seen,본,,sheen,광택,
+s_sh,suit,정장,Nice suit!,shoot,쏘다,
+u_o,cut,자르다,,cot,간이침대,
+u_o,bus,버스,Which bus goes downtown?,boss,상사,I have to call my boss.
+u_o,bug,벌레,,bog,늪,
+u_o,but,하지만,,bot,봇,
+u_o,cub,새끼 곰,,cob,옥수수 속대,
+u_o,gut,장,,got,얻었다,
+u_o,hug,포옹,,hog,돼지,
+u_o,mud,진흙,,mod,모드,
+u_o,pup,강아지,,pop,"팝, 펑 소리",
+u_o,putt,퍼팅,,pot,냄비,
+u_o,rub,문지르다,,rob,강도질하다,
+u_o,shut,닫다,,shot,"주사, 한 방",I got a flu shot.
+u_o,sub,"샌드위치, 대체",,sob,흐느끼다,
+u_o,suck,빨다,,sock,양말,
+u_o,stuck,갇힌,,stock,"재고, 주식",
+u_o,dug,팠다,,dog,개,Can I bring my dog?
+u_o,lunch,점심,What's for lunch?,launch,"시작하다, 발사",
+u_o,cluck,꼬꼬댁,,clock,시계,What's wrong with the clock?
+u_o,dull,무딘,,doll,인형,
+u_o,gun,총,,gone,가 버린,
+u_o,color,색,What color is it?,collar,옷깃,
+u_o,bucks,달러(속어),,box,상자,Can I get a box for this?
+u_o,ducks,오리들,,docks,부두들,
+u_o,cuss,욕하다,,cost,비용,How much does it cost?
+walk_work,pause,잠깐 멈춤,,purse,지갑,I lost my purse.
+walk_work,pork,돼지고기,,perk,혜택,
+walk_work,cord,"줄, 코드",,curd,응유,
+walk_work,horse,말,,hearse,영구차,
+walk_work,torn,찢어진,,turn,돌다,
+walk_work,sport,스포츠,,spurt,분출,
+walk_work,hoard,비축하다,,heard,들었다,
+walk_work,board,"판자, 탑승하다",,bird,새,Look at that bird!
+walk_work,form,양식,Do I need to fill out a form?,firm,"회사, 단단한",
+walk_work,course,"코스, 과정",Of course!,curse,저주,
+walk_work,shorts,반바지,,shirts,셔츠들,
+walk_work,fawn,새끼 사슴,,fern,고사리,
+walk_work,call,부르다,Please call me back.,curl,곱슬곱슬하게 하다,
+walk_work,gall,뻔뻔함,,girl,소녀,
+walk_work,lawn,잔디밭,,learn,배우다,I want to learn English.
+walk_work,store,가게,Is the store open?,stir,젓다,
+walk_work,for,~를 위해,This is for you.,fur,털,
+walk_work,sore,아픈,My throat is sore.,sir,선생님,
+walk_work,war,전쟁,,were,~였다,
+walk_work,lord,"주인, 주님",,learned,배운,
+walk_work,Paul,폴(이름),,pearl,진주,
+walk_work,haul,끌다,,hurl,내던지다,
+walk_work,yawn,하품,,yearn,갈망하다,
+o_oh,caught,잡았다,,coat,코트,Can I take your coat?
+o_oh,ought,~해야 한다,,oat,귀리,
+o_oh,pause,잠깐 멈춤,,pose,자세,
+o_oh,flaw,결함,,flow,흐르다,
+o_oh,gnaw,갉다,,no,아니요,
+o_oh,tall,키가 큰,,toll,통행료,Is there a toll?
+o_oh,fall,"가을, 떨어지다",,foal,망아지,
+o_oh,hall,복도,,hole,구멍,There's a hole here.
+o_oh,mall,쇼핑몰,Is there a mall nearby?,mole,"점, 두더지",
+o_oh,stall,가판대,,stole,훔쳤다,
+o_oh,wall,벽,It's on the wall.,whole,전체의,"The whole thing, please."
+o_oh,call,전화하다,Please call me back.,coal,석탄,
+o_oh,gall,뻔뻔함,,goal,목표,What's your goal?
+o_oh,lawn,잔디,,loan,대출,I'd like to apply for a loan.
+o_oh,sauce,소스,,sews,바느질한다,
+o_oh,taught,가르쳤다,,tote,들고 다니다,
+o_oh,chalk,분필,,choke,질식하다,
+o_oh,walk,걷다,It's a five-minute walk.,woke,깼다,
+o_oh,stalk,줄기,,stoke,불을 지피다,
+o_oh,cord,줄,,code,암호,What's the code?
+o_oh,born,태어난,,bone,뼈,I think I broke a bone.
+o_oh,corn,옥수수,Can I get corn with that?,cone,원뿔,
+o_oh,fork,포크,,folk,"사람들, 민속",
+o_oh,lord,"주인, 주님",,load,짐,
+th_s,thick,두꺼운,Is it too thick?,sick,아픈,I feel sick.
+th_s,thing,것,What is this thing?,sing,노래하다,
+th_s,thumb,엄지,,sum,합계,
+th_s,theme,주제,,seem,~처럼 보이다,
+th_s,thin,얇은,,sin,죄,
+th_s,thought,생각했다,,sought,찾았다,
+th_s,thaw,녹다,,saw,보았다,
+th_s,thigh,허벅지,,sigh,한숨,
+th_s,math,수학,,mass,덩어리,
+th_s,faith,믿음,Have some faith.,face,얼굴,
+th_s,worth,가치,Is it worth it?,worse,더 나쁜,
+th_s,moth,나방,,moss,이끼,
+th_s,myth,신화,,miss,"놓치다, 그리워하다",
+th_s,truth,진실,That's the truth.,truce,휴전,
+th_s,booth,부스,,boost,북돋우다,
+th_s,tenth,열 번째,,tense,긴장한,
+th_s,thorn,가시,,sworn,맹세한,
+th_s,thinks,생각한다,,sinks,가라앉는다,
+th_s,both,둘 다,"Both, please.",boast,자랑하다,
+th_s,thickness,두께,,sickness,병,
+th_s,thinner,더 얇은,,sinner,죄인,
+th_d,there,저기,Is there a washroom?,dare,감히 ~하다,
+th_d,thy,너의,,die,죽다,
+th_d,other,다른,Do you have any other size?,udder,젖통,
+th_d,father,아버지,This is my father.,fodder,사료,
+th_d,wither,시들다,,wider,더 넓은,
+th_d,lather,거품,,ladder,사다리,Do you have a ladder?
+th_d,loathe,몹시 싫어하다,,load,짐,
+th_d,worthy,가치 있는,,wordy,장황한,
+th_d,breathing,호흡,,breeding,번식,
+th_d,weather,날씨,How's the weather today?,wetter,더 젖은,
+th_d,leather,가죽,Is this leather?,letter,편지,I got a letter.
+th_d,feather,깃털,,fetter,족쇄,
+th_d,thread,실,Do you have a needle and thread?,dread,두려움,
+th_d,thrill,짜릿함,,drill,"드릴, 훈련",
+th_d,thin,얇은,,din,소음,
+th_d,thing,것,What is this thing?,ding,땡 소리,
+th_d,thump,쿵,,dump,버리다,
+th_d,thud,쿵 소리,,dud,불량품,
+th_d,thumb,엄지,,dumb,"말 못 하는, 멍청한",
+th_d,theme,주제,,deem,~로 여기다,
+th_d,bath,목욕,I need to take a bath.,bad,나쁜,
+th_d,path,길,Is there a path?,pad,패드,
+th_d,math,수학,,mad,화난,Are you mad?
+th_d,both,둘 다,"Both, please.",bode,징조가 되다,
+th_d,faith,믿음,Have some faith.,fade,희미해지다,
+th_d,oath,맹세,,owed,빚진,
+ae_e,band,"밴드, 띠",,bend,구부리다,
+ae_e,pat,토닥이다,,pet,반려동물,Are pets allowed?
+ae_e,gas,가스,Where's the gas station?,guess,추측하다,I guess so.
+ae_e,land,땅,The plane will land soon.,lend,빌려주다,
+ae_e,sand,모래,,send,보내다,I'd like to send this.
+ae_e,dad,아빠,,dead,죽은,My phone is dead.
+ae_e,marry,결혼하다,,merry,즐거운,
+ae_e,pack,싸다,,peck,쪼다,
+ae_e,tan,햇볕에 탄,,ten,열,"Ten dollars, please."
+ae_e,gal,여자애,,gel,젤,
+ae_e,lad,소년,,led,이끌었다,
+ae_e,mass,덩어리,,mess,엉망,Sorry about the mess.
+ae_e,rack,선반,,wreck,"난파, 망가뜨리다",
+ae_e,bag,가방,Do you need a bag?,beg,간청하다,
+ae_e,lag,뒤처지다,,leg,다리,My leg hurts.
+ae_e,ham,햄,,hem,옷단,
+ae_e,fad,유행,,fed,먹였다,
+ae_e,ant,개미,,end,끝,That's the end.
+ae_e,axe,도끼,,ex,전 연인,
+ae_e,than,~보다,It's better than before.,then,그러고 나서,And then?
+ae_e,flash,번쩍임,,flesh,살,
+ae_e,mat,매트,,met,만났다,We met before.
+ae_e,gnat,각다귀,,net,그물,Is there a net?
+ae_e,jam,잼,Can I get some jam?,gem,보석,
+ae_e,tack,압정,,tech,기술,
+end_dt,seed,씨앗,,seat,자리,Is this seat taken?
+end_dt,feed,먹이다,,feet,발,My feet hurt.
+end_dt,bead,구슬,,beat,두드리다,
+end_dt,code,암호,What's the code?,coat,코트,Can I take your coat?
+end_dt,mad,화난,Are you mad?,mat,매트,
+end_dt,pad,패드,,pat,토닥이다,
+end_dt,pig,돼지,,pick,고르다,"Pick one, please."
+end_dt,bug,벌레,,buck,"수사슴, 달러",
+end_dt,rag,걸레,,rack,선반,
+end_dt,tag,꼬리표,,tack,압정,
+end_dt,log,통나무,,lock,잠금,Please lock the door.
+end_dt,bid,입찰,,bit,조금,
+end_dt,hid,숨었다,,hit,치다,
+end_dt,kid,아이,Is this for kids?,kit,도구 세트,
+end_dt,lid,뚜껑,,lit,불이 켜진,
+end_dt,bed,침대,I need a bed.,bet,내기,
+end_dt,prize,상,,price,가격,What's the price?
+end_dt,peas,완두콩,,piece,조각,"A piece of cake, please."
+end_dt,rise,오르다,,rice,쌀,Can I get rice with that?
+end_dt,knees,무릎들,,niece,조카딸,
+end_dt,advise,조언하다,,advice,조언,Can I get some advice?
+end_dt,cab,택시,Can you call a cab?,cap,모자,Can I get a cap?
+end_dt,tab,탭,,tap,"수도꼭지, 톡 치다",Can I tap?
+end_dt,robe,가운,,rope,밧줄,Do you have a rope?
+end_dt,have,가지다,,half,절반,"Half, please."
+end_dt,leave,떠나다,Please leave a message.,leaf,나뭇잎,It's a maple leaf.
+end_dt,lab,실험실,,lap,무릎,Sit on my lap.
