@@ -1,0 +1,15 @@
+[
+  {"id": "std", "label": "기본 목소리", "desc": "30대 여성 · 또박또박", "voice": "af_heart", "speed": 0.95, "pitch": 1.0, "sets": []},
+  {"id": "teen_f", "label": "10대 여학생", "desc": "알바생 · 빠른 말투", "voice": "af_nova", "speed": 1.15, "pitch": 1.0, "sets": ["them", "me", "words"]},
+  {"id": "teen_m", "label": "10대 남학생", "desc": "빠른 말투", "voice": "am_puck", "speed": 1.12, "pitch": 1.0, "sets": ["them"]},
+  {"id": "man", "label": "40대 남성", "desc": "보통 빠르기", "voice": "am_michael", "speed": 1.05, "pitch": 1.0, "sets": ["them", "me", "words"]},
+  {"id": "woman", "label": "50대 여성", "desc": "보통 빠르기", "voice": "af_sarah", "speed": 1.0, "pitch": 1.0, "sets": ["them", "me", "words"]},
+  {"id": "grandma", "label": "할머니", "desc": "70대 · 영국 출신 억양 · 느림", "voice": "bf_alice", "speed": 0.88, "pitch": 0.95, "sets": ["them"]},
+  {"id": "grandpa", "label": "할아버지", "desc": "70대 · 영국 출신 억양 · 느림", "voice": "bm_george", "speed": 0.88, "pitch": 0.94, "sets": ["them"]},
+  {"id": "india_m", "label": "인도계 남성", "desc": "이민자 억양", "voice": "hm_omega", "speed": 1.0, "pitch": 1.0, "sets": ["them"]},
+  {"id": "india_f", "label": "인도계 여성", "desc": "이민자 억양", "voice": "hf_beta", "speed": 1.0, "pitch": 1.0, "sets": ["them"]},
+  {"id": "china_m", "label": "중국계 남성", "desc": "이민자 억양", "voice": "zm_yunxi", "speed": 1.0, "pitch": 1.0, "sets": ["them"]},
+  {"id": "china_f", "label": "중국계 여성", "desc": "이민자 억양", "voice": "zf_xiaoxiao", "speed": 1.0, "pitch": 1.0, "sets": ["them"]},
+  {"id": "latin_f", "label": "중남미계 여성", "desc": "스페인어권 이민자 억양", "voice": "ef_dora", "speed": 1.0, "pitch": 1.0, "sets": ["them"]},
+  {"id": "french_f", "label": "프랑스어권 여성", "desc": "프랑스어 억양", "voice": "ff_siwis", "speed": 1.0, "pitch": 1.0, "sets": ["them"]}
+]

@@ -1,6 +1,6 @@
 // 오프라인에서도 열리게 하는 파일이에요.
 // 앱 파일을 고친 뒤에는 아래 버전 숫자를 올려 주세요 (예: v4 → v5). 그래야 기기에서 새 파일을 받아요.
-var CACHE = 'eng-mom-v7';
+var CACHE = 'eng-mom-v8';
 var ASSETS = [
   './', 'index.html', 'style.css', 'app.js', 'data.js', 'config.js', 'manifest.json',
   'icons/icon-192.png', 'icons/icon-512.png', 'icons/icon-maskable-512.png', 'icons/apple-touch-icon.png',
@@ -72,7 +72,14 @@ self.addEventListener('fetch', function (e) {
   if (req.headers.has('range')) {
     e.respondWith(
       caches.match(req.url).then(function (hit) {
-        return hit ? rangeResponse(req, hit) : fetch(req);
+        if (hit) return rangeResponse(req, hit);
+        // 처음 듣는 소리(다른 사람 목소리 등)는 파일 전체를 받아서 저장해 두고, 요청한 부분만 돌려줘요
+        return fetch(req.url).then(function (res) {
+          if (!res || res.status !== 200) return fetch(req);
+          var copy = res.clone();
+          return caches.open(CACHE).then(function (c) { return c.put(req.url, copy); })
+            .catch(function () {}).then(function () { return rangeResponse(req, res); });
+        }).catch(function () { return fetch(req); });
       })
     );
     return;

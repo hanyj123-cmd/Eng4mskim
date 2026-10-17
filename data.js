@@ -3870,6 +3870,36 @@ window.DEFAULT_DATA = {
    "id": "phone",
    "title": "전화",
    "icon": "phone"
+  },
+  {
+   "id": "shopping",
+   "title": "쇼핑·반품",
+   "icon": "bag"
+  },
+  {
+   "id": "home",
+   "title": "집·관리실",
+   "icon": "home"
+  },
+  {
+   "id": "emergency",
+   "title": "응급·911",
+   "icon": "siren"
+  },
+  {
+   "id": "taxi",
+   "title": "택시·우버",
+   "icon": "car"
+  },
+  {
+   "id": "hair",
+   "title": "미용실",
+   "icon": "scissors"
+  },
+  {
+   "id": "library",
+   "title": "도서관·주민센터",
+   "icon": "book"
   }
  ],
  "phrases": [
@@ -3881,7 +3911,8 @@ window.DEFAULT_DATA = {
    "ko": "죄송한데, 다시 한 번 말씀해 주시겠어요?",
    "when": "상대 말을 못 알아들었을 때. 병원·은행·마트 어디서든 쓸 수 있어요.",
    "sound": "쏘리, 쿠쥬 세이 댓 어겐?",
-   "reply": ""
+   "reply": "",
+   "spk": ""
   },
   {
    "id": "slow",
@@ -3891,7 +3922,8 @@ window.DEFAULT_DATA = {
    "ko": "조금만 천천히 말씀해 주시겠어요?",
    "when": "상대가 너무 빨리 말할 때. 웃으면서 말하면 더 부드러워요.",
    "sound": "쿠쥬 스피크 어 리를 슬로워, 플리즈?",
-   "reply": ""
+   "reply": "",
+   "spk": ""
   },
   {
    "id": "catch",
@@ -3901,7 +3933,8 @@ window.DEFAULT_DATA = {
    "ko": "죄송해요, 못 알아들었어요.",
    "when": "한 번 듣고 놓쳤을 때. 가장 짧고 자연스러운 표현이에요.",
    "sound": "쏘리, 아이 디든 캐치 댓.",
-   "reply": ""
+   "reply": "",
+   "spk": ""
   },
   {
    "id": "write",
@@ -3911,7 +3944,8 @@ window.DEFAULT_DATA = {
    "ko": "그거 좀 적어 주시겠어요?",
    "when": "주소, 전화번호, 약 이름처럼 중요한 걸 들었을 때. 적어 달라고 하면 틀릴 일이 없어요.",
    "sound": "쿠쥬 라잇 댓 다운 포 미?",
-   "reply": ""
+   "reply": "",
+   "spk": ""
   },
   {
    "id": "mean",
@@ -3921,7 +3955,8 @@ window.DEFAULT_DATA = {
    "ko": "죄송한데, 그게 무슨 뜻이에요?",
    "when": "모르는 단어가 나왔을 때. 그 단어를 가리키며 말해도 돼요.",
    "sound": "쏘리, 왓 더즈 댓 민?",
-   "reply": ""
+   "reply": "",
+   "spk": ""
   },
   {
    "id": "learning",
@@ -3931,7 +3966,8 @@ window.DEFAULT_DATA = {
    "ko": "죄송해요, 아직 영어를 배우는 중이에요.",
    "when": "대화를 시작할 때 먼저 말하면 상대가 천천히, 쉬운 말로 해 줘요.",
    "sound": "쏘리, 아임 스틸 러닝 잉글리시.",
-   "reply": ""
+   "reply": "",
+   "spk": ""
   },
   {
    "id": "show",
@@ -3941,7 +3977,8 @@ window.DEFAULT_DATA = {
    "ko": "보여 주실 수 있어요?",
    "when": "말로 설명이 어려울 때. 손으로 가리켜 달라는 뜻으로도 좋아요.",
    "sound": "캔 유 쇼우 미?",
-   "reply": ""
+   "reply": "",
+   "spk": ""
   },
   {
    "id": "spell",
@@ -3951,7 +3988,8 @@ window.DEFAULT_DATA = {
    "ko": "철자가 어떻게 돼요?",
    "when": "이름, 거리 이름, 약 이름을 들었을 때.",
    "sound": "하우 두 유 스펠 댓?",
-   "reply": ""
+   "reply": "",
+   "spk": ""
   },
   {
    "id": "second",
@@ -3961,7 +3999,8 @@ window.DEFAULT_DATA = {
    "ko": "잠깐만요.",
    "when": "지갑이나 카드를 찾을 때, 생각할 시간이 필요할 때.",
    "sound": "저스트 어 세컨, 플리즈.",
-   "reply": ""
+   "reply": "",
+   "spk": ""
   },
   {
    "id": "washroom",
@@ -3971,7 +4010,8 @@ window.DEFAULT_DATA = {
    "ko": "화장실이 어디예요?",
    "when": "캐나다에서는 toilet보다 washroom이라고 해요.",
    "sound": "웨어즈 더 워시룸?",
-   "reply": ""
+   "reply": "",
+   "spk": ""
   },
   {
    "id": "korean",
@@ -3981,7 +4021,8 @@ window.DEFAULT_DATA = {
    "ko": "한국어 하시는 분 있나요?",
    "when": "병원·은행처럼 중요한 곳에서. 큰 곳은 통역을 도와줄 때가 많아요.",
    "sound": "이즈 데어 썸원 후 스픽스 코리안?",
-   "reply": ""
+   "reply": "",
+   "spk": ""
   },
   {
    "id": "dd",
@@ -3991,7 +4032,8 @@ window.DEFAULT_DATA = {
    "ko": "미디엄 더블더블 하나 주세요.",
    "when": "팀홀튼 대표 주문이에요. 더블더블 = 크림 2번, 설탕 2번.",
    "sound": "캔 아이 겟 어 미디엄 더블 더블?",
-   "reply": ""
+   "reply": "",
+   "spk": ""
   },
   {
    "id": "black",
@@ -4001,7 +4043,8 @@ window.DEFAULT_DATA = {
    "ko": "스몰 커피, 블랙으로 주세요.",
    "when": "아무것도 안 넣은 커피를 원할 때.",
    "sound": "캔 아이 겟 어 스몰 커피, 블랙?",
-   "reply": ""
+   "reply": "",
+   "spk": ""
   },
   {
    "id": "forhere",
@@ -4011,7 +4054,8 @@ window.DEFAULT_DATA = {
    "ko": "여기서 먹을게요.",
    "when": "\"For here or to go?\"에 대한 대답.",
    "sound": "포 히어, 플리즈.",
-   "reply": ""
+   "reply": "",
+   "spk": ""
   },
   {
    "id": "togo",
@@ -4021,7 +4065,8 @@ window.DEFAULT_DATA = {
    "ko": "가져갈게요.",
    "when": "\"For here or to go?\"에 대한 대답.",
    "sound": "투 고우, 플리즈.",
-   "reply": ""
+   "reply": "",
+   "spk": ""
   },
   {
    "id": "thatsit",
@@ -4031,7 +4076,8 @@ window.DEFAULT_DATA = {
    "ko": "그게 다예요, 고마워요.",
    "when": "\"Anything else?\"라고 물으면 이렇게 끝내요.",
    "sound": "댓츠 잇, 땡스.",
-   "reply": ""
+   "reply": "",
+   "spk": ""
   },
   {
    "id": "timbits",
@@ -4041,7 +4087,8 @@ window.DEFAULT_DATA = {
    "ko": "팀빗 10개 한 상자 주세요.",
    "when": "팀빗 = 팀홀튼의 동그란 미니 도넛.",
    "sound": "캔 아이 겟 어 박스 오브 텐 팀빗츠?",
-   "reply": ""
+   "reply": "",
+   "spk": ""
   },
   {
    "id": "whatcan",
@@ -4051,7 +4098,8 @@ window.DEFAULT_DATA = {
    "ko": "안녕하세요, 뭐 드릴까요?",
    "when": "차례가 되면 가장 먼저 듣는 말이에요.",
    "sound": "",
-   "reply": "Can I get a medium double-double?"
+   "reply": "Can I get a medium double-double?",
+   "spk": "teen_f"
   },
   {
    "id": "herego",
@@ -4061,7 +4109,8 @@ window.DEFAULT_DATA = {
    "ko": "드시고 가세요, 가져가세요?",
    "when": "카페·패스트푸드에서 꼭 물어봐요.",
    "sound": "",
-   "reply": "To go, please."
+   "reply": "To go, please.",
+   "spk": "teen_m"
   },
   {
    "id": "size",
@@ -4071,7 +4120,8 @@ window.DEFAULT_DATA = {
    "ko": "사이즈는 뭘로 드릴까요?",
    "when": "small, medium, large로 대답해요.",
    "sound": "",
-   "reply": "Medium, please."
+   "reply": "Medium, please.",
+   "spk": "teen_f"
   },
   {
    "id": "anything",
@@ -4081,7 +4131,8 @@ window.DEFAULT_DATA = {
    "ko": "더 필요한 거 있으세요?",
    "when": "주문이 끝났으면 \"That's it\"이라고 해요.",
    "sound": "",
-   "reply": "That's it, thanks."
+   "reply": "That's it, thanks.",
+   "spk": "teen_m"
   },
   {
    "id": "toasted",
@@ -4091,7 +4142,8 @@ window.DEFAULT_DATA = {
    "ko": "토스트해 드릴까요?",
    "when": "베이글이나 샌드위치를 시키면 물어봐요.",
    "sound": "",
-   "reply": "Yes, please."
+   "reply": "Yes, please.",
+   "spk": "teen_f"
   },
   {
    "id": "name",
@@ -4101,7 +4153,8 @@ window.DEFAULT_DATA = {
    "ko": "주문하신 분 성함이요?",
    "when": "음료가 나오면 이 이름을 불러요.",
    "sound": "",
-   "reply": "It's Kim."
+   "reply": "It's Kim.",
+   "spk": "teen_m"
   },
   {
    "id": "eggs",
@@ -4111,7 +4164,8 @@ window.DEFAULT_DATA = {
    "ko": "실례지만, 계란은 어디 있어요?",
    "when": "eggs 대신 찾는 물건 이름을 넣으면 돼요.",
    "sound": "익스큐즈 미, 웨어 캔 아이 파인드 디 에그즈?",
-   "reply": ""
+   "reply": "",
+   "spk": ""
   },
   {
    "id": "sale",
@@ -4121,7 +4175,8 @@ window.DEFAULT_DATA = {
    "ko": "이거 세일하는 거예요?",
    "when": "가격표가 헷갈릴 때.",
    "sound": "이즈 디스 온 세일?",
-   "reply": ""
+   "reply": "",
+   "spk": ""
   },
   {
    "id": "nobag",
@@ -4131,7 +4186,8 @@ window.DEFAULT_DATA = {
    "ko": "봉투는 괜찮아요.",
    "when": "캐나다 마트 봉투는 보통 돈을 받아요.",
    "sound": "노우 백, 땡스.",
-   "reply": ""
+   "reply": "",
+   "spk": ""
   },
   {
    "id": "bagplease",
@@ -4141,7 +4197,8 @@ window.DEFAULT_DATA = {
    "ko": "봉투 하나 주세요.",
    "when": "봉투가 필요할 때.",
    "sound": "캔 아이 겟 어 백, 플리즈?",
-   "reply": ""
+   "reply": "",
+   "spk": ""
   },
   {
    "id": "debit",
@@ -4151,7 +4208,8 @@ window.DEFAULT_DATA = {
    "ko": "데빗카드로 계산할 수 있어요?",
    "when": "데빗 = 은행 계좌에서 바로 빠지는 카드.",
    "sound": "캔 아이 페이 위드 데빗?",
-   "reply": ""
+   "reply": "",
+   "spk": ""
   },
   {
    "id": "bigger",
@@ -4161,7 +4219,8 @@ window.DEFAULT_DATA = {
    "ko": "이거 더 큰 사이즈 있어요?",
    "when": "옷·신발·물건 크기를 물을 때. smaller로 바꾸면 '더 작은'.",
    "sound": "두 유 해브 디스 인 어 비거 사이즈?",
-   "reply": ""
+   "reply": "",
+   "spk": ""
   },
   {
    "id": "findok",
@@ -4171,7 +4230,8 @@ window.DEFAULT_DATA = {
    "ko": "찾으시는 건 다 찾으셨어요?",
    "when": "계산할 때 거의 항상 하는 인사예요.",
    "sound": "",
-   "reply": "Yes, thanks."
+   "reply": "Yes, thanks.",
+   "spk": "latin_f"
   },
   {
    "id": "needbag",
@@ -4181,7 +4241,8 @@ window.DEFAULT_DATA = {
    "ko": "봉투 필요하세요?",
    "when": "봉투는 보통 유료예요.",
    "sound": "",
-   "reply": "No bag, thanks."
+   "reply": "No bag, thanks.",
+   "spk": "teen_m"
   },
   {
    "id": "points",
@@ -4191,7 +4252,8 @@ window.DEFAULT_DATA = {
    "ko": "포인트 카드 있으세요?",
    "when": "마트·약국에서 포인트 카드를 꼭 물어봐요.",
    "sound": "",
-   "reply": "No, I don't."
+   "reply": "No, I don't.",
+   "spk": "china_f"
   },
   {
    "id": "debitcredit",
@@ -4201,7 +4263,8 @@ window.DEFAULT_DATA = {
    "ko": "데빗이에요, 신용카드예요?",
    "when": "카드 종류를 묻는 말이에요.",
    "sound": "",
-   "reply": "Debit, please."
+   "reply": "Debit, please.",
+   "spk": "teen_m"
   },
   {
    "id": "tap",
@@ -4211,7 +4274,8 @@ window.DEFAULT_DATA = {
    "ko": "준비되시면 카드 대세요.",
    "when": "tap = 카드를 단말기에 갖다 대는 것.",
    "sound": "",
-   "reply": ""
+   "reply": "",
+   "spk": "latin_f"
   },
   {
    "id": "receipt",
@@ -4221,7 +4285,8 @@ window.DEFAULT_DATA = {
    "ko": "영수증 드릴까요?",
    "when": "필요 없으면 \"No, thanks.\"",
    "sound": "",
-   "reply": "No, thanks."
+   "reply": "No, thanks.",
+   "spk": "teen_f"
   },
   {
    "id": "goodone",
@@ -4231,7 +4296,8 @@ window.DEFAULT_DATA = {
    "ko": "좋은 하루 보내세요!",
    "when": "헤어질 때 캐나다 사람들이 정말 많이 쓰는 인사예요.",
    "sound": "",
-   "reply": "You too!"
+   "reply": "You too!",
+   "spk": "teen_m"
   },
   {
    "id": "table2",
@@ -4241,7 +4307,8 @@ window.DEFAULT_DATA = {
    "ko": "두 명이요.",
    "when": "식당 입구에서. two 대신 인원수를 넣어요.",
    "sound": "테이블 포 투, 플리즈.",
-   "reply": ""
+   "reply": "",
+   "spk": ""
   },
   {
    "id": "thisone",
@@ -4251,7 +4318,8 @@ window.DEFAULT_DATA = {
    "ko": "이거 주세요.",
    "when": "메뉴를 손가락으로 가리키면서 말해요. 가장 쉬운 주문법!",
    "sound": "캔 아이 겟 디스 원, 플리즈?",
-   "reply": ""
+   "reply": "",
+   "spk": ""
   },
   {
    "id": "recommend",
@@ -4261,7 +4329,8 @@ window.DEFAULT_DATA = {
    "ko": "뭘 추천하세요?",
    "when": "메뉴를 고르기 어려울 때.",
    "sound": "왓 두 유 레커멘드?",
-   "reply": ""
+   "reply": "",
+   "spk": ""
   },
   {
    "id": "spicy",
@@ -4271,7 +4340,8 @@ window.DEFAULT_DATA = {
    "ko": "매워요?",
    "when": "음식 맛을 물을 때.",
    "sound": "이즈 잇 스파이시?",
-   "reply": ""
+   "reply": "",
+   "spk": ""
   },
   {
    "id": "bill",
@@ -4281,7 +4351,8 @@ window.DEFAULT_DATA = {
    "ko": "계산서 주세요.",
    "when": "캐나다 식당은 손님이 말해야 계산서를 가져와요.",
    "sound": "쿠드 위 겟 더 빌, 플리즈?",
-   "reply": ""
+   "reply": "",
+   "spk": ""
   },
   {
    "id": "separate",
@@ -4291,7 +4362,8 @@ window.DEFAULT_DATA = {
    "ko": "따로 계산할 수 있어요?",
    "when": "각자 계산하고 싶을 때.",
    "sound": "캔 위 페이 세퍼러틀리?",
-   "reply": ""
+   "reply": "",
+   "spk": ""
   },
   {
    "id": "box",
@@ -4301,7 +4373,8 @@ window.DEFAULT_DATA = {
    "ko": "남은 거 싸 갈 그릇 주세요.",
    "when": "음식이 남았을 때. 캐나다에선 아주 흔해요.",
    "sound": "캔 아이 겟 어 박스 포 디스?",
-   "reply": ""
+   "reply": "",
+   "spk": ""
   },
   {
    "id": "party",
@@ -4311,7 +4384,8 @@ window.DEFAULT_DATA = {
    "ko": "몇 분이세요?",
    "when": "party = 일행. 숫자로 대답하면 돼요.",
    "sound": "",
-   "reply": "Two, please."
+   "reply": "Two, please.",
+   "spk": "woman"
   },
   {
    "id": "ready",
@@ -4321,7 +4395,8 @@ window.DEFAULT_DATA = {
    "ko": "주문하시겠어요?",
    "when": "아직이면 \"A few more minutes, please.\"",
    "sound": "",
-   "reply": "A few more minutes, please."
+   "reply": "A few more minutes, please.",
+   "spk": "teen_f"
   },
   {
    "id": "howis",
@@ -4331,7 +4406,8 @@ window.DEFAULT_DATA = {
    "ko": "음식 괜찮으세요?",
    "when": "식사 중에 직원이 꼭 한 번 와서 물어봐요.",
    "sound": "",
-   "reply": "Everything's great, thanks."
+   "reply": "Everything's great, thanks.",
+   "spk": "woman"
   },
   {
    "id": "getyou",
@@ -4341,7 +4417,8 @@ window.DEFAULT_DATA = {
    "ko": "더 필요한 거 있으세요?",
    "when": "계산하고 싶으면 bill을 달라고 해요.",
    "sound": "",
-   "reply": "Just the bill, please."
+   "reply": "Just the bill, please.",
+   "spk": "teen_f"
   },
   {
    "id": "together",
@@ -4351,7 +4428,8 @@ window.DEFAULT_DATA = {
    "ko": "같이 계산하세요, 따로 하세요?",
    "when": "계산서를 가져오기 전에 물어봐요.",
    "sound": "",
-   "reply": "Together, please."
+   "reply": "Together, please.",
+   "spk": "woman"
   },
   {
    "id": "wantbox",
@@ -4361,7 +4439,8 @@ window.DEFAULT_DATA = {
    "ko": "남은 거 포장해 드릴까요?",
    "when": "음식이 남으면 먼저 물어보기도 해요.",
    "sound": "",
-   "reply": "Yes, please."
+   "reply": "Yes, please.",
+   "spk": "teen_f"
   },
   {
    "id": "appt",
@@ -4371,7 +4450,8 @@ window.DEFAULT_DATA = {
    "ko": "2시에 예약했어요.",
    "when": "접수할 때. two 대신 예약 시간을 넣어요.",
    "sound": "아이 해브 언 어포인트먼트 앳 투.",
-   "reply": ""
+   "reply": "",
+   "spk": ""
   },
   {
    "id": "seedoc",
@@ -4381,7 +4461,8 @@ window.DEFAULT_DATA = {
    "ko": "진료를 받고 싶어요.",
    "when": "워크인 클리닉(예약 없는 병원)에서.",
    "sound": "아이드 라이크 투 씨 어 닥터, 플리즈.",
-   "reply": ""
+   "reply": "",
+   "spk": ""
   },
   {
    "id": "hurts",
@@ -4391,7 +4472,8 @@ window.DEFAULT_DATA = {
    "ko": "여기가 아파요.",
    "when": "아픈 곳을 손으로 가리키면서 말해요.",
    "sound": "잇 허츠 히어.",
-   "reply": ""
+   "reply": "",
+   "spk": ""
   },
   {
    "id": "fever",
@@ -4401,7 +4483,8 @@ window.DEFAULT_DATA = {
    "ko": "어제부터 열이 나요.",
    "when": "증상이 언제 시작됐는지 말할 때.",
    "sound": "아이브 해드 어 피버 씬스 예스터데이.",
-   "reply": ""
+   "reply": "",
+   "spk": ""
   },
   {
    "id": "interp",
@@ -4411,7 +4494,8 @@ window.DEFAULT_DATA = {
    "ko": "한국어 통역이 필요해요.",
    "when": "큰 병원은 통역을 무료로 불러 줄 때가 많아요.",
    "sound": "아이 니드 어 코리안 인터프리터, 플리즈.",
-   "reply": ""
+   "reply": "",
+   "spk": ""
   },
   {
    "id": "rx",
@@ -4421,7 +4505,8 @@ window.DEFAULT_DATA = {
    "ko": "처방약 찾으러 왔어요.",
    "when": "약국(pharmacy)에서.",
    "sound": "아임 히어 투 픽 업 마이 프리스크립션.",
-   "reply": ""
+   "reply": "",
+   "spk": ""
   },
   {
    "id": "healthcard",
@@ -4431,7 +4516,8 @@ window.DEFAULT_DATA = {
    "ko": "건강카드 보여 주시겠어요?",
    "when": "온타리오에서는 OHIP 카드를 매번 확인해요.",
    "sound": "",
-   "reply": "Here you go."
+   "reply": "Here you go.",
+   "spk": "woman"
   },
   {
    "id": "brings",
@@ -4441,7 +4527,8 @@ window.DEFAULT_DATA = {
    "ko": "오늘 어디가 불편해서 오셨어요?",
    "when": "의사가 처음에 꼭 하는 질문이에요.",
    "sound": "",
-   "reply": "I've had a fever since yesterday."
+   "reply": "I've had a fever since yesterday.",
+   "spk": "man"
   },
   {
    "id": "howlong",
@@ -4451,7 +4538,8 @@ window.DEFAULT_DATA = {
    "ko": "그런 지 얼마나 됐어요?",
    "when": "기간을 말하면 돼요.",
    "sound": "",
-   "reply": "About three days."
+   "reply": "About three days.",
+   "spk": "man"
   },
   {
    "id": "allergic",
@@ -4461,7 +4549,8 @@ window.DEFAULT_DATA = {
    "ko": "약 알레르기 있으세요?",
    "when": "약을 처방하기 전에 꼭 물어봐요.",
    "sound": "",
-   "reply": "No, I'm not."
+   "reply": "No, I'm not.",
+   "spk": "india_f"
   },
   {
    "id": "scale",
@@ -4471,7 +4560,8 @@ window.DEFAULT_DATA = {
    "ko": "1부터 10까지 중에 얼마나 아파요?",
    "when": "캐나다 병원에서 정말 자주 물어봐요. 숫자로 대답해요.",
    "sound": "",
-   "reply": "About a six."
+   "reply": "About a six.",
+   "spk": "man"
   },
   {
    "id": "twice",
@@ -4481,7 +4571,8 @@ window.DEFAULT_DATA = {
    "ko": "하루에 두 번, 한 알씩 드세요.",
    "when": "약 먹는 방법. 꼭 적어 달라고 해도 돼요.",
    "sound": "",
-   "reply": ""
+   "reply": "",
+   "spk": "india_f"
   },
   {
    "id": "haveaseat",
@@ -4491,7 +4582,8 @@ window.DEFAULT_DATA = {
    "ko": "앉아 계시면 이름 불러 드릴게요.",
    "when": "접수가 끝나면 듣는 말이에요.",
    "sound": "",
-   "reply": ""
+   "reply": "",
+   "spk": "woman"
   },
   {
    "id": "cheque",
@@ -4501,7 +4593,8 @@ window.DEFAULT_DATA = {
    "ko": "이 수표 입금하고 싶어요.",
    "when": "cheque = 수표(캐나다 철자).",
    "sound": "아이드 라이크 투 디파짓 디스 첵.",
-   "reply": ""
+   "reply": "",
+   "spk": ""
   },
   {
    "id": "cash",
@@ -4511,7 +4604,8 @@ window.DEFAULT_DATA = {
    "ko": "현금을 좀 찾고 싶어요.",
    "when": "창구에서 돈을 찾을 때.",
    "sound": "아이드 라이크 투 테이크 아웃 썸 캐시.",
-   "reply": ""
+   "reply": "",
+   "spk": ""
   },
   {
    "id": "pin",
@@ -4521,7 +4615,8 @@ window.DEFAULT_DATA = {
    "ko": "비밀번호를 잊어버렸어요.",
    "when": "PIN = 카드 비밀번호.",
    "sound": "아이 포갓 마이 핀.",
-   "reply": ""
+   "reply": "",
+   "spk": ""
   },
   {
    "id": "lost",
@@ -4531,7 +4626,8 @@ window.DEFAULT_DATA = {
    "ko": "카드를 잃어버렸어요.",
    "when": "바로 말해야 카드를 막을 수 있어요.",
    "sound": "아이 로스트 마이 카드.",
-   "reply": ""
+   "reply": "",
+   "spk": ""
   },
   {
    "id": "bookappt",
@@ -4541,7 +4637,8 @@ window.DEFAULT_DATA = {
    "ko": "예약할 수 있어요?",
    "when": "상담이 길어질 것 같을 때.",
    "sound": "캔 아이 메이크 언 어포인트먼트?",
-   "reply": ""
+   "reply": "",
+   "spk": ""
   },
   {
    "id": "sendkr",
@@ -4551,7 +4648,8 @@ window.DEFAULT_DATA = {
    "ko": "한국으로 돈을 보내고 싶어요.",
    "when": "해외 송금할 때.",
    "sound": "아이드 라이크 투 센드 머니 투 코리아.",
-   "reply": ""
+   "reply": "",
+   "spk": ""
   },
   {
    "id": "helpyou",
@@ -4561,7 +4659,8 @@ window.DEFAULT_DATA = {
    "ko": "무엇을 도와드릴까요?",
    "when": "창구에서 가장 먼저 듣는 말이에요.",
    "sound": "",
-   "reply": "I'd like to deposit this cheque."
+   "reply": "I'd like to deposit this cheque.",
+   "spk": "china_m"
   },
   {
    "id": "id",
@@ -4571,7 +4670,8 @@ window.DEFAULT_DATA = {
    "ko": "신분증 보여 주시겠어요?",
    "when": "ID = 신분증(운전면허증, 여권 등).",
    "sound": "",
-   "reply": "Here you go."
+   "reply": "Here you go.",
+   "spk": "china_m"
   },
   {
    "id": "enterpin",
@@ -4581,7 +4681,8 @@ window.DEFAULT_DATA = {
    "ko": "비밀번호 눌러 주세요.",
    "when": "카드 단말기를 내밀면서 하는 말.",
    "sound": "",
-   "reply": ""
+   "reply": "",
+   "spk": "china_f"
   },
   {
    "id": "twenties",
@@ -4591,7 +4692,8 @@ window.DEFAULT_DATA = {
    "ko": "어떻게 드릴까요? 20달러짜리로요?",
    "when": "현금을 찾으면 지폐 종류를 물어봐요.",
    "sound": "",
-   "reply": "Twenties are fine."
+   "reply": "Twenties are fine.",
+   "spk": "india_m"
   },
   {
    "id": "elsehelp",
@@ -4601,7 +4703,8 @@ window.DEFAULT_DATA = {
    "ko": "더 도와드릴 일 있으세요?",
    "when": "끝낼 때 듣는 말이에요.",
    "sound": "",
-   "reply": "No, that's all. Thank you."
+   "reply": "No, that's all. Thank you.",
+   "spk": "china_m"
   },
   {
    "id": "pickup",
@@ -4611,7 +4714,8 @@ window.DEFAULT_DATA = {
    "ko": "택배 찾으러 왔어요.",
    "when": "우체국이나 택배 보관소에서.",
    "sound": "아임 히어 투 픽 업 어 패키지.",
-   "reply": ""
+   "reply": "",
+   "spk": ""
   },
   {
    "id": "notice",
@@ -4621,7 +4725,8 @@ window.DEFAULT_DATA = {
    "ko": "이 안내 카드를 받았어요.",
    "when": "집에 없을 때 문에 붙어 있던 카드를 보여 주면서.",
    "sound": "아이 갓 디스 노티스 카드.",
-   "reply": ""
+   "reply": "",
+   "spk": ""
   },
   {
    "id": "sendthis",
@@ -4631,7 +4736,8 @@ window.DEFAULT_DATA = {
    "ko": "이거 한국으로 보내고 싶어요.",
    "when": "소포를 보낼 때.",
    "sound": "아이드 라이크 투 센드 디스 투 코리아.",
-   "reply": ""
+   "reply": "",
+   "spk": ""
   },
   {
    "id": "takelong",
@@ -4641,7 +4747,8 @@ window.DEFAULT_DATA = {
    "ko": "얼마나 걸려요?",
    "when": "배송 기간을 물을 때. 어디서든 쓸 수 있어요.",
    "sound": "하우 롱 윌 잇 테이크?",
-   "reply": ""
+   "reply": "",
+   "spk": ""
   },
   {
    "id": "tracking",
@@ -4651,7 +4758,8 @@ window.DEFAULT_DATA = {
    "ko": "추적 번호 받을 수 있어요?",
    "when": "택배가 어디 있는지 확인하는 번호.",
    "sound": "캔 아이 겟 어 트래킹 넘버?",
-   "reply": ""
+   "reply": "",
+   "spk": ""
   },
   {
    "id": "cardid",
@@ -4661,7 +4769,8 @@ window.DEFAULT_DATA = {
    "ko": "안내 카드랑 신분증 보여 주세요.",
    "when": "택배를 찾을 때 듣는 말이에요.",
    "sound": "",
-   "reply": "Here you go."
+   "reply": "Here you go.",
+   "spk": "man"
   },
   {
    "id": "fragile",
@@ -4671,7 +4780,8 @@ window.DEFAULT_DATA = {
    "ko": "안에 깨지는 거나 액체 있어요?",
    "when": "소포를 보낼 때 꼭 물어봐요.",
    "sound": "",
-   "reply": "No, just clothes."
+   "reply": "No, just clothes.",
+   "spk": "latin_f"
   },
   {
    "id": "express",
@@ -4681,7 +4791,8 @@ window.DEFAULT_DATA = {
    "ko": "일반이요, 빠른 우편이요?",
    "when": "express는 빠르지만 비싸요.",
    "sound": "",
-   "reply": "Regular, please."
+   "reply": "Regular, please.",
+   "spk": "man"
   },
   {
    "id": "sign",
@@ -4691,7 +4802,8 @@ window.DEFAULT_DATA = {
    "ko": "여기 서명해 주시겠어요?",
    "when": "택배를 받을 때.",
    "sound": "",
-   "reply": ""
+   "reply": "",
+   "spk": "latin_f"
   },
   {
    "id": "twoweeks",
@@ -4701,7 +4813,8 @@ window.DEFAULT_DATA = {
    "ko": "2주 정도 걸릴 거예요.",
    "when": "배송 기간 안내.",
    "sound": "",
-   "reply": ""
+   "reply": "",
+   "spk": "man"
   },
   {
    "id": "renew",
@@ -4711,7 +4824,8 @@ window.DEFAULT_DATA = {
    "ko": "건강카드 갱신하러 왔어요.",
    "when": "ServiceOntario 같은 곳에서. health card 대신 다른 서류 이름도 돼요.",
    "sound": "아임 히어 투 리뉴 마이 헬스 카드.",
-   "reply": ""
+   "reply": "",
+   "spk": ""
   },
   {
    "id": "address",
@@ -4721,7 +4835,8 @@ window.DEFAULT_DATA = {
    "ko": "주소를 바꾸고 싶어요.",
    "when": "이사한 뒤에.",
    "sound": "아이드 라이크 투 체인지 마이 어드레스.",
-   "reply": ""
+   "reply": "",
+   "spk": ""
   },
   {
    "id": "whichline",
@@ -4731,7 +4846,8 @@ window.DEFAULT_DATA = {
    "ko": "어느 줄에 서야 해요?",
    "when": "줄이 여러 개일 때.",
    "sound": "위치 라인 슈드 아이 비 인?",
-   "reply": ""
+   "reply": "",
+   "spk": ""
   },
   {
    "id": "form",
@@ -4741,7 +4857,8 @@ window.DEFAULT_DATA = {
    "ko": "서류를 작성해야 하나요?",
    "when": "fill out = (서류를) 작성하다.",
    "sound": "두 아이 니드 투 필 아웃 어 폼?",
-   "reply": ""
+   "reply": "",
+   "spk": ""
   },
   {
    "id": "documents",
@@ -4751,7 +4868,8 @@ window.DEFAULT_DATA = {
    "ko": "어떤 서류가 필요해요?",
    "when": "준비물을 물을 때.",
    "sound": "왓 다큐먼츠 두 아이 니드?",
-   "reply": ""
+   "reply": "",
+   "spk": ""
   },
   {
    "id": "number",
@@ -4761,7 +4879,8 @@ window.DEFAULT_DATA = {
    "ko": "번호표 뽑고 앉아 계세요.",
    "when": "들어가자마자 듣는 말이에요.",
    "sound": "",
-   "reply": ""
+   "reply": "",
+   "spk": "india_m"
   },
   {
    "id": "next",
@@ -4771,7 +4890,8 @@ window.DEFAULT_DATA = {
    "ko": "다음 분이요!",
    "when": "내 차례가 됐다는 뜻이에요.",
    "sound": "",
-   "reply": ""
+   "reply": "",
+   "spk": "woman"
   },
   {
    "id": "proof",
@@ -4781,7 +4901,8 @@ window.DEFAULT_DATA = {
    "ko": "주소를 증명할 서류 있으세요?",
    "when": "은행 명세서나 고지서를 보여 주면 돼요.",
    "sound": "",
-   "reply": "Is a bank statement okay?"
+   "reply": "Is a bank statement okay?",
+   "spk": "india_m"
   },
   {
    "id": "camera",
@@ -4791,7 +4912,8 @@ window.DEFAULT_DATA = {
    "ko": "카메라를 봐 주세요.",
    "when": "사진 찍을 때.",
    "sound": "",
-   "reply": ""
+   "reply": "",
+   "spk": "woman"
   },
   {
    "id": "mail",
@@ -4801,7 +4923,8 @@ window.DEFAULT_DATA = {
    "ko": "우편으로 받으실 거예요.",
    "when": "새 카드가 집으로 온다는 뜻이에요.",
    "sound": "",
-   "reply": ""
+   "reply": "",
+   "spk": "india_m"
   },
   {
    "id": "howsit",
@@ -4811,7 +4934,8 @@ window.DEFAULT_DATA = {
    "ko": "안녕하세요, 잘 지내세요?",
    "when": "캐나다식 가벼운 인사예요.",
    "sound": "하이, 하우즈 잇 고잉?",
-   "reply": ""
+   "reply": "",
+   "spk": ""
   },
   {
    "id": "notbad",
@@ -4821,7 +4945,8 @@ window.DEFAULT_DATA = {
    "ko": "나쁘지 않아요, 그쪽은요?",
    "when": "\"How's it going?\"에 대한 가장 흔한 대답.",
    "sound": "낫 배드, 유?",
-   "reply": ""
+   "reply": "",
+   "spk": ""
   },
   {
    "id": "socold",
@@ -4831,7 +4956,8 @@ window.DEFAULT_DATA = {
    "ko": "오늘 정말 춥네요!",
    "when": "캐나다에서 가장 무난한 스몰톡은 날씨예요.",
    "sound": "잇츠 쏘우 코울드 투데이!",
-   "reply": ""
+   "reply": "",
+   "spk": ""
   },
   {
    "id": "niceday",
@@ -4841,7 +4967,8 @@ window.DEFAULT_DATA = {
    "ko": "날씨 좋죠?",
    "when": "날씨가 좋은 날 먼저 건네는 말.",
    "sound": "나이스 데이, 이즌 잇?",
-   "reply": ""
+   "reply": "",
+   "spk": ""
   },
   {
    "id": "weekend",
@@ -4851,7 +4978,8 @@ window.DEFAULT_DATA = {
    "ko": "주말 잘 보내세요!",
    "when": "금요일에 헤어질 때.",
    "sound": "해브 어 굿 위켄드!",
-   "reply": ""
+   "reply": "",
+   "spk": ""
   },
   {
    "id": "youtoo",
@@ -4861,7 +4989,8 @@ window.DEFAULT_DATA = {
    "ko": "그쪽도요!",
    "when": "상대가 좋은 하루 보내라고 하면 이렇게 답해요.",
    "sound": "유 투!",
-   "reply": ""
+   "reply": "",
+   "spk": ""
   },
   {
    "id": "goingup",
@@ -4871,7 +5000,8 @@ window.DEFAULT_DATA = {
    "ko": "올라가세요?",
    "when": "엘리베이터 문 앞에서.",
    "sound": "",
-   "reply": "Yes, thanks."
+   "reply": "Yes, thanks.",
+   "spk": "grandpa"
   },
   {
    "id": "floor",
@@ -4881,7 +5011,8 @@ window.DEFAULT_DATA = {
    "ko": "몇 층 가세요?",
    "when": "엘리베이터 버튼 앞에 선 사람이 물어봐요.",
    "sound": "",
-   "reply": "Twelve, please."
+   "reply": "Twelve, please.",
+   "spk": "grandma"
   },
   {
    "id": "coldenough",
@@ -4891,7 +5022,8 @@ window.DEFAULT_DATA = {
    "ko": "꽤 춥죠?",
    "when": "캐나다 사람들이 겨울에 즐겨 하는 농담 섞인 인사예요.",
    "sound": "",
-   "reply": "Yes, it's freezing!"
+   "reply": "Yes, it's freezing!",
+   "spk": "grandpa"
   },
   {
    "id": "plans",
@@ -4901,7 +5033,8 @@ window.DEFAULT_DATA = {
    "ko": "주말에 계획 있어요?",
    "when": "금요일에 자주 듣는 질문.",
    "sound": "",
-   "reply": "Not really, just relaxing."
+   "reply": "Not really, just relaxing.",
+   "spk": "french_f"
   },
   {
    "id": "takecare",
@@ -4911,7 +5044,8 @@ window.DEFAULT_DATA = {
    "ko": "잘 가요!",
    "when": "헤어질 때 인사.",
    "sound": "",
-   "reply": "You too!"
+   "reply": "You too!",
+   "spk": "grandma"
   },
   {
    "id": "subway",
@@ -4921,7 +5055,8 @@ window.DEFAULT_DATA = {
    "ko": "실례지만, 지하철역이 어디예요?",
    "when": "길을 물을 때. subway station 대신 가고 싶은 곳을 넣어요.",
    "sound": "익스큐즈 미, 웨어즈 더 써브웨이 스테이션?",
-   "reply": ""
+   "reply": "",
+   "spk": ""
   },
   {
    "id": "rightbus",
@@ -4931,7 +5066,8 @@ window.DEFAULT_DATA = {
    "ko": "이거 핀치 가는 버스 맞아요?",
    "when": "버스에 타면서 기사님께. Finch 대신 가는 곳 이름을 넣어요.",
    "sound": "이즈 디스 더 라잇 버스 포 핀치?",
-   "reply": ""
+   "reply": "",
+   "spk": ""
   },
   {
    "id": "far",
@@ -4941,7 +5077,8 @@ window.DEFAULT_DATA = {
    "ko": "여기서 멀어요?",
    "when": "거리를 물을 때.",
    "sound": "이즈 잇 파 프롬 히어?",
-   "reply": ""
+   "reply": "",
+   "spk": ""
   },
   {
    "id": "getoff",
@@ -4951,7 +5088,8 @@ window.DEFAULT_DATA = {
    "ko": "어디서 내려야 하는지 알려 주실래요?",
    "when": "버스 기사님께 부탁할 때.",
    "sound": "쿠쥬 텔 미 웬 투 겟 오프?",
-   "reply": ""
+   "reply": "",
+   "spk": ""
   },
   {
    "id": "excuse",
@@ -4961,7 +5099,8 @@ window.DEFAULT_DATA = {
    "ko": "죄송해요, 좀 지나갈게요.",
    "when": "사람들 사이로 지나가거나 살짝 부딪혔을 때.",
    "sound": "쏘리, 익스큐즈 미.",
-   "reply": ""
+   "reply": "",
+   "spk": ""
   },
   {
    "id": "straight",
@@ -4971,7 +5110,8 @@ window.DEFAULT_DATA = {
    "ko": "쭉 가서 신호등에서 왼쪽으로 도세요.",
    "when": "lights = 신호등.",
    "sound": "",
-   "reply": ""
+   "reply": "",
+   "spk": "grandpa"
   },
   {
    "id": "fivemin",
@@ -4981,7 +5121,8 @@ window.DEFAULT_DATA = {
    "ko": "걸어서 5분 정도예요.",
    "when": "거리를 알려 주는 말.",
    "sound": "",
-   "reply": ""
+   "reply": "",
+   "spk": "teen_m"
   },
   {
    "id": "onright",
@@ -4991,7 +5132,8 @@ window.DEFAULT_DATA = {
    "ko": "오른쪽에 있어요.",
    "when": "on your left면 왼쪽.",
    "sound": "",
-   "reply": ""
+   "reply": "",
+   "spk": "woman"
   },
   {
    "id": "tapcard",
@@ -5001,7 +5143,8 @@ window.DEFAULT_DATA = {
    "ko": "여기에 카드 대세요.",
    "when": "버스·지하철 탈 때 카드 단말기에.",
    "sound": "",
-   "reply": ""
+   "reply": "",
+   "spk": "man"
   },
   {
    "id": "laststop",
@@ -5011,7 +5154,8 @@ window.DEFAULT_DATA = {
    "ko": "여기가 종점이에요.",
    "when": "모두 내려야 해요.",
    "sound": "",
-   "reply": ""
+   "reply": "",
+   "spk": "man"
   },
   {
    "id": "doors",
@@ -5021,7 +5165,8 @@ window.DEFAULT_DATA = {
    "ko": "문에서 떨어져 주세요.",
    "when": "지하철 안내 방송. 문이 곧 닫힌다는 뜻이에요.",
    "sound": "",
-   "reply": ""
+   "reply": "",
+   "spk": "std"
   },
   {
    "id": "calling",
@@ -5031,7 +5176,8 @@ window.DEFAULT_DATA = {
    "ko": "예약 때문에 전화드렸어요.",
    "when": "병원·은행에 전화할 때 첫마디.",
    "sound": "하이, 아임 콜링 어바웃 마이 어포인트먼트.",
-   "reply": ""
+   "reply": "",
+   "spk": ""
   },
   {
    "id": "canthear",
@@ -5041,7 +5187,8 @@ window.DEFAULT_DATA = {
    "ko": "죄송해요, 잘 안 들려요.",
    "when": "전화 소리가 작거나 끊길 때.",
    "sound": "쏘리, 아이 캔트 히어 유 베리 웰.",
-   "reply": ""
+   "reply": "",
+   "spk": ""
   },
   {
    "id": "text",
@@ -5051,7 +5198,8 @@ window.DEFAULT_DATA = {
    "ko": "대신 문자로 보내 주실 수 있어요?",
    "when": "전화 영어가 어려울 때 아주 좋은 방법이에요.",
    "sound": "캔 유 텍스트 미 인스테드?",
-   "reply": ""
+   "reply": "",
+   "spk": ""
   },
   {
    "id": "lastname",
@@ -5061,7 +5209,8 @@ window.DEFAULT_DATA = {
    "ko": "제 성은 김이에요. K, I, M.",
    "when": "이름은 철자까지 불러 주면 정확해요.",
    "sound": "마이 래스트 네임 이즈 킴. 케이, 아이, 엠.",
-   "reply": ""
+   "reply": "",
+   "spk": ""
   },
   {
    "id": "dob",
@@ -5071,7 +5220,8 @@ window.DEFAULT_DATA = {
    "ko": "생년월일 알려 주시겠어요?",
    "when": "본인 확인할 때 꼭 물어봐요. 월-일-연도 순서로 말해요.",
    "sound": "",
-   "reply": ""
+   "reply": "",
+   "spk": "india_f"
   },
   {
    "id": "spellname",
@@ -5081,7 +5231,8 @@ window.DEFAULT_DATA = {
    "ko": "성 철자를 불러 주시겠어요?",
    "when": "알파벳 하나씩 말하면 돼요.",
    "sound": "",
-   "reply": "K-I-M."
+   "reply": "K-I-M.",
+   "spk": "india_f"
   },
   {
    "id": "hold",
@@ -5091,7 +5242,8 @@ window.DEFAULT_DATA = {
    "ko": "잠시만 기다려 주세요.",
    "when": "끊지 말고 기다리라는 뜻이에요.",
    "sound": "",
-   "reply": ""
+   "reply": "",
+   "spk": "woman"
   },
   {
    "id": "whom",
@@ -5101,7 +5253,8 @@ window.DEFAULT_DATA = {
    "ko": "누구시죠?",
    "when": "전화 건 사람 이름을 묻는 말이에요.",
    "sound": "",
-   "reply": "This is Kim."
+   "reply": "This is Kim.",
+   "spk": "woman"
   },
   {
    "id": "callback",
@@ -5111,7 +5264,1603 @@ window.DEFAULT_DATA = {
    "ko": "다시 전화드릴게요.",
    "when": "나중에 연락 준다는 뜻이에요.",
    "sound": "",
-   "reply": "Okay, thank you."
+   "reply": "Okay, thank you.",
+   "spk": "india_f"
+  },
+  {
+   "id": "x_notgood",
+   "place": "rescue",
+   "who": "me",
+   "en": "Sorry, my English isn't very good.",
+   "ko": "죄송해요, 제 영어가 서툴러요.",
+   "when": "먼저 말해 두면 상대가 쉬운 말로 천천히 해 줘요.",
+   "sound": "쏘리, 마이 잉글리시 이즌트 베리 굿.",
+   "reply": "",
+   "spk": ""
+  },
+  {
+   "id": "x_differ",
+   "place": "rescue",
+   "who": "me",
+   "en": "Could you say it in a different way?",
+   "ko": "다른 말로 말씀해 주시겠어요?",
+   "when": "같은 말을 반복해도 모를 때. 쉬운 단어로 바꿔 달라는 뜻이에요.",
+   "sound": "쿠쥬 세이 잇 인 어 디퍼런트 웨이?",
+   "reply": "",
+   "spk": ""
+  },
+  {
+   "id": "x_right",
+   "place": "rescue",
+   "who": "me",
+   "en": "Is this right?",
+   "ko": "이거 맞아요?",
+   "when": "서류를 쓰거나 길을 확인할 때.",
+   "sound": "이즈 디스 라잇?",
+   "reply": "",
+   "spk": ""
+  },
+  {
+   "id": "x_onemore",
+   "place": "rescue",
+   "who": "me",
+   "en": "One more time, please.",
+   "ko": "한 번만 더요.",
+   "when": "가장 짧게 다시 말해 달라고 할 때.",
+   "sound": "원 모어 타임, 플리즈.",
+   "reply": "",
+   "spk": ""
+  },
+  {
+   "id": "x_icecapp",
+   "place": "cafe",
+   "who": "me",
+   "en": "Can I get a large Iced Capp?",
+   "ko": "라지 아이스캡 하나 주세요.",
+   "when": "아이스캡 = 팀홀튼의 달콤한 아이스 커피 음료.",
+   "sound": "캔 아이 겟 어 라지 아이스드 캡?",
+   "reply": "",
+   "spk": ""
+  },
+  {
+   "id": "x_bagel",
+   "place": "cafe",
+   "who": "me",
+   "en": "Can I get a toasted bagel with cream cheese?",
+   "ko": "크림치즈 바른 구운 베이글 하나 주세요.",
+   "when": "팀홀튼 아침 단골 메뉴예요.",
+   "sound": "캔 아이 겟 어 토스티드 베이글 위드 크림 치즈?",
+   "reply": "",
+   "spk": ""
+  },
+  {
+   "id": "x_napkins",
+   "place": "cafe",
+   "who": "me",
+   "en": "Could I get some more napkins?",
+   "ko": "냅킨 좀 더 주실래요?",
+   "when": "napkins 대신 sugar, cream 등을 넣어도 돼요.",
+   "sound": "쿠다이 겟 썸 모어 냅킨즈?",
+   "reply": "",
+   "spk": ""
+  },
+  {
+   "id": "x_inback",
+   "place": "grocery",
+   "who": "me",
+   "en": "Do you have any more in the back?",
+   "ko": "창고에 더 있어요?",
+   "when": "진열대에 물건이 없을 때.",
+   "sound": "두 유 해브 애니 모어 인 더 백?",
+   "reply": "",
+   "spk": ""
+  },
+  {
+   "id": "x_senior",
+   "place": "grocery",
+   "who": "me",
+   "en": "Is there a seniors' discount?",
+   "ko": "어르신 할인 있어요?",
+   "when": "약국·마트에 '시니어 데이'가 있는 곳이 많아요.",
+   "sound": "이즈 데어 어 시니어즈 디스카운트?",
+   "reply": "",
+   "spk": ""
+  },
+  {
+   "id": "x_pricecheck",
+   "place": "grocery",
+   "who": "me",
+   "en": "Can I get a price check on this?",
+   "ko": "이거 가격 좀 확인해 주실래요?",
+   "when": "가격표와 계산 금액이 다를 때.",
+   "sound": "캔 아이 겟 어 프라이스 첵 온 디스?",
+   "reply": "",
+   "spk": ""
+  },
+  {
+   "id": "x_water",
+   "place": "restaurant",
+   "who": "me",
+   "en": "Just water, please.",
+   "ko": "그냥 물 주세요.",
+   "when": "음료를 물어볼 때. 물은 무료예요.",
+   "sound": "저스트 워터, 플리즈.",
+   "reply": "",
+   "spk": ""
+  },
+  {
+   "id": "x_noonion",
+   "place": "restaurant",
+   "who": "me",
+   "en": "Can I get this without onions?",
+   "ko": "양파 빼고 주실 수 있어요?",
+   "when": "onions 대신 빼고 싶은 재료를 넣어요.",
+   "sound": "캔 아이 겟 디스 위다웃 어니언즈?",
+   "reply": "",
+   "spk": ""
+  },
+  {
+   "id": "x_delicious",
+   "place": "restaurant",
+   "who": "me",
+   "en": "Everything was delicious, thank you.",
+   "ko": "다 맛있었어요, 감사해요.",
+   "when": "계산하고 나갈 때 한마디.",
+   "sound": "에브리띵 워즈 딜리셔스, 땡큐.",
+   "reply": "",
+   "spk": ""
+  },
+  {
+   "id": "x_dizzy",
+   "place": "clinic",
+   "who": "me",
+   "en": "I feel dizzy.",
+   "ko": "어지러워요.",
+   "when": "dizzy = 어지러운.",
+   "sound": "아이 필 디지.",
+   "reply": "",
+   "spk": ""
+  },
+  {
+   "id": "x_cough",
+   "place": "clinic",
+   "who": "me",
+   "en": "I have a bad cough.",
+   "ko": "기침이 심해요.",
+   "when": "a bad cold면 '감기가 심해요'.",
+   "sound": "아이 해브 어 배드 커프.",
+   "reply": "",
+   "spk": ""
+  },
+  {
+   "id": "x_foodq",
+   "place": "clinic",
+   "who": "me",
+   "en": "Do I need to take this with food?",
+   "ko": "이거 식후에 먹어야 해요?",
+   "when": "약 받을 때 물어보면 좋아요.",
+   "sound": "두 아이 니드 투 테이크 디스 위드 푸드?",
+   "reply": "",
+   "spk": ""
+  },
+  {
+   "id": "x_refill",
+   "place": "clinic",
+   "who": "me",
+   "en": "Can I get a refill?",
+   "ko": "같은 약 다시 받을 수 있어요?",
+   "when": "refill = 같은 처방약을 다시 받는 것.",
+   "sound": "캔 아이 겟 어 리필?",
+   "reply": "",
+   "spk": ""
+  },
+  {
+   "id": "x_whatfee",
+   "place": "bank",
+   "who": "me",
+   "en": "What's the fee for this?",
+   "ko": "이거 수수료가 얼마예요?",
+   "when": "송금·환전할 때 꼭 물어보세요.",
+   "sound": "왓츠 더 피 포 디스?",
+   "reply": "",
+   "spk": ""
+  },
+  {
+   "id": "x_balance",
+   "place": "bank",
+   "who": "me",
+   "en": "I'd like to check my balance.",
+   "ko": "잔액 확인하고 싶어요.",
+   "when": "balance = 잔액.",
+   "sound": "아이드 라이크 투 첵 마이 밸런스.",
+   "reply": "",
+   "spk": ""
+  },
+  {
+   "id": "x_atm",
+   "place": "bank",
+   "who": "me",
+   "en": "Can you help me with the ATM?",
+   "ko": "ATM 사용 좀 도와주실래요?",
+   "when": "은행 안 ATM에서 직원에게.",
+   "sound": "캔 유 헬프 미 위드 디 에이티엠?",
+   "reply": "",
+   "spk": ""
+  },
+  {
+   "id": "x_howmuchsend",
+   "place": "post",
+   "who": "me",
+   "en": "How much is it to send this?",
+   "ko": "이거 보내는 데 얼마예요?",
+   "when": "무게와 나라에 따라 달라요.",
+   "sound": "하우 머치 이즈 잇 투 센드 디스?",
+   "reply": "",
+   "spk": ""
+  },
+  {
+   "id": "x_stamps",
+   "place": "post",
+   "who": "me",
+   "en": "Can I get some stamps?",
+   "ko": "우표 좀 살 수 있어요?",
+   "when": "카드나 편지 보낼 때.",
+   "sound": "캔 아이 겟 썸 스탬프스?",
+   "reply": "",
+   "spk": ""
+  },
+  {
+   "id": "x_online",
+   "place": "office",
+   "who": "me",
+   "en": "Can I make an appointment online?",
+   "ko": "온라인으로 예약할 수 있어요?",
+   "when": "서비스온타리오는 온라인 예약이 돼요.",
+   "sound": "캔 아이 메이크 언 어포인트먼트 온라인?",
+   "reply": "",
+   "spk": ""
+  },
+  {
+   "id": "x_wheresign",
+   "place": "office",
+   "who": "me",
+   "en": "Where do I sign?",
+   "ko": "어디에 서명해요?",
+   "when": "서류를 받았을 때.",
+   "sound": "웨어 두 아이 사인?",
+   "reply": "",
+   "spk": ""
+  },
+  {
+   "id": "x_korea",
+   "place": "smalltalk",
+   "who": "me",
+   "en": "I'm from Korea.",
+   "ko": "한국에서 왔어요.",
+   "when": "출신을 물어볼 때.",
+   "sound": "아임 프롬 코리아.",
+   "reply": "",
+   "spk": ""
+  },
+  {
+   "id": "x_moved",
+   "place": "smalltalk",
+   "who": "me",
+   "en": "I just moved in.",
+   "ko": "막 이사 왔어요.",
+   "when": "새 이웃에게 인사할 때.",
+   "sound": "아이 저스트 무브드 인.",
+   "reply": "",
+   "spk": ""
+  },
+  {
+   "id": "x_nicemeet",
+   "place": "smalltalk",
+   "who": "me",
+   "en": "Nice to meet you.",
+   "ko": "만나서 반가워요.",
+   "when": "처음 만났을 때. 대답은 'Nice to meet you too.'",
+   "sound": "나이스 투 밋 유.",
+   "reply": "",
+   "spk": ""
+  },
+  {
+   "id": "x_beautiful",
+   "place": "smalltalk",
+   "who": "me",
+   "en": "It's beautiful out today!",
+   "ko": "오늘 날씨 정말 좋네요!",
+   "when": "out = 밖. 날씨 이야기는 캐나다에서 최고의 인사예요.",
+   "sound": "잇츠 뷰티풀 아웃 투데이!",
+   "reply": "",
+   "spk": ""
+  },
+  {
+   "id": "x_downtown",
+   "place": "street",
+   "who": "me",
+   "en": "Does this bus go downtown?",
+   "ko": "이 버스 다운타운 가요?",
+   "when": "downtown = 시내 중심가.",
+   "sound": "더즈 디스 버스 고우 다운타운?",
+   "reply": "",
+   "spk": ""
+  },
+  {
+   "id": "x_presto",
+   "place": "street",
+   "who": "me",
+   "en": "Where can I buy a Presto card?",
+   "ko": "프레스토 카드 어디서 사요?",
+   "when": "프레스토 = 토론토 버스·지하철 교통카드.",
+   "sound": "웨어 캔 아이 바이 어 프레스토 카드?",
+   "reply": "",
+   "spk": ""
+  },
+  {
+   "id": "x_lost",
+   "place": "street",
+   "who": "me",
+   "en": "Can you help me? I'm lost.",
+   "ko": "좀 도와주실래요? 길을 잃었어요.",
+   "when": "길을 잃었을 때 주변 사람에게.",
+   "sound": "캔 유 헬프 미? 아임 로스트.",
+   "reply": "",
+   "spk": ""
+  },
+  {
+   "id": "x_anyway",
+   "place": "street",
+   "who": "me",
+   "en": "Thanks anyway.",
+   "ko": "어쨌든 고마워요.",
+   "when": "도와주려 했지만 못 도와준 사람에게.",
+   "sound": "땡스 에니웨이.",
+   "reply": "",
+   "spk": ""
+  },
+  {
+   "id": "x_callback",
+   "place": "phone",
+   "who": "me",
+   "en": "Could you call me back later?",
+   "ko": "나중에 다시 전화 주실래요?",
+   "when": "지금 통화가 어려울 때.",
+   "sound": "쿠쥬 콜 미 백 레이터?",
+   "reply": "",
+   "spk": ""
+  },
+  {
+   "id": "x_cancel",
+   "place": "phone",
+   "who": "me",
+   "en": "I'd like to cancel my appointment.",
+   "ko": "예약을 취소하고 싶어요.",
+   "when": "못 가게 되면 미리 전화해요. 안 하면 요금을 받는 곳도 있어요.",
+   "sound": "아이드 라이크 투 캔슬 마이 어포인트먼트.",
+   "reply": "",
+   "spk": ""
+  },
+  {
+   "id": "x_change",
+   "place": "phone",
+   "who": "me",
+   "en": "I'd like to change my appointment.",
+   "ko": "예약을 바꾸고 싶어요.",
+   "when": "날짜를 옮길 때.",
+   "sound": "아이드 라이크 투 체인지 마이 어포인트먼트.",
+   "reply": "",
+   "spk": ""
+  },
+  {
+   "id": "s_return",
+   "place": "shopping",
+   "who": "me",
+   "en": "I'd like to return this.",
+   "ko": "이거 반품하고 싶어요.",
+   "when": "영수증을 꼭 가져가세요.",
+   "sound": "아이드 라이크 투 리턴 디스.",
+   "reply": "",
+   "spk": ""
+  },
+  {
+   "id": "s_exchange",
+   "place": "shopping",
+   "who": "me",
+   "en": "Can I exchange this for a different size?",
+   "ko": "다른 사이즈로 교환할 수 있어요?",
+   "when": "옷·신발 사이즈가 안 맞을 때.",
+   "sound": "캔 아이 익스체인지 디스 포 어 디퍼런트 사이즈?",
+   "reply": "",
+   "spk": ""
+  },
+  {
+   "id": "s_fitting",
+   "place": "shopping",
+   "who": "me",
+   "en": "Where's the fitting room?",
+   "ko": "탈의실 어디예요?",
+   "when": "fitting room = 옷 입어 보는 곳.",
+   "sound": "웨어즈 더 피팅 룸?",
+   "reply": "",
+   "spk": ""
+  },
+  {
+   "id": "s_looking",
+   "place": "shopping",
+   "who": "me",
+   "en": "I'm just looking, thanks.",
+   "ko": "그냥 구경하는 중이에요.",
+   "when": "직원이 도와드릴까요 하고 물을 때.",
+   "sound": "아임 저스트 루킹, 땡스.",
+   "reply": "",
+   "spk": ""
+  },
+  {
+   "id": "s_howmuch",
+   "place": "shopping",
+   "who": "me",
+   "en": "How much is this?",
+   "ko": "이거 얼마예요?",
+   "when": "가격표가 없을 때.",
+   "sound": "하우 머치 이즈 디스?",
+   "reply": "",
+   "spk": ""
+  },
+  {
+   "id": "s_black",
+   "place": "shopping",
+   "who": "me",
+   "en": "Do you have this in black?",
+   "ko": "이거 검은색 있어요?",
+   "when": "black 대신 다른 색 이름을 넣어요.",
+   "sound": "두 유 해브 디스 인 블랙?",
+   "reply": "",
+   "spk": ""
+  },
+  {
+   "id": "h_leak",
+   "place": "home",
+   "who": "me",
+   "en": "My sink is leaking.",
+   "ko": "싱크대에서 물이 새요.",
+   "when": "관리실(super)에 전화할 때.",
+   "sound": "마이 싱크 이즈 리킹.",
+   "reply": "",
+   "spk": ""
+  },
+  {
+   "id": "h_heat",
+   "place": "home",
+   "who": "me",
+   "en": "The heat isn't working.",
+   "ko": "난방이 안 돼요.",
+   "when": "겨울에는 급하게 고쳐 줘야 해요.",
+   "sound": "더 힛 이즌트 워킹.",
+   "reply": "",
+   "spk": ""
+  },
+  {
+   "id": "h_when",
+   "place": "home",
+   "who": "me",
+   "en": "When can you come to fix it?",
+   "ko": "언제 고치러 오실 수 있어요?",
+   "when": "수리 날짜를 물을 때.",
+   "sound": "웬 캔 유 컴 투 픽스 잇?",
+   "reply": "",
+   "spk": ""
+  },
+  {
+   "id": "h_door",
+   "place": "home",
+   "who": "me",
+   "en": "Can you leave it at the door?",
+   "ko": "문 앞에 두고 가 주실래요?",
+   "when": "배달 기사에게.",
+   "sound": "캔 유 리브 잇 앳 더 도어?",
+   "reply": "",
+   "spk": ""
+  },
+  {
+   "id": "h_who",
+   "place": "home",
+   "who": "me",
+   "en": "Who is it?",
+   "ko": "누구세요?",
+   "when": "누가 문을 두드릴 때.",
+   "sound": "후 이즈 잇?",
+   "reply": "",
+   "spk": ""
+  },
+  {
+   "id": "h_unit",
+   "place": "home",
+   "who": "me",
+   "en": "I live in unit twelve-oh-three.",
+   "ko": "1203호에 살아요.",
+   "when": "호수는 두 자리씩 끊어 읽어요. 0은 '오'.",
+   "sound": "아이 리브 인 유닛 트웰브 오 쓰리.",
+   "reply": "",
+   "spk": ""
+  },
+  {
+   "id": "e_ambulance",
+   "place": "emergency",
+   "who": "me",
+   "en": "I need an ambulance.",
+   "ko": "구급차가 필요해요.",
+   "when": "911에 전화해서 가장 먼저 할 말.",
+   "sound": "아이 니드 언 앰뷸런스.",
+   "reply": "",
+   "spk": ""
+  },
+  {
+   "id": "e_help",
+   "place": "emergency",
+   "who": "me",
+   "en": "Please help me!",
+   "ko": "도와주세요!",
+   "when": "급할 때 크게 말해요.",
+   "sound": "플리즈 헬프 미!",
+   "reply": "",
+   "spk": ""
+  },
+  {
+   "id": "e_fell",
+   "place": "emergency",
+   "who": "me",
+   "en": "Someone fell and can't get up.",
+   "ko": "누가 넘어져서 못 일어나요.",
+   "when": "어르신이 넘어졌을 때.",
+   "sound": "썸원 펠 앤 캔트 겟 업.",
+   "reply": "",
+   "spk": ""
+  },
+  {
+   "id": "e_breathe",
+   "place": "emergency",
+   "who": "me",
+   "en": "I can't breathe well.",
+   "ko": "숨쉬기가 힘들어요.",
+   "when": "아주 위급한 증상이에요. 바로 911에 전화하세요.",
+   "sound": "아이 캔트 브리드 웰.",
+   "reply": "",
+   "spk": ""
+  },
+  {
+   "id": "e_address",
+   "place": "emergency",
+   "who": "me",
+   "en": "My address is one twenty-three Main Street.",
+   "ko": "제 주소는 메인 스트리트 123번지예요.",
+   "when": "번지수는 '원 투웨니 쓰리'처럼 끊어 읽어요. 내 주소로 바꿔 연습하세요.",
+   "sound": "마이 어드레스 이즈 원 트웨니 쓰리 메인 스트릿.",
+   "reply": "",
+   "spk": ""
+  },
+  {
+   "id": "e_allergic",
+   "place": "emergency",
+   "who": "me",
+   "en": "I'm allergic to penicillin.",
+   "ko": "페니실린 알레르기가 있어요.",
+   "when": "penicillin 대신 내 알레르기를 넣어요.",
+   "sound": "아임 얼러직 투 페니실린.",
+   "reply": "",
+   "spk": ""
+  },
+  {
+   "id": "t_address",
+   "place": "taxi",
+   "who": "me",
+   "en": "Can you take me to this address?",
+   "ko": "이 주소로 가 주세요.",
+   "when": "주소를 보여 주면서.",
+   "sound": "캔 유 테이크 미 투 디스 어드레스?",
+   "reply": "",
+   "spk": ""
+  },
+  {
+   "id": "t_dropoff",
+   "place": "taxi",
+   "who": "me",
+   "en": "You can drop me off here.",
+   "ko": "여기서 내려 주세요.",
+   "when": "drop off = 내려 주다.",
+   "sound": "유 캔 드랍 미 오프 히어.",
+   "reply": "",
+   "spk": ""
+  },
+  {
+   "id": "t_howlong",
+   "place": "taxi",
+   "who": "me",
+   "en": "How long will it take to get there?",
+   "ko": "거기까지 얼마나 걸려요?",
+   "when": "시간이 궁금할 때.",
+   "sound": "하우 롱 윌 잇 테이크 투 겟 데어?",
+   "reply": "",
+   "spk": ""
+  },
+  {
+   "id": "t_trunk",
+   "place": "taxi",
+   "who": "me",
+   "en": "Could you open the trunk, please?",
+   "ko": "트렁크 좀 열어 주실래요?",
+   "when": "짐이 있을 때.",
+   "sound": "쿠쥬 오픈 더 트렁크, 플리즈?",
+   "reply": "",
+   "spk": ""
+  },
+  {
+   "id": "t_card",
+   "place": "taxi",
+   "who": "me",
+   "en": "Can I pay by card?",
+   "ko": "카드로 내도 돼요?",
+   "when": "택시에서 내리기 전에.",
+   "sound": "캔 아이 페이 바이 카드?",
+   "reply": "",
+   "spk": ""
+  },
+  {
+   "id": "c_trim",
+   "place": "hair",
+   "who": "me",
+   "en": "Just a trim, please.",
+   "ko": "다듬기만 해 주세요.",
+   "when": "trim = 끝만 살짝 자르기.",
+   "sound": "저스트 어 트림, 플리즈.",
+   "reply": "",
+   "spk": ""
+  },
+  {
+   "id": "c_notshort",
+   "place": "hair",
+   "who": "me",
+   "en": "Not too short, please.",
+   "ko": "너무 짧지 않게 해 주세요.",
+   "when": "가장 많이 쓰는 부탁이에요.",
+   "sound": "낫 투 숏, 플리즈.",
+   "reply": "",
+   "spk": ""
+  },
+  {
+   "id": "c_book",
+   "place": "hair",
+   "who": "me",
+   "en": "Can I book a haircut for Friday?",
+   "ko": "금요일에 커트 예약할 수 있어요?",
+   "when": "Friday 대신 원하는 요일을 넣어요.",
+   "sound": "캔 아이 북 어 헤어컷 포 프라이데이?",
+   "reply": "",
+   "spk": ""
+  },
+  {
+   "id": "c_sides",
+   "place": "hair",
+   "who": "me",
+   "en": "A little shorter on the sides.",
+   "ko": "옆은 조금 더 짧게요.",
+   "when": "on the top = 윗머리, in the back = 뒷머리.",
+   "sound": "어 리를 쇼터 온 더 사이즈.",
+   "reply": "",
+   "spk": ""
+  },
+  {
+   "id": "c_great",
+   "place": "hair",
+   "who": "me",
+   "en": "It looks great, thank you!",
+   "ko": "아주 좋아요, 고마워요!",
+   "when": "끝나고 거울을 보며.",
+   "sound": "잇 룩스 그레잇, 땡큐!",
+   "reply": "",
+   "spk": ""
+  },
+  {
+   "id": "l_card",
+   "place": "library",
+   "who": "me",
+   "en": "How do I get a library card?",
+   "ko": "도서관 카드 어떻게 만들어요?",
+   "when": "토론토 도서관 카드는 무료예요.",
+   "sound": "하우 두 아이 겟 어 라이브러리 카드?",
+   "reply": "",
+   "spk": ""
+  },
+  {
+   "id": "l_borrow",
+   "place": "library",
+   "who": "me",
+   "en": "I'd like to borrow this book.",
+   "ko": "이 책 빌리고 싶어요.",
+   "when": "borrow = 빌리다.",
+   "sound": "아이드 라이크 투 바로우 디스 북.",
+   "reply": "",
+   "spk": ""
+  },
+  {
+   "id": "l_seniors",
+   "place": "library",
+   "who": "me",
+   "en": "Do you have any programs for seniors?",
+   "ko": "어르신 프로그램 있어요?",
+   "when": "주민센터에 무료·저렴한 프로그램이 많아요.",
+   "sound": "두 유 해브 애니 프로그램즈 포 시니어즈?",
+   "reply": "",
+   "spk": ""
+  },
+  {
+   "id": "l_esl",
+   "place": "library",
+   "who": "me",
+   "en": "Is there a free English class?",
+   "ko": "무료 영어 수업 있어요?",
+   "when": "ESL = 이민자를 위한 영어 수업.",
+   "sound": "이즈 데어 어 프리 잉글리시 클래스?",
+   "reply": "",
+   "spk": ""
+  },
+  {
+   "id": "l_due",
+   "place": "library",
+   "who": "me",
+   "en": "When is it due?",
+   "ko": "언제까지 반납해요?",
+   "when": "due = 기한.",
+   "sound": "웬 이즈 잇 듀?",
+   "reply": "",
+   "spk": ""
+  },
+  {
+   "id": "x_noworry",
+   "place": "rescue",
+   "who": "them",
+   "en": "No worries, take your time.",
+   "ko": "괜찮아요, 천천히 하세요.",
+   "when": "젊은 직원들이 자주 해요. No worries = 괜찮아요.",
+   "sound": "",
+   "reply": "Thank you.",
+   "spk": "teen_f"
+  },
+  {
+   "id": "x_writeit",
+   "place": "rescue",
+   "who": "them",
+   "en": "Do you want me to write it down?",
+   "ko": "적어 드릴까요?",
+   "when": "못 알아들은 걸 알아채고 먼저 물어봐 줄 때.",
+   "sound": "",
+   "reply": "Yes, please. Thank you.",
+   "spk": "grandma"
+  },
+  {
+   "id": "x_getya",
+   "place": "cafe",
+   "who": "them",
+   "en": "Hey! What can I get ya?",
+   "ko": "안녕하세요! 뭐 드릴까요?",
+   "when": "10대 직원들은 'you'를 '야'처럼 짧게 말해요. 빨라도 뜻은 같아요.",
+   "sound": "",
+   "reply": "Can I get a medium double-double?",
+   "spk": "teen_f"
+  },
+  {
+   "id": "x_allset",
+   "place": "cafe",
+   "who": "them",
+   "en": "You're all set!",
+   "ko": "다 됐어요!",
+   "when": "계산이나 주문이 끝났다는 뜻이에요.",
+   "sound": "",
+   "reply": "Thanks!",
+   "spk": "teen_m"
+  },
+  {
+   "id": "x_everything",
+   "place": "cafe",
+   "who": "them",
+   "en": "Is that everything for you today?",
+   "ko": "오늘은 이게 다세요?",
+   "when": "'Anything else?'와 같은 뜻이에요.",
+   "sound": "",
+   "reply": "Yes, that's it.",
+   "spk": "teen_f"
+  },
+  {
+   "id": "x_endcounter",
+   "place": "cafe",
+   "who": "them",
+   "en": "Your order will be ready at the end of the counter.",
+   "ko": "주문하신 건 카운터 끝에서 받으시면 돼요.",
+   "when": "음료 받는 곳을 알려 주는 말이에요.",
+   "sound": "",
+   "reply": "Okay, thanks.",
+   "spk": "teen_m"
+  },
+  {
+   "id": "x_foodbank",
+   "place": "grocery",
+   "who": "them",
+   "en": "Would you like to donate to the food bank today?",
+   "ko": "오늘 푸드뱅크에 기부하시겠어요?",
+   "when": "계산할 때 자주 물어봐요. 안 해도 괜찮아요.",
+   "sound": "",
+   "reply": "Not today, thanks.",
+   "spk": "latin_f"
+  },
+  {
+   "id": "x_allout",
+   "place": "grocery",
+   "who": "them",
+   "en": "Sorry, we're all out of that.",
+   "ko": "죄송해요, 그거 다 떨어졌어요.",
+   "when": "all out = 재고가 없다는 뜻.",
+   "sound": "",
+   "reply": "Oh, okay. Thanks.",
+   "spk": "teen_m"
+  },
+  {
+   "id": "x_aisle",
+   "place": "grocery",
+   "who": "them",
+   "en": "It's in aisle five.",
+   "ko": "5번 통로에 있어요.",
+   "when": "aisle(아일) = 진열대 사이 통로.",
+   "sound": "",
+   "reply": "Thank you.",
+   "spk": "china_f"
+  },
+  {
+   "id": "x_cashback",
+   "place": "grocery",
+   "who": "them",
+   "en": "Do you want any cash back?",
+   "ko": "현금 좀 찾아 가실래요?",
+   "when": "데빗카드로 계산하면서 현금을 함께 찾을 수 있어요.",
+   "sound": "",
+   "reply": "No, thanks.",
+   "spk": "teen_f"
+  },
+  {
+   "id": "x_drink",
+   "place": "restaurant",
+   "who": "them",
+   "en": "Can I start you off with something to drink?",
+   "ko": "음료부터 드릴까요?",
+   "when": "식당에서 자리에 앉으면 먼저 물어봐요.",
+   "sound": "",
+   "reply": "Just water, please.",
+   "spk": "woman"
+  },
+  {
+   "id": "x_still",
+   "place": "restaurant",
+   "who": "them",
+   "en": "Still or sparkling?",
+   "ko": "그냥 물이요, 탄산수요?",
+   "when": "still = 그냥 물, sparkling = 탄산수.",
+   "sound": "",
+   "reply": "Still, please.",
+   "spk": "teen_f"
+  },
+  {
+   "id": "x_steak",
+   "place": "restaurant",
+   "who": "them",
+   "en": "How would you like your steak?",
+   "ko": "스테이크 굽기는 어떻게 해 드릴까요?",
+   "when": "rare(덜), medium(중간), well done(바싹).",
+   "sound": "",
+   "reply": "Medium, please.",
+   "spk": "man"
+  },
+  {
+   "id": "x_tip",
+   "place": "restaurant",
+   "who": "them",
+   "en": "You can add a tip on the machine.",
+   "ko": "단말기에서 팁을 추가하시면 돼요.",
+   "when": "카드 단말기에 팁 비율이 나와요. 보통 15~18%예요.",
+   "sound": "",
+   "reply": "Okay, thank you.",
+   "spk": "teen_m"
+  },
+  {
+   "id": "x_othermed",
+   "place": "clinic",
+   "who": "them",
+   "en": "Are you taking any other medications?",
+   "ko": "다른 약 드시는 거 있어요?",
+   "when": "약사나 의사가 꼭 물어봐요. 약 목록을 보여 줘도 돼요.",
+   "sound": "",
+   "reply": "Yes, I'll show you the list.",
+   "spk": "india_f"
+  },
+  {
+   "id": "x_breath",
+   "place": "clinic",
+   "who": "them",
+   "en": "Take a deep breath for me.",
+   "ko": "숨 크게 들이쉬어 보세요.",
+   "when": "청진기로 진찰할 때.",
+   "sound": "",
+   "reply": "",
+   "spk": "man"
+  },
+  {
+   "id": "x_withfood",
+   "place": "clinic",
+   "who": "them",
+   "en": "Take it with food.",
+   "ko": "음식과 함께 드세요.",
+   "when": "식사하면서, 또는 식후에 먹으라는 뜻이에요.",
+   "sound": "",
+   "reply": "Okay.",
+   "spk": "india_f"
+  },
+  {
+   "id": "x_shortly",
+   "place": "clinic",
+   "who": "them",
+   "en": "The doctor will be with you shortly.",
+   "ko": "의사 선생님 곧 오실 거예요.",
+   "when": "shortly = 곧.",
+   "sound": "",
+   "reply": "Thank you.",
+   "spk": "woman"
+  },
+  {
+   "id": "x_sidefx",
+   "place": "clinic",
+   "who": "them",
+   "en": "If you have any side effects, give us a call.",
+   "ko": "부작용이 있으면 전화 주세요.",
+   "when": "side effects = 부작용.",
+   "sound": "",
+   "reply": "Okay, I will.",
+   "spk": "india_f"
+  },
+  {
+   "id": "x_chequing",
+   "place": "bank",
+   "who": "them",
+   "en": "Would you like that in your chequing or savings?",
+   "ko": "입출금 계좌에 넣을까요, 저축 계좌에 넣을까요?",
+   "when": "chequing = 입출금 계좌, savings = 저축 계좌.",
+   "sound": "",
+   "reply": "Chequing, please.",
+   "spk": "china_m"
+  },
+  {
+   "id": "x_insert",
+   "place": "bank",
+   "who": "them",
+   "en": "Please insert your card.",
+   "ko": "카드를 넣어 주세요.",
+   "when": "insert = 꽂다. tap은 대는 것.",
+   "sound": "",
+   "reply": "",
+   "spk": "china_f"
+  },
+  {
+   "id": "x_confirm",
+   "place": "bank",
+   "who": "them",
+   "en": "Can you confirm your address for me?",
+   "ko": "주소 확인해 주시겠어요?",
+   "when": "본인 확인할 때 물어봐요.",
+   "sound": "",
+   "reply": "Sure.",
+   "spk": "india_m"
+  },
+  {
+   "id": "x_fee",
+   "place": "bank",
+   "who": "them",
+   "en": "There's a small fee for that.",
+   "ko": "그건 수수료가 조금 있어요.",
+   "when": "fee = 수수료.",
+   "sound": "",
+   "reply": "How much is it?",
+   "spk": "china_m"
+  },
+  {
+   "id": "x_insure",
+   "place": "post",
+   "who": "them",
+   "en": "Do you want insurance on that?",
+   "ko": "보험 드시겠어요?",
+   "when": "분실·파손 보험이에요. 비싼 물건만 하면 돼요.",
+   "sound": "",
+   "reply": "No, thanks.",
+   "spk": "latin_f"
+  },
+  {
+   "id": "x_customs",
+   "place": "post",
+   "who": "them",
+   "en": "Can you fill out this customs form?",
+   "ko": "이 세관 신고서 작성해 주시겠어요?",
+   "when": "해외로 보낼 때 내용물과 가격을 적어요.",
+   "sound": "",
+   "reply": "Sure. Can you help me?",
+   "spk": "man"
+  },
+  {
+   "id": "x_nobody",
+   "place": "post",
+   "who": "them",
+   "en": "We left a notice because no one was home.",
+   "ko": "집에 아무도 없어서 안내문을 남겼어요.",
+   "when": "택배 기사가 남긴 쪽지를 가지고 우체국에 가요.",
+   "sound": "",
+   "reply": "",
+   "spk": "teen_m"
+  },
+  {
+   "id": "x_screen",
+   "place": "office",
+   "who": "them",
+   "en": "Your number will be called on the screen.",
+   "ko": "번호가 화면에 나와요.",
+   "when": "번호표를 받고 화면을 보며 기다려요.",
+   "sound": "",
+   "reply": "Okay, thank you.",
+   "spk": "india_m"
+  },
+  {
+   "id": "x_bottom",
+   "place": "office",
+   "who": "them",
+   "en": "Please sign at the bottom.",
+   "ko": "맨 아래에 서명해 주세요.",
+   "when": "sign = 서명하다.",
+   "sound": "",
+   "reply": "",
+   "spk": "woman"
+  },
+  {
+   "id": "x_weeks",
+   "place": "office",
+   "who": "them",
+   "en": "It'll take about four to six weeks.",
+   "ko": "4주에서 6주 정도 걸려요.",
+   "when": "카드나 서류가 우편으로 오는 기간이에요.",
+   "sound": "",
+   "reply": "Okay.",
+   "spk": "india_m"
+  },
+  {
+   "id": "x_lovely",
+   "place": "smalltalk",
+   "who": "them",
+   "en": "Oh, isn't it a lovely day, dear?",
+   "ko": "어머, 날씨 참 좋지요?",
+   "when": "어르신들은 dear(얘야, 자기)라는 말을 다정하게 붙여요.",
+   "sound": "",
+   "reply": "Yes, it's beautiful!",
+   "spk": "grandma"
+  },
+  {
+   "id": "x_carenow",
+   "place": "smalltalk",
+   "who": "them",
+   "en": "You take care now.",
+   "ko": "몸 조심하세요.",
+   "when": "어르신들이 헤어질 때 하는 인사예요.",
+   "sound": "",
+   "reply": "You too!",
+   "spk": "grandpa"
+  },
+  {
+   "id": "x_sup",
+   "place": "smalltalk",
+   "who": "them",
+   "en": "Hey, what's up?",
+   "ko": "안녕, 잘 지내?",
+   "when": "10대·젊은 사람 인사. 대답은 'Not much, you?'",
+   "sound": "",
+   "reply": "Not much, you?",
+   "spk": "teen_m"
+  },
+  {
+   "id": "x_newbldg",
+   "place": "smalltalk",
+   "who": "them",
+   "en": "Are you new to the building?",
+   "ko": "이 건물에 새로 오셨어요?",
+   "when": "엘리베이터에서 처음 만난 이웃이 물어봐요.",
+   "sound": "",
+   "reply": "Yes, I just moved in.",
+   "spk": "grandma"
+  },
+  {
+   "id": "x_myday",
+   "place": "smalltalk",
+   "who": "them",
+   "en": "Back in my day, we walked to school in the snow!",
+   "ko": "우리 때는 눈길을 걸어서 학교 다녔어요!",
+   "when": "어르신들이 옛날 이야기할 때 쓰는 말 'Back in my day'.",
+   "sound": "",
+   "reply": "Wow, really?",
+   "spk": "grandpa"
+  },
+  {
+   "id": "x_from",
+   "place": "smalltalk",
+   "who": "them",
+   "en": "Where are you from originally?",
+   "ko": "원래 어디 출신이세요?",
+   "when": "캐나다에서는 아주 흔한 질문이에요. 실례가 아니에요.",
+   "sound": "",
+   "reply": "I'm from Korea.",
+   "spk": "french_f"
+  },
+  {
+   "id": "x_goodeng",
+   "place": "smalltalk",
+   "who": "them",
+   "en": "Your English is really good!",
+   "ko": "영어 정말 잘하시네요!",
+   "when": "칭찬을 들으면 고맙다고 하면 돼요.",
+   "sound": "",
+   "reply": "Thank you, I'm still learning.",
+   "spk": "grandma"
+  },
+  {
+   "id": "x_ohmygosh",
+   "place": "smalltalk",
+   "who": "them",
+   "en": "Oh my gosh, it's freezing out there!",
+   "ko": "세상에, 밖에 엄청 추워요!",
+   "when": "freezing = 꽁꽁 얼 만큼 추운. 10대들이 과장해서 자주 말해요.",
+   "sound": "",
+   "reply": "I know, right?",
+   "spk": "teen_f"
+  },
+  {
+   "id": "x_cantmiss",
+   "place": "street",
+   "who": "them",
+   "en": "You can't miss it.",
+   "ko": "금방 찾으실 거예요.",
+   "when": "길을 알려 준 뒤 덧붙이는 말이에요.",
+   "sound": "",
+   "reply": "",
+   "spk": "grandpa"
+  },
+  {
+   "id": "x_nextstn",
+   "place": "street",
+   "who": "them",
+   "en": "The next station is Finch. Finch Station.",
+   "ko": "다음 역은 핀치, 핀치역입니다.",
+   "when": "지하철 안내 방송이에요. 역 이름을 두 번 말해요.",
+   "sound": "",
+   "reply": "",
+   "spk": "man"
+  },
+  {
+   "id": "x_noservice",
+   "place": "street",
+   "who": "them",
+   "en": "Sorry, this bus is not in service.",
+   "ko": "죄송해요, 이 버스는 운행 안 해요.",
+   "when": "차고로 들어가는 버스예요. 다음 버스를 타요.",
+   "sound": "",
+   "reply": "Oh, okay.",
+   "spk": "man"
+  },
+  {
+   "id": "x_notfrom",
+   "place": "street",
+   "who": "them",
+   "en": "Sorry, I'm not from around here.",
+   "ko": "죄송해요, 저도 이 동네 사람이 아니에요.",
+   "when": "길을 물었는데 모른다고 할 때.",
+   "sound": "",
+   "reply": "Okay, thanks anyway.",
+   "spk": "teen_m"
+  },
+  {
+   "id": "x_online2",
+   "place": "phone",
+   "who": "them",
+   "en": "Your call is important to us. Please stay on the line.",
+   "ko": "고객님의 전화는 소중합니다. 끊지 말고 기다려 주세요.",
+   "when": "녹음된 안내예요. 끊지 말고 기다리면 돼요.",
+   "sound": "",
+   "reply": "",
+   "spk": "india_f"
+  },
+  {
+   "id": "x_press1",
+   "place": "phone",
+   "who": "them",
+   "en": "For English, press one.",
+   "ko": "영어는 1번을 누르세요.",
+   "when": "자동 안내. 프랑스어는 2번인 경우가 많아요.",
+   "sound": "",
+   "reply": "",
+   "spk": "woman"
+  },
+  {
+   "id": "x_putonhold",
+   "place": "phone",
+   "who": "them",
+   "en": "Can I put you on hold for a moment?",
+   "ko": "잠시 기다려 주시겠어요?",
+   "when": "on hold = 전화를 끊지 않고 대기.",
+   "sound": "",
+   "reply": "Sure.",
+   "spk": "india_f"
+  },
+  {
+   "id": "x_phoneno",
+   "place": "phone",
+   "who": "them",
+   "en": "And what's the best number to reach you?",
+   "ko": "연락받기 가장 좋은 번호가 뭐예요?",
+   "when": "전화번호를 묻는 말이에요.",
+   "sound": "",
+   "reply": "",
+   "spk": "woman"
+  },
+  {
+   "id": "s_finding",
+   "place": "shopping",
+   "who": "them",
+   "en": "Are you finding everything okay?",
+   "ko": "잘 찾고 계세요?",
+   "when": "가게에 들어가면 직원이 거의 항상 물어봐요.",
+   "sound": "",
+   "reply": "I'm just looking, thanks.",
+   "spk": "teen_f"
+  },
+  {
+   "id": "s_receipt",
+   "place": "shopping",
+   "who": "them",
+   "en": "Do you have the receipt?",
+   "ko": "영수증 있으세요?",
+   "when": "반품·교환할 때.",
+   "sound": "",
+   "reply": "Yes, here it is.",
+   "spk": "teen_f"
+  },
+  {
+   "id": "s_rewards",
+   "place": "shopping",
+   "who": "them",
+   "en": "Would you like to sign up for our rewards program?",
+   "ko": "회원 가입하시겠어요?",
+   "when": "rewards program = 포인트 회원.",
+   "sound": "",
+   "reply": "No, thanks.",
+   "spk": "latin_f"
+  },
+  {
+   "id": "s_checkback",
+   "place": "shopping",
+   "who": "them",
+   "en": "Let me check in the back for you.",
+   "ko": "창고에 있는지 확인해 볼게요.",
+   "when": "찾는 물건이 진열대에 없을 때.",
+   "sound": "",
+   "reply": "Thank you.",
+   "spk": "woman"
+  },
+  {
+   "id": "s_bogo",
+   "place": "shopping",
+   "who": "them",
+   "en": "It's buy one, get one free.",
+   "ko": "하나 사면 하나 공짜예요.",
+   "when": "BOGO라고도 써요.",
+   "sound": "",
+   "reply": "Oh, great!",
+   "spk": "teen_m"
+  },
+  {
+   "id": "s_thirty",
+   "place": "shopping",
+   "who": "them",
+   "en": "You can return it within thirty days.",
+   "ko": "30일 안에 반품하실 수 있어요.",
+   "when": "반품 기간을 알려 주는 말.",
+   "sound": "",
+   "reply": "Okay.",
+   "spk": "china_f"
+  },
+  {
+   "id": "h_sendup",
+   "place": "home",
+   "who": "them",
+   "en": "I'll send someone up tomorrow morning.",
+   "ko": "내일 아침에 사람 올려 보낼게요.",
+   "when": "관리인(super)이 수리 기사를 보낸다는 뜻.",
+   "sound": "",
+   "reply": "Thank you.",
+   "spk": "man"
+  },
+  {
+   "id": "h_alarm",
+   "place": "home",
+   "who": "them",
+   "en": "Just a heads-up, there's a fire alarm test tomorrow.",
+   "ko": "미리 알려 드려요, 내일 화재경보 점검이 있어요.",
+   "when": "heads-up = 미리 알려 줌.",
+   "sound": "",
+   "reply": "Okay, thanks for letting me know.",
+   "spk": "grandpa"
+  },
+  {
+   "id": "h_delivery",
+   "place": "home",
+   "who": "them",
+   "en": "Hi, I have a delivery for twelve-oh-three.",
+   "ko": "안녕하세요, 1203호 배달 왔어요.",
+   "when": "인터폰으로 배달 기사가 하는 말.",
+   "sound": "",
+   "reply": "I'll be right down.",
+   "spk": "teen_m"
+  },
+  {
+   "id": "h_signpkg",
+   "place": "home",
+   "who": "them",
+   "en": "Can you sign for this package?",
+   "ko": "이 택배 서명해 주시겠어요?",
+   "when": "직접 받아야 하는 택배일 때.",
+   "sound": "",
+   "reply": "Sure.",
+   "spk": "india_m"
+  },
+  {
+   "id": "h_water",
+   "place": "home",
+   "who": "them",
+   "en": "The water will be shut off from nine to twelve.",
+   "ko": "9시부터 12시까지 물이 안 나와요.",
+   "when": "shut off = 끊기다. 공사 안내문에 자주 나와요.",
+   "sound": "",
+   "reply": "",
+   "spk": "man"
+  },
+  {
+   "id": "h_garbage",
+   "place": "home",
+   "who": "them",
+   "en": "Garbage day is Thursday.",
+   "ko": "쓰레기 버리는 날은 목요일이에요.",
+   "when": "캐나다는 동네마다 쓰레기 버리는 요일이 정해져 있어요.",
+   "sound": "",
+   "reply": "Thanks!",
+   "spk": "woman"
+  },
+  {
+   "id": "e_what",
+   "place": "emergency",
+   "who": "them",
+   "en": "Nine-one-one, what's your emergency?",
+   "ko": "911입니다, 무슨 일이세요?",
+   "when": "911에 전화하면 가장 먼저 듣는 말이에요.",
+   "sound": "",
+   "reply": "I need an ambulance.",
+   "spk": "woman"
+  },
+  {
+   "id": "e_where",
+   "place": "emergency",
+   "who": "them",
+   "en": "What's the address of the emergency?",
+   "ko": "사고 난 곳 주소가 어떻게 되세요?",
+   "when": "주소를 꼭 말해야 해요.",
+   "sound": "",
+   "reply": "It's one twenty-three Main Street.",
+   "spk": "woman"
+  },
+  {
+   "id": "e_breathing",
+   "place": "emergency",
+   "who": "them",
+   "en": "Is the person breathing?",
+   "ko": "그 사람 숨 쉬고 있어요?",
+   "when": "구급 요원이 상태를 묻는 말.",
+   "sound": "",
+   "reply": "Yes, he is.",
+   "spk": "man"
+  },
+  {
+   "id": "e_way",
+   "place": "emergency",
+   "who": "them",
+   "en": "Stay on the line. Help is on the way.",
+   "ko": "끊지 마세요. 구조대가 가고 있어요.",
+   "when": "on the way = 가는 중.",
+   "sound": "",
+   "reply": "Okay.",
+   "spk": "woman"
+  },
+  {
+   "id": "e_interp",
+   "place": "emergency",
+   "who": "them",
+   "en": "What language do you speak? I can get an interpreter.",
+   "ko": "어떤 언어 하세요? 통역 연결해 드릴게요.",
+   "when": "911은 통역을 연결해 줄 수 있어요. 'Korean'이라고 하세요.",
+   "sound": "",
+   "reply": "Korean, please.",
+   "spk": "india_m"
+  },
+  {
+   "id": "t_areyou",
+   "place": "taxi",
+   "who": "them",
+   "en": "Hi, are you Kim?",
+   "ko": "안녕하세요, 김 씨 맞으세요?",
+   "when": "우버 기사가 이름을 확인해요. 차 번호도 꼭 확인하세요.",
+   "sound": "",
+   "reply": "Yes, that's me.",
+   "spk": "india_m"
+  },
+  {
+   "id": "t_headed",
+   "place": "taxi",
+   "who": "them",
+   "en": "Where are you headed?",
+   "ko": "어디로 가세요?",
+   "when": "headed = 가는 중인.",
+   "sound": "",
+   "reply": "Can you take me to this address?",
+   "spk": "china_m"
+  },
+  {
+   "id": "t_highway",
+   "place": "taxi",
+   "who": "them",
+   "en": "Do you mind if I take the highway?",
+   "ko": "고속도로로 가도 될까요?",
+   "when": "Do you mind ~? = ~해도 될까요?",
+   "sound": "",
+   "reply": "Sure, that's fine.",
+   "spk": "india_m"
+  },
+  {
+   "id": "t_herewe",
+   "place": "taxi",
+   "who": "them",
+   "en": "Here we are.",
+   "ko": "다 왔어요.",
+   "when": "도착했다는 말이에요.",
+   "sound": "",
+   "reply": "Thank you.",
+   "spk": "latin_f"
+  },
+  {
+   "id": "t_step",
+   "place": "taxi",
+   "who": "them",
+   "en": "Watch your step.",
+   "ko": "발밑 조심하세요.",
+   "when": "차에서 내리거나 계단에서.",
+   "sound": "",
+   "reply": "",
+   "spk": "grandpa"
+  },
+  {
+   "id": "c_today",
+   "place": "hair",
+   "who": "them",
+   "en": "So, what are we doing today?",
+   "ko": "자, 오늘은 어떻게 해 드릴까요?",
+   "when": "미용사가 처음 묻는 말이에요.",
+   "sound": "",
+   "reply": "Just a trim, please.",
+   "spk": "french_f"
+  },
+  {
+   "id": "c_wash",
+   "place": "hair",
+   "who": "them",
+   "en": "Do you want me to wash your hair first?",
+   "ko": "머리 먼저 감겨 드릴까요?",
+   "when": "샴푸를 할지 묻는 말.",
+   "sound": "",
+   "reply": "Yes, please.",
+   "spk": "teen_f"
+  },
+  {
+   "id": "c_takeoff",
+   "place": "hair",
+   "who": "them",
+   "en": "How much do you want me to take off?",
+   "ko": "얼마나 자를까요?",
+   "when": "캐나다는 인치를 써요. 1인치 = 약 2.5cm.",
+   "sound": "",
+   "reply": "About two inches.",
+   "spk": "french_f"
+  },
+  {
+   "id": "c_temp",
+   "place": "hair",
+   "who": "them",
+   "en": "Is the water temperature okay?",
+   "ko": "물 온도 괜찮으세요?",
+   "when": "머리 감을 때.",
+   "sound": "",
+   "reply": "Yes, it's fine.",
+   "spk": "woman"
+  },
+  {
+   "id": "c_back",
+   "place": "hair",
+   "who": "them",
+   "en": "Do you want to see the back?",
+   "ko": "뒤쪽 보여 드릴까요?",
+   "when": "거울로 뒷머리를 보여 줄 때.",
+   "sound": "",
+   "reply": "Yes, please.",
+   "spk": "french_f"
+  },
+  {
+   "id": "l_threeweeks",
+   "place": "library",
+   "who": "them",
+   "en": "It's due in three weeks.",
+   "ko": "3주 뒤까지 반납하시면 돼요.",
+   "when": "반납 기한을 알려 주는 말.",
+   "sound": "",
+   "reply": "Okay, thank you.",
+   "spk": "grandma"
+  },
+  {
+   "id": "l_photoid",
+   "place": "library",
+   "who": "them",
+   "en": "You'll need a photo ID with your address on it.",
+   "ko": "주소가 나온 사진 신분증이 필요해요.",
+   "when": "운전면허증이나 건강카드처럼.",
+   "sound": "",
+   "reply": "Here you go.",
+   "spk": "woman"
+  },
+  {
+   "id": "l_tuesday",
+   "place": "library",
+   "who": "them",
+   "en": "The ESL class is on Tuesday mornings.",
+   "ko": "영어 수업은 화요일 아침이에요.",
+   "when": "요일 + mornings = 매주 그 요일 아침.",
+   "sound": "",
+   "reply": "Can I sign up?",
+   "spk": "china_f"
+  },
+  {
+   "id": "l_program",
+   "place": "library",
+   "who": "them",
+   "en": "Are you here for the seniors' program?",
+   "ko": "어르신 프로그램 오셨어요?",
+   "when": "주민센터 안내 데스크에서.",
+   "sound": "",
+   "reply": "Yes, I am.",
+   "spk": "grandpa"
+  },
+  {
+   "id": "l_quiet",
+   "place": "library",
+   "who": "them",
+   "en": "Could you keep your voice down, please?",
+   "ko": "조금만 조용히 해 주시겠어요?",
+   "when": "도서관에서 듣는 말이에요.",
+   "sound": "",
+   "reply": "Oh, sorry.",
+   "spk": "teen_m"
   }
  ],
  "missions": [
@@ -5126,6 +6875,10 @@ window.DEFAULT_DATA = {
   "물건을 찾을 때 직원에게 'Excuse me, where can I find ___?'를 써 보세요.",
   "누군가 'Have a good one!'이라고 하면 'You too!'라고 바로 대답해 보세요.",
   "버스를 탈 때 기사님께 'Is this the right bus for ___?'라고 물어보세요.",
-  "전화가 어려우면 'Can you text me instead?'라고 부탁해 보세요."
+  "전화가 어려우면 'Can you text me instead?'라고 부탁해 보세요.",
+  "가게에서 직원이 'Are you finding everything okay?'라고 하면 'I'm just looking, thanks.'라고 대답해 보세요.",
+  "도서관에 가서 'How do I get a library card?'라고 물어보세요. 카드는 무료예요.",
+  "미용실에서 'Just a trim, please.'로 부탁해 보세요.",
+  "이웃 어르신께 'It's beautiful out today!'라고 날씨 인사를 건네 보세요."
  ]
 };

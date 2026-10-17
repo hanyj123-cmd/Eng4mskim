@@ -66,7 +66,7 @@
   function defaults() {
     return {
       v: 1, xp: 0,
-      settings: { name: '어머니', fs: 1, amt: 1, ko: true, sfx: true, voice: '' },
+      settings: { name: '어머니', fs: 1, amt: 1, ko: true, sfx: true, mix: true, voice: '' },
       days: {}, streak: { count: 0, last: '', best: 0 },
       groups: {}, places: {}, phrases: {}, badges: {}, missions: {}, weekly: {},
       wxp: {}, beat: {}, rec: { combo: 0 }, stamps: {}, plan: { n: 0, cur: null }
@@ -182,6 +182,13 @@
     refresh: '<path d="M4.5 12a7.5 7.5 0 0 1 13-5l2 2M19.5 12a7.5 7.5 0 0 1-13 5l-2-2"/><path d="M19.5 4v5h-5M4.5 20v-5h5"/>',
     trophy: '<path d="M7.5 4h9v5a4.5 4.5 0 0 1-9 0z"/><path d="M7.5 6h-3a3 3 0 0 0 3 4M16.5 6h3a3 3 0 0 1-3 4M12 13.5V17M9.5 17h5v3.5h-5z"/>',
     bolt: '<path d="M13 2.5L5 13.5h6l-1 8 8-11h-6z"/>',
+    user: '<circle cx="12" cy="8" r="3.6"/><path d="M4.5 20.5a7.5 7.5 0 0 1 15 0"/>',
+    bag: '<path d="M5 8h14l-1.2 12.2a1 1 0 0 1-1 .8H7.2a1 1 0 0 1-1-.8z"/><path d="M9 10V7a3 3 0 0 1 6 0v3"/>',
+    home: '<path d="M3.5 11 12 4l8.5 7"/><path d="M6 9.5V20h12V9.5"/><path d="M10 20v-5h4v5"/>',
+    siren: '<path d="M6 18v-5a6 6 0 0 1 12 0v5"/><path d="M4 18h16v2.5H4z"/><path d="M12 3v2M4.2 6.2l1.4 1.4M19.8 6.2l-1.4 1.4"/><path d="M12 11v4"/>',
+    car: '<path d="M5 16V11l2-5h10l2 5v5"/><path d="M3.5 16h17v2.5h-17z"/><circle cx="7.5" cy="13" r="1"/><circle cx="16.5" cy="13" r="1"/><path d="M6 18.5V20M18 18.5V20"/>',
+    scissors: '<circle cx="6.5" cy="17" r="2.6"/><circle cx="17.5" cy="17" r="2.6"/><path d="M8.4 15.2 18 4M15.6 15.2 6 4"/>',
+    book: '<path d="M4 5.5A1.5 1.5 0 0 1 5.5 4H11v16H5.5A1.5 1.5 0 0 1 4 18.5z"/><path d="M20 5.5A1.5 1.5 0 0 0 18.5 4H13v16h5.5a1.5 1.5 0 0 0 1.5-1.5z"/>',
     grid: '<rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/>'
   };
   function ic(name, fill) {
@@ -302,12 +309,12 @@
     for (var i = 0; i < n; i++) { if (a[i]) out.push(a[i]); if (b[i]) out.push(b[i]); }
     return out;
   }
-  // 새로 배울 표현 순서: 장소 순서대로, 장소 안에서는 "들리는 말 → 내가 하는 말"을 번갈아
+  // 새로 배울 표현 순서: 장소 순서대로, 장소 안에서는 "내가 하는 말 → 들리는 말"을 번갈아
   function learnOrder() {
     var out = [];
     DATA.places.forEach(function (pl) {
       var l = phrasesOf(pl.id);
-      out = out.concat(interleave(l.filter(function (x) { return x.who === 'them'; }), l.filter(function (x) { return x.who !== 'them'; })));
+      out = out.concat(interleave(l.filter(function (x) { return x.who !== 'them'; }), l.filter(function (x) { return x.who === 'them'; })));
     });
     return out;
   }
@@ -408,21 +415,48 @@
   function slugOf(t) {
     return String(t).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 80);
   }
+  // 여러 사람 목소리: manifest의 people(사람 목록)과 sets(어떤 문장을 누가 읽었는지)
+  var PEOPLE = [], PBY = {}, VSET = {};
   function loadClips() {
     try {
       fetch('audio/manifest.json').then(function (r) { return r.ok ? r.json() : null; }).then(function (m) {
         if (m && m.items) m.items.forEach(function (k) { CLIPS[k] = 1; });
+        if (m && m.people) { PEOPLE = m.people; PEOPLE.forEach(function (x) { PBY[x.id] = x; }); }
+        if (m && m.sets) Object.keys(m.sets).forEach(function (st) { m.sets[st].forEach(function (k) { VSET[k] = st; }); });
+        if (PEOPLE.length && ['phrase', 'listen'].indexOf(ui.view) >= 0) rerender();
       }).catch(function () {});
     } catch (e) {}
   }
-  function playClip(text, slow) {
+  function hasVoice(who, text) {
+    var x = PBY[who];
+    if (!x) return false;
+    if (who === 'std') return !!CLIPS[slugOf(text)];
+    return x.sets.indexOf(VSET[slugOf(text)]) >= 0;
+  }
+  // 이 문장을 읽어 줄 수 있는 사람들 (기본 목소리가 맨 앞)
+  function votersFor(text) { return PEOPLE.filter(function (x) { return hasVoice(x.id, text); }); }
+  function personText(who) {
+    var x = PBY[who];
+    return x ? x.label + (x.desc ? ' · ' + x.desc : '') : '';
+  }
+  // 게임에서 쓸 목소리 고르기: 정해진 사람이 있으면 절반은 그 사람, 나머지는 여러 사람 중에서 골라요
+  function pickWho(text, prefer) {
+    if (S.settings.mix === false) return 'std';
+    var vs = votersFor(text).map(function (x) { return x.id; });
+    if (!vs.length) return 'std';
+    if (prefer && vs.indexOf(prefer) >= 0 && Math.random() < 0.5) return prefer;
+    return vs[Math.floor(Math.random() * vs.length)];
+  }
+  function playClip(text, slow, who) {
     return new Promise(function (resolve) {
       var id = slugOf(text);
-      if (!CLIPS[id]) return resolve(false);
+      var alt = who && who !== 'std' && !slow && hasVoice(who, text);
+      if (!alt && !CLIPS[id]) return resolve(false);
       try { player.pause(); } catch (e) {}
       player.onended = function () { if (realEnd(player)) resolve(true); };
-      player.onerror = function () { resolve(false); };
-      player.src = 'audio/' + id + (slow ? '.slow' : '') + '.mp3';
+      // 다른 사람 목소리 파일을 못 받으면 기본 목소리로 다시 읽어요
+      player.onerror = function () { if (alt) playClip(text, slow).then(resolve); else resolve(false); };
+      player.src = alt ? 'audio/v/' + who + '/' + id + '.mp3' : 'audio/' + id + (slow ? '.slow' : '') + '.mp3';
       var pr;
       try { pr = player.play(); } catch (e) { return resolve(false); }
       if (pr && pr.catch) pr.catch(function (err) {
@@ -435,9 +469,9 @@
       });
     });
   }
-  function speak(text, rate) {
+  function speak(text, rate, who) {
     var slow = (rate || 0.85) < 0.7;
-    return playClip(text, slow).then(function (played) {
+    return playClip(text, slow, who).then(function (played) {
       if (played) return;
       return speakTTS(text, rate);
     });
@@ -557,6 +591,7 @@
     if (ui.view === 'phrase' || view === 'phrase') cleanupRec();
     if (view !== 'listen') ui.slow = false; // '천천히' 설정은 소리 들어 보기 화면에서만 유지돼요
     if (view === 'listen') ui.lshow = 8;
+    if (view === 'phrase') ui.pwho = null;
     if (view !== 'phrase') RV = null;
     if (view === 'phrase') R = newR();
     ui.view = view;
@@ -722,6 +757,16 @@
   };
 
   /* ===== 소리 구분: 들어 보기 ===== */
+  function wordVoiceChips(all) {
+    var vs = all.length ? votersFor(all[0].a) : [];
+    if (vs.length < 2) return '';
+    var cur = ui.lwho && PBY[ui.lwho] ? ui.lwho : 'std';
+    return '<div class="voices"><p class="vl">누구 목소리로 들을까요? 여러 사람 목소리로 들으면 귀가 더 빨리 열려요.</p><div class="chips">' +
+      vs.map(function (x) {
+        return '<button class="chip' + (x.id === cur ? ' on' : '') + '" data-act="lvoice" data-who="' + esc(x.id) + '" aria-pressed="' + (x.id === cur) + '">' + esc(x.label) + '</button>';
+      }).join('') + '</div></div>';
+  }
+  ACT.lvoice = function (d) { ui.lwho = d.who; rerender(); };
   VIEWS.listen = function (p) {
     var g = gById(p.gid);
     if (!g) return VIEWS.pairs();
@@ -734,6 +779,7 @@
       return '<div class="pair"><div class="row">' + tile(x.a, x.aKo) + tile(x.b, x.bKo) + '</div>' + ex(x.aEx) + ex(x.bEx) + '</div>';
     }).join('');
     var html = '<section class="panel tip"><h3>' + ic('info') + '<span>입 모양 팁</span></h3><p>' + esc(g.tip) + '</p></section>' +
+      wordVoiceChips(all) +
       '<div class="toolbar"><p class="muted small">단어를 눌러서 두 소리를 번갈아 들어 보세요.</p>' +
       '<button class="pill ' + (ui.slow ? 'on' : '') + '" data-act="toggleSlow" aria-pressed="' + (ui.slow ? 'true' : 'false') + '"><span class="lbl">' + (ui.slow ? '천천히: 켜짐' : '천천히: 꺼짐') + '</span></button></div>' +
       rows +
@@ -775,6 +821,11 @@
   function curText() {
     var it = Q.queue[Q.i];
     return Q.kind === 'place' ? it.p.en : (it.t === 'a' ? it.p.a : it.p.b);
+  }
+  function curWho() {
+    var it = Q.queue[Q.i];
+    if (it.who === undefined) it.who = pickWho(curText(), Q.kind === 'place' ? it.p.spk : '');
+    return it.who;
   }
   function qTitle() {
     if (Q.kind === 'place') return '듣기: ' + (placeById(Q.id) || { title: '' }).title;
@@ -846,12 +897,13 @@
     var html = meta +
       '<p class="lead c qlead">' + lead + '</p>' +
       '<div class="c"><button class="play" data-act="qplay" aria-label="다시 듣기">' + ic('speaker') + '</button>' +
-      '<div><button class="pill" data-act="qslow"><span class="lbl">천천히 듣기</span></button></div></div>' +
+      '<div><button class="pill" data-act="qslow"><span class="lbl">천천히 듣기</span></button></div>' +
+      (PEOPLE.length && S.settings.mix !== false ? '<p class="who-l">' + ic('user') + '<span>' + esc(personText(curWho())) + '</span></p>' : '') + '</div>' +
       ans + fb;
     return {
       title: qTitle(), html: html,
       after: function () {
-        if (!Q.answered) { var t = curText(); setTimeout(function () { if (ui.view === 'quiz' && Q && !Q.answered) speak(t, 0.85); }, 250); }
+        if (!Q.answered) { var t = curText(), w = curWho(); setTimeout(function () { if (ui.view === 'quiz' && Q && !Q.answered) speak(t, 0.85, w); }, 250); }
         else { var f = document.querySelector('.fb'); if (f && f.scrollIntoView) f.scrollIntoView({ block: 'nearest', behavior: 'smooth' }); }
       }
     };
@@ -864,7 +916,7 @@
     if (Q.combo === 6) return '불타는 콤보! 이제부터 점수 3배 +' + Q.gain + '점';
     return '정답! +' + Q.gain + '점' + (m > 1 ? ' (×' + m + ')' : '');
   }
-  ACT.qplay = function () { if (Q) speak(curText(), 0.85); };
+  ACT.qplay = function () { if (Q) speak(curText(), 0.85, curWho()); };
   ACT.qslow = function () { if (Q) speak(curText(), 0.55); };
   ACT.qans = function (d) {
     if (!Q || Q.answered) return;
@@ -981,7 +1033,7 @@
       if (!list.length) return '';
       var m = masteredCount(list);
       return '<button class="place-tile' + (m === list.length ? ' done' : '') + '" data-act="go" data-v="place" data-pid="' + esc(pl.id) + '">' +
-        '<span class="pic ' + (pl.id === 'rescue' ? 'red' : 'blue') + '">' + ic(ICONS[pl.icon] ? pl.icon : 'chat') + '</span>' +
+        '<span class="pic ' + (pl.id === 'rescue' || pl.id === 'emergency' ? 'red' : 'blue') + '">' + ic(ICONS[pl.icon] ? pl.icon : 'chat') + '</span>' +
         '<b>' + esc(pl.title) + '</b>' + stars(starsOf(ps(pl.id)), 'sm') +
         '<small>마스터 ' + m + '/' + list.length + (dueIn(pl.id) ? ' · <i class="due-n">복습 ' + dueIn(pl.id) + '</i>' : '') + '</small></button>';
     }).join('');
@@ -998,7 +1050,7 @@
     var ok = phraseOk(p), n = Math.min(3, ok);
     return '<button class="phrase-card ' + (p.who === 'them' ? 'them' : 'me') + '" data-act="go" data-v="phrase" data-id="' + esc(p.id) + '"><div class="pc-main"><div class="en" lang="en">' + esc(p.en) +
       '</div><div class="ko">' + esc(p.ko) + '</div><div class="prog">' + stars(n, 'sm') + (ok >= 3 ? '<span class="mst">마스터</span>' : '') +
-      (isDue(p) ? '<span class="due">복습</span>' : '') + '</div></div>' + ic('chevR') + '</button>';
+      (isDue(p) ? '<span class="due">복습</span>' : '') + (p.who === 'them' && PBY[p.spk] && p.spk !== 'std' ? '<span class="spk">' + esc(PBY[p.spk].label) + '</span>' : '') + '</div></div>' + ic('chevR') + '</button>';
   }
   VIEWS.place = function (p) {
     var pl = placeById(p.pid) || DATA.places[0];
@@ -1006,7 +1058,7 @@
     var list = phrasesOf(pl.id);
     var mine = list.filter(function (x) { return x.who !== 'them'; }), theirs = list.filter(function (x) { return x.who === 'them'; });
     var st = ps(pl.id);
-    var html = '<section class="panel place-head"><span class="pic ' + (pl.id === 'rescue' ? 'red' : 'blue') + '">' + ic(ICONS[pl.icon] ? pl.icon : 'chat') + '</span>' +
+    var html = '<section class="panel place-head"><span class="pic ' + (pl.id === 'rescue' || pl.id === 'emergency' ? 'red' : 'blue') + '">' + ic(ICONS[pl.icon] ? pl.icon : 'chat') + '</span>' +
       '<div class="ph-t"><b>실전 듣기 게임</b><small>' + (st.plays ? stars(starsOf(st), 'sm') + ' 최고 ' + st.best + '%' : '영어를 듣고 뜻을 골라요') + '</small></div>' +
       (list.length >= 3 ? '<button class="btn sm" data-act="startListen" data-pid="' + esc(pl.id) + '">' + ic('play', true) + '<span>시작</span></button>' : '') + '</section>' +
       (theirs.length ? '<h3 class="sec">' + ic('headphones') + '<span>이런 말이 들려요</span></h3>' + theirs.map(phraseCard).join('') : '') +
@@ -1018,6 +1070,16 @@
   function curPhrase() {
     var id = ui.params.id;
     return DATA.phrases.filter(function (x) { return x.id === id; })[0] || DATA.phrases[0];
+  }
+  function voiceChips(ph) {
+    var vs = votersFor(ph.en);
+    if (vs.length < 2) return '';
+    var cur = phraseWho(ph);
+    return '<div class="voices"><p class="who-l">' + ic('user') + '<span>' + (ph.who === 'them' && !ui.pwho ? '이 장면에서 말하는 사람: ' : '지금 목소리: ') + '<b>' + esc(personText(cur)) + '</b></span></p>' +
+      '<p class="vl">' + (ph.who === 'them' ? '다른 사람 목소리로 들어 보기 (나이·억양이 달라요)' : '다른 사람 목소리로 들어 보기') + '</p><div class="chips">' +
+      vs.map(function (x) {
+        return '<button class="chip' + (x.id === cur ? ' on' : '') + '" data-act="pvoice" data-who="' + esc(x.id) + '" aria-pressed="' + (x.id === cur) + '">' + esc(x.label) + '</button>';
+      }).join('') + '</div></div>';
   }
   VIEWS.phrase = function () {
     var ph = curPhrase();
@@ -1038,7 +1100,8 @@
       (ph.reply ? '<div class="reply-box"><p class="reply-l">이렇게 대답해요</p>' + sayBtn(ph.reply, 'reply') + '</div>' : '') +
       '<p class="success">' + stars(okN, 'sm') + '<span>성공 ' + okN + ' / 3</span></p>' +
       '<div class="step"><span class="n">1</span><span>듣기</span></div>' +
-      '<div class="row"><button class="btn" data-act="pplay">' + ic('speaker') + '<span>듣기</span></button><button class="btn alt" data-act="pslow">' + ic('speaker') + '<span>천천히</span></button></div>';
+      '<div class="row"><button class="btn" data-act="pplay">' + ic('speaker') + '<span>듣기</span></button><button class="btn alt" data-act="pslow">' + ic('speaker') + '<span>천천히</span></button></div>' +
+      voiceChips(ph);
     if (canRec) {
       html += '<div class="step"><span class="n">2</span><span>따라 말하기 (녹음)</span></div>' +
         '<button class="btn rec ' + (R.recording ? 'on' : '') + '" data-act="rectoggle">' + (R.recording ? ic('stop', true) + '<span>그만 녹음하기</span>' : ic('mic') + '<span>녹음하고 따라 말하기</span>') + '</button>' +
@@ -1068,7 +1131,13 @@
     RV = keep;
     if (RV) render(false);
   };
-  ACT.pplay = function () { speak(curPhrase().en, 0.85); };
+  function phraseWho(ph) {
+    ph = ph || curPhrase();
+    var w = ui.pwho || (ph.who === 'them' ? ph.spk : '') || 'std';
+    return hasVoice(w, ph.en) ? w : 'std';
+  }
+  ACT.pplay = function () { speak(curPhrase().en, 0.85, phraseWho()); };
+  ACT.pvoice = function (d) { ui.pwho = d.who; rerender(); speak(curPhrase().en, 0.85, d.who); };
   ACT.pslow = function () { speak(curPhrase().en, 0.55); };
   ACT.again = function () { if (R) { R.evald = false; rerender(); } };
   ACT.rectoggle = async function () {
@@ -1125,7 +1194,7 @@
   ACT.myplay = function () { playMine(); };
   ACT.compare = async function () {
     if (!R || !R.url) return;
-    await speak(curPhrase().en, 0.85);
+    await speak(curPhrase().en, 0.85, phraseWho());
     await sleep(400);
     await playMine();
   };
@@ -1267,6 +1336,7 @@
       '<small class="muted">소리 구분 1판 + 새 표현 ' + ca.nw + '개 + 복습 최대 ' + ca.rv + '개 + 실전 듣기 1판. 바꾼 분량은 내일부터 적용돼요.</small></div>' +
       '<div class="setrow col"><span>글자 크기</span><div class="seg">' + seg + '</div></div>' +
       '<label class="setrow"><span>한글 발음 표기 보기</span><input type="checkbox" class="sw" ' + (s.ko ? 'checked' : '') + ' data-chg="ko"></label>' +
+      '<label class="setrow"><span>게임에서 여러 사람 목소리</span><input type="checkbox" class="sw" ' + (s.mix !== false ? 'checked' : '') + ' data-chg="mix"></label>' +
       '<label class="setrow"><span>효과음</span><input type="checkbox" class="sw" ' + (s.sfx ? 'checked' : '') + ' data-chg="sfx"></label></section>' +
       '<section class="panel"><div class="setrow col"><span>영어 소리</span>' +
       '<button class="btn alt" data-act="say" data-w="Hello, how are you today?">' + ic('speaker') + '<span>소리 확인</span></button>' +
@@ -1280,6 +1350,7 @@
   CHG.name = function (v) { S.settings.name = (v || '').trim() || '어머니'; save(); };
   CHG.ko = function (v, el, c) { S.settings.ko = c; save(); };
   CHG.sfx = function (v, el, c) { S.settings.sfx = c; save(); };
+  CHG.mix = function (v, el, c) { S.settings.mix = c; save(); };
   CHG.voice = function (v) { S.settings.voice = v; save(); };
   ACT.amt = function (d) { S.settings.amt = Number(d.i); save(); rerender(); };
   ACT.fs = function (d) { S.settings.fs = Number(d.i); save(); rerender(); };
@@ -1302,7 +1373,7 @@
     }
     go(PARENT[v] || 'home');
   };
-  ACT.say = function (d) { speak(d.w, ui.slow ? 0.55 : 0.85); };
+  ACT.say = function (d) { speak(d.w, ui.slow ? 0.55 : 0.85, ui.view === 'listen' ? ui.lwho : ''); };
   ACT.toggleSlow = function (d, el) {
     ui.slow = !ui.slow;
     el.classList.toggle('on', ui.slow);
@@ -1389,7 +1460,7 @@
       pairs: p.map(function (r) { return { g: r.group, a: r.a, aKo: r.a_ko, aEx: r.a_ex, b: r.b, bKo: r.b_ko, bEx: r.b_ex }; })
         .filter(function (x) { return x.g && x.a && x.b; }),
       phrases: ph.map(function (r) {
-        return { id: r.id, place: r.place || '', who: r.who === 'them' ? 'them' : 'me', en: r.en, ko: r.ko, when: r.when, sound: r.sound || '', reply: r.reply || '' };
+        return { id: r.id, place: r.place || '', who: r.who === 'them' ? 'them' : 'me', en: r.en, ko: r.ko, when: r.when, sound: r.sound || '', reply: r.reply || '', spk: r.speaker || '' };
       }).filter(function (x) { return x.id && x.en; }),
       places: (pl || []).map(function (r) { return { id: r.id, title: r.title, icon: r.icon || 'chat' }; }).filter(function (x) { return x.id && x.title; }),
       missions: m.map(function (r) { return r.mission; }).filter(Boolean)
