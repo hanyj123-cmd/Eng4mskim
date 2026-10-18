@@ -16,7 +16,7 @@ jobs:
       - uses: actions/setup-python@v5
         with: { python-version: "3.12" }
       - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
-      - run: pip install edge-tts==7.0.2
+      - run: pip install -U edge-tts
       - run: python -c "import edge_tts, asyncio; print(asyncio.run(edge_tts.list_voices())[:1])" 2>&1 | tail -3 > net_check.txt; mkdir -p audio/_samples; cp net_check.txt audio/_samples/net_check.txt
         continue-on-error: true
       - run: python tools/make_voices_edge.py . 2>&1 | tee voices_log.txt
