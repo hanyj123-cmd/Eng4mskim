@@ -54,13 +54,13 @@ hurts,clinic,me,It hurts here.,여기가 아파요.,아픈 곳을 손으로 가�
 fever,clinic,me,I've had a fever since yesterday.,어제부터 열이 나요.,증상이 언제 시작됐는지 말할 때.,아이브 해드 어 피버 씬스 예스터데이.,,
 interp,clinic,me,"I need a Korean interpreter, please.",한국어 통역이 필요해요.,큰 병원은 통역을 무료로 불러 줄 때가 많아요.,"아이 니드 어 코리안 인터프리터, 플리즈.",,
 rx,clinic,me,I'm here to pick up my prescription.,처방약 찾으러 왔어요.,약국(pharmacy)에서.,아임 히어 투 픽 업 마이 프리스크립션.,,
-healthcard,clinic,them,Can I see your health card?,건강카드 보여 주시겠어요?,온타리오에서는 OHIP 카드를 매번 확인해요.,,Here you go.,woman
+healthcard,clinic,them,Can I see your health card?,건강카드 보여 주시겠어요?,온타리오에서는 OHIP 카드를 매번 확인해요.,,Here you go.,phil_f
 brings,clinic,them,What brings you in today?,오늘 어디가 불편해서 오셨어요?,의사가 처음에 꼭 하는 질문이에요.,,I've had a fever since yesterday.,man
 howlong,clinic,them,How long have you had it?,그런 지 얼마나 됐어요?,기간을 말하면 돼요.,,About three days.,man
 allergic,clinic,them,Are you allergic to any medication?,약 알레르기 있으세요?,약을 처방하기 전에 꼭 물어봐요.,,"No, I'm not.",india_f
 scale,clinic,them,"On a scale of one to ten, how bad is the pain?",1부터 10까지 중에 얼마나 아파요?,캐나다 병원에서 정말 자주 물어봐요. 숫자로 대답해요.,,About a six.,man
 twice,clinic,them,Take one pill twice a day.,"하루에 두 번, 한 알씩 드세요.",약 먹는 방법. 꼭 적어 달라고 해도 돼요.,,,india_f
-haveaseat,clinic,them,"Have a seat, and we'll call your name.",앉아 계시면 이름 불러 드릴게요.,접수가 끝나면 듣는 말이에요.,,,woman
+haveaseat,clinic,them,"Have a seat, and we'll call your name.",앉아 계시면 이름 불러 드릴게요.,접수가 끝나면 듣는 말이에요.,,,phil_f
 cheque,bank,me,I'd like to deposit this cheque.,이 수표 입금하고 싶어요.,cheque = 수표(캐나다 철자).,아이드 라이크 투 디파짓 디스 첵.,,
 cash,bank,me,I'd like to take out some cash.,현금을 좀 찾고 싶어요.,창구에서 돈을 찾을 때.,아이드 라이크 투 테이크 아웃 썸 캐시.,,
 pin,bank,me,I forgot my PIN.,비밀번호를 잊어버렸어요.,PIN = 카드 비밀번호.,아이 포갓 마이 핀.,,
@@ -208,7 +208,7 @@ x_tip,restaurant,them,You can add a tip on the machine.,단말기에서 팁을 �
 x_othermed,clinic,them,Are you taking any other medications?,다른 약 드시는 거 있어요?,약사나 의사가 꼭 물어봐요. 약 목록을 보여 줘도 돼요.,,"Yes, I'll show you the list.",india_f
 x_breath,clinic,them,Take a deep breath for me.,숨 크게 들이쉬어 보세요.,청진기로 진찰할 때.,,,man
 x_withfood,clinic,them,Take it with food.,음식과 함께 드세요.,"식사하면서, 또는 식후에 먹으라는 뜻이에요.",,Okay.,india_f
-x_shortly,clinic,them,The doctor will be with you shortly.,의사 선생님 곧 오실 거예요.,shortly = 곧.,,Thank you.,woman
+x_shortly,clinic,them,The doctor will be with you shortly.,의사 선생님 곧 오실 거예요.,shortly = 곧.,,Thank you.,phil_f
 x_sidefx,clinic,them,"If you have any side effects, give us a call.",부작용이 있으면 전화 주세요.,side effects = 부작용.,,"Okay, I will.",india_f
 x_chequing,bank,them,Would you like that in your chequing or savings?,"입출금 계좌에 넣을까요, 저축 계좌에 넣을까요?","chequing = 입출금 계좌, savings = 저축 계좌.",,"Chequing, please.",china_m
 x_insert,bank,them,Please insert your card.,카드를 넣어 주세요.,insert = 꽂다. tap은 대는 것.,,,china_f
@@ -245,7 +245,7 @@ s_thirty,shopping,them,You can return it within thirty days.,30일 안에 반품
 h_sendup,home,them,I'll send someone up tomorrow morning.,내일 아침에 사람 올려 보낼게요.,관리인(super)이 수리 기사를 보낸다는 뜻.,,Thank you.,man
 h_alarm,home,them,"Just a heads-up, there's a fire alarm test tomorrow.","미리 알려 드려요, 내일 화재경보 점검이 있어요.",heads-up = 미리 알려 줌.,,"Okay, thanks for letting me know.",grandpa
 h_delivery,home,them,"Hi, I have a delivery for twelve-oh-three.","안녕하세요, 1203호 배달 왔어요.",인터폰으로 배달 기사가 하는 말.,,I'll be right down.,teen_m
-h_signpkg,home,them,Can you sign for this package?,이 택배 서명해 주시겠어요?,직접 받아야 하는 택배일 때.,,Sure.,india_m
+h_signpkg,home,them,Can you sign for this package?,이 택배 서명해 주시겠어요?,직접 받아야 하는 택배일 때.,,Sure.,phil_f
 h_water,home,them,The water will be shut off from nine to twelve.,9시부터 12시까지 물이 안 나와요.,shut off = 끊기다. 공사 안내문에 자주 나와요.,,,man
 h_garbage,home,them,Garbage day is Thursday.,쓰레기 버리는 날은 목요일이에요.,캐나다는 동네마다 쓰레기 버리는 요일이 정해져 있어요.,,Thanks!,woman
 e_what,emergency,them,"Nine-one-one, what's your emergency?","911입니다, 무슨 일이세요?",911에 전화하면 가장 먼저 듣는 말이에요.,,I need an ambulance.,woman

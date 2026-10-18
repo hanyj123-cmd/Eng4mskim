@@ -4517,7 +4517,7 @@ window.DEFAULT_DATA = {
    "when": "온타리오에서는 OHIP 카드를 매번 확인해요.",
    "sound": "",
    "reply": "Here you go.",
-   "spk": "woman"
+   "spk": "phil_f"
   },
   {
    "id": "brings",
@@ -4583,7 +4583,7 @@ window.DEFAULT_DATA = {
    "when": "접수가 끝나면 듣는 말이에요.",
    "sound": "",
    "reply": "",
-   "spk": "woman"
+   "spk": "phil_f"
   },
   {
    "id": "cheque",
@@ -6211,7 +6211,7 @@ window.DEFAULT_DATA = {
    "when": "shortly = 곧.",
    "sound": "",
    "reply": "Thank you.",
-   "spk": "woman"
+   "spk": "phil_f"
   },
   {
    "id": "x_sidefx",
@@ -6618,7 +6618,7 @@ window.DEFAULT_DATA = {
    "when": "직접 받아야 하는 택배일 때.",
    "sound": "",
    "reply": "Sure.",
-   "spk": "india_m"
+   "spk": "phil_f"
   },
   {
    "id": "h_water",
