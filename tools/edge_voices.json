@@ -1,0 +1,20 @@
+{
+  "job": "sample",
+  "std": {"voice": "en-CA-ClaraNeural", "rate": "+0%", "slow": "-30%", "pitch": "+0Hz"},
+  "people": [
+    {"id": "std",      "label": "기본 목소리",     "desc": "캐나다 여성 · 또박또박",          "sets": []},
+    {"id": "teen_f",   "label": "젊은 여성 알바",   "desc": "10대~20대 느낌 · 빠른 말투",       "voice": "en-US-AvaNeural",       "rate": "+15%", "pitch": "+0Hz",  "sets": ["them", "me", "words"]},
+    {"id": "teen_m",   "label": "젊은 남성",        "desc": "10대~20대 느낌 · 빠른 말투",       "voice": "en-US-BrianNeural",     "rate": "+15%", "pitch": "+0Hz",  "sets": ["them"]},
+    {"id": "man",      "label": "캐나다 남성",      "desc": "40대 느낌 · 보통 빠르기",          "voice": "en-CA-LiamNeural",      "rate": "+5%",  "pitch": "+0Hz",  "sets": ["them", "me", "words"]},
+    {"id": "woman",    "label": "미국 여성",        "desc": "50대 느낌 · 보통 빠르기",          "voice": "en-US-MichelleNeural",  "rate": "+0%",  "pitch": "-2Hz",  "sets": ["them", "me", "words"]},
+    {"id": "grandma",  "label": "할머니",           "desc": "70대 느낌 · 영국 억양 · 느림",     "voice": "en-GB-LibbyNeural",     "rate": "-15%", "pitch": "-12Hz", "sets": ["them"]},
+    {"id": "grandpa",  "label": "할아버지",         "desc": "70대 느낌 · 느림",                 "voice": "en-US-RogerNeural",     "rate": "-12%", "pitch": "-6Hz",  "sets": ["them"]},
+    {"id": "india_m",  "label": "인도 남성",        "desc": "인도 영어 억양",                   "voice": "en-IN-PrabhatNeural",   "rate": "+5%",  "pitch": "+0Hz",  "sets": ["them"]},
+    {"id": "india_f",  "label": "인도 여성",        "desc": "인도 영어 억양",                   "voice": "en-IN-NeerjaNeural",    "rate": "+5%",  "pitch": "+0Hz",  "sets": ["them"]},
+    {"id": "china_m",  "label": "홍콩·중국계 남성", "desc": "홍콩 영어 억양",                   "voice": "en-HK-SamNeural",       "rate": "+0%",  "pitch": "+0Hz",  "sets": ["them"]},
+    {"id": "china_f",  "label": "홍콩·중국계 여성", "desc": "홍콩 영어 억양",                   "voice": "en-HK-YanNeural",       "rate": "+0%",  "pitch": "+0Hz",  "sets": ["them"]},
+    {"id": "phil_f",   "label": "필리핀 여성",      "desc": "필리핀 영어 억양",                 "voice": "en-PH-RosaNeural",      "rate": "+0%",  "pitch": "+0Hz",  "sets": ["them"]},
+    {"id": "latin_f",  "label": "멕시코 여성",      "desc": "스페인어 억양 영어",               "voice": "es-MX-DaliaNeural",     "rate": "+0%",  "pitch": "+0Hz",  "sets": ["them"]},
+    {"id": "french_f", "label": "퀘벡 여성",        "desc": "캐나다 프랑스어 억양 영어",        "voice": "fr-CA-SylvieNeural",    "rate": "+0%",  "pitch": "+0Hz",  "sets": ["them"]}
+  ]
+}

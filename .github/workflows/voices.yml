@@ -1,0 +1,28 @@
+name: make voices
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ["tools/edge_voices.json"]
+permissions:
+  contents: write
+concurrency: voices
+jobs:
+  voices:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - run: pip install edge-tts==7.0.2
+      - run: python tools/make_voices_edge.py .
+      - name: commit
+        run: |
+          git config user.name "voice-bot"
+          git config user.email "actions@github.com"
+          git add -A audio
+          git commit -m "Generate voices with Edge TTS ($(jq -r .job tools/edge_voices.json))" || echo "nothing to commit"
+          git pull --rebase -q origin main
+          git push origin HEAD:main
