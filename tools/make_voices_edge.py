@@ -66,9 +66,9 @@ async def one(sem, j, tmpd):
                 os.remove(tmp)
                 if p.returncode == 0: return
             except Exception as e:
-                err = str(e)
+                err = repr(e)[:300]
                 await asyncio.sleep(2 + attempt * 3)
-        fails.append((out, voice))
+        fails.append((out, voice, locals().get("err", "")))
 async def main():
     sem = asyncio.Semaphore(6)
     t0 = time.time()
@@ -83,7 +83,7 @@ asyncio.run(main())
 # 실패한 사람 목소리는 manifest 에서 빼요 (앱이 기본 목소리로 대신 읽어요)
 if JOB == "full":
     bad = {}
-    for out, voice in fails:
+    for out, voice, err in fails:
         m = re.match(r"audio/v/([^/]+)/(.+)\.mp3", out)
         if m: bad.setdefault(m.group(1), set()).add(m.group(2))
     mpath = os.path.join(REPO, "audio", "manifest.json")
@@ -92,4 +92,6 @@ if JOB == "full":
     man["sets"] = {st: sorted(v) for st, v in sets.items()}
     man["missing"] = {k: sorted(v) for k, v in bad.items()}
     json.dump(man, open(mpath, "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
-json.dump(fails, open(os.path.join(REPO, "audio", "_fails.json" if JOB == "full" else "_samples/_fails.json"), "w"))
+fp = os.path.join(REPO, "audio", "_fails.json" if JOB == "full" else "_samples/_fails.json")
+os.makedirs(os.path.dirname(fp), exist_ok=True)
+json.dump(fails, open(fp, "w"), indent=0)
