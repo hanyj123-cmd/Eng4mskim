@@ -1,0 +1,7 @@
+job=sample 만들 문장 5개, 글자수 약 108
+  [teen_f] 이 목소리는 지금 요금제로 쓸 수 없어요 -> 건너뛰어요: {"detail":{"type":"payment_required","code":"paid_plan_required","message":"Free users cannot use library voices via the API. Upgrade to Creator or add $5 of cr
+  [woman] 이 목소리는 지금 요금제로 쓸 수 없어요 -> 건너뛰어요: {"detail":{"type":"payment_required","code":"paid_plan_required","message":"Free users cannot use library voices via the API. Upgrade to Creator or add $5 of cr
+  [man] 이 목소리는 지금 요금제로 쓸 수 없어요 -> 건너뛰어요: {"detail":{"type":"payment_required","code":"paid_plan_required","message":"Free users cannot use library voices via the API. Upgrade to Creator or add $5 of cr
+  [teen_m] 이 목소리는 지금 요금제로 쓸 수 없어요 -> 건너뛰어요: {"detail":{"type":"payment_required","code":"paid_plan_required","message":"Free users cannot use library voices via the API. Upgrade to Creator or add $5 of cr
+  [grandpa] 이 목소리는 지금 요금제로 쓸 수 없어요 -> 건너뛰어요: {"detail":{"type":"payment_required","code":"paid_plan_required","message":"Free users cannot use library voices via the API. Upgrade to Creator or add $5 of cr
+완료 0개, 사용 글자 약 108, 실패 0, 막힌 목소리 ['teen_f', 'woman', 'man', 'teen_m', 'grandpa']
