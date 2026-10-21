@@ -543,3 +543,7 @@ svg.stamp.mini .s-i { stroke-width: 0; }
   .pop, .rec-now .dot, .combo-pill.hot, .stars .on { animation: none; }
   .road i, .bar i, .sw, .sw::after { transition: none; }
 }
+
+/* 구글 로그인 */
+.gbtn { display: flex; justify-content: center; min-height: 44px; padding: .2rem 0; }
+.acct-me { font-weight: 600; word-break: break-all; }

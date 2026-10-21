@@ -75,7 +75,13 @@
   var S = defaults();
   function load() {
     try {
-      var r = JSON.parse(localStorage.getItem(KEY));
+      return norm(JSON.parse(localStorage.getItem(KEY)));
+    } catch (e) {}
+    return defaults();
+  }
+  // 저장된 기록(이 기기 또는 계정)을 앱이 쓰는 모양으로 맞춰요
+  function norm(r) {
+    try {
       if (r && r.v === 1) {
         var out = Object.assign(defaults(), r);
         out.settings = Object.assign(defaults().settings, r.settings || {});
@@ -94,7 +100,7 @@
     } catch (e) {}
     return defaults();
   }
-  function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} }
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} markDirty(); }
 
   function newDay() { return { quiz: 0, sound: 0, listen: 0, phrases: [], xp: 0, done: false }; }
   function dayRec() {
@@ -1672,9 +1678,10 @@
       '<small class="muted">소리가 안 나면: 아이폰 옆 무음 스위치(주황색이 보이면 무음)와 볼륨을 확인하고, Safari에서 열어 보세요.</small></div>' +
       '<div class="setrow col"><span>기기 음성 (파일이 없는 문장용)</span><select class="txt" data-chg="voice"' + (voices.length ? '' : ' disabled') + '>' + vopts + '</select>' +
       (voices.length ? '' : '<small class="muted">사용할 수 있는 영어 음성이 아직 없어요.</small>') + '</div></section>' +
-      '<section class="panel"><p class="muted small">단어·문장 출처: ' + esc(dataSource) + '<br>진도는 이 기기에 저장돼요.</p>' +
+      acctPanel() +
+      '<section class="panel"><p class="muted small">단어·문장 출처: ' + esc(dataSource) + '<br>' + (ACCT ? '진도는 이 기기와 로그인한 계정에 저장돼요.' : '진도는 이 기기에 저장돼요.') + '</p>' +
       '<button class="btn ghost danger" data-act="reset">' + ic('trash') + '<span>처음부터 다시 시작</span></button></section>';
-    return { title: '설정', html: html };
+    return { title: '설정', html: html, after: acctAfter };
   };
   CHG.name = function (v) { S.settings.name = (v || '').trim() || '어머니'; save(); };
   CHG.ko = function (v, el, c) { S.settings.ko = c; save(); };
@@ -1685,8 +1692,8 @@
   ACT.amt = function (d) { S.settings.amt = Number(d.i); save(); rerender(); };
   ACT.fs = function (d) { S.settings.fs = Number(d.i); save(); rerender(); };
   ACT.reset = function () {
-    if (window.confirm('모든 진도와 기록이 지워져요. 정말 처음부터 다시 할까요?')) {
-      S = defaults(); save(); go('home'); toast('처음부터 다시 시작해요');
+    if (window.confirm('모든 진도와 기록이 지워져요.' + (ACCT ? ' (로그인한 계정에 저장된 기록도 지워져요.)' : '') + ' 정말 처음부터 다시 할까요?')) {
+      S = defaults(); save(); resetCloud(); go('home'); toast('처음부터 다시 시작해요');
     }
   };
 
@@ -1830,13 +1837,225 @@
     }
   }
 
+  /* ===== 구글 계정 (선택): 로그인하면 기기끼리 진도가 같이 저장돼요 ===== */
+  var ACCT_KEY = KEY + '-acct', OWNER_KEY = KEY + '-owner';
+  var ACCT = null, syncing = false, syncT = null, syncNote = '';
+  try { ACCT = JSON.parse(localStorage.getItem(ACCT_KEY)); } catch (e) {}
+  if (!ACCT || !ACCT.session) ACCT = null;
+  function acctOn() { return !!(CFG.GOOGLE_CLIENT_ID && CFG.APPS_SCRIPT_URL); }
+  function saveAcct() {
+    try { if (ACCT) localStorage.setItem(ACCT_KEY, JSON.stringify(ACCT)); else localStorage.removeItem(ACCT_KEY); } catch (e) {}
+  }
+  function writeLocal() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} }
+  function api(action, body) {
+    return fetch(CFG.APPS_SCRIPT_URL, {
+      method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(Object.assign({ action: action }, body || {}))
+    }).then(function (r) { return r.json(); });
+  }
+
+  // 두 기기의 진도를 합쳐요: 숫자는 큰 쪽, 한 번이라도 한 일(true)은 유지, 목록은 합집합.
+  function isObj(x) { return !!x && typeof x === 'object' && !Array.isArray(x); }
+  function mergeVal(a, b) {
+    if (a === undefined || a === null) return b === undefined ? a : b;
+    if (b === undefined || b === null) return a;
+    if (typeof a === 'number' && typeof b === 'number') return Math.max(a, b);
+    if (typeof a === 'boolean' && typeof b === 'boolean') return a || b;
+    if (typeof a === 'string' && typeof b === 'string') return a >= b ? a : b;
+    if (Array.isArray(a) && Array.isArray(b)) {
+      var strs = function (x) { return x.every(function (v) { return typeof v === 'string'; }); };
+      if (strs(a) && strs(b)) {
+        var seen = {};
+        return a.concat(b).filter(function (v) { return seen[v] ? false : (seen[v] = 1); });
+      }
+      return b.length > a.length ? b : a;
+    }
+    if (isObj(a) && isObj(b)) {
+      var o = {};
+      Object.keys(a).concat(Object.keys(b)).forEach(function (k) { if (!(k in o)) o[k] = mergeVal(a[k], b[k]); });
+      return o;
+    }
+    return a;
+  }
+  function mergeState(a, b) {
+    var o = mergeVal(a, b);
+    // 설정은 기기마다 달라서 이 기기 것을 쓰고, 이름만 비어 있으면 계정 것을 가져와요
+    o.settings = Object.assign({}, a.settings);
+    if ((!a.settings || a.settings.name === '어머니') && b.settings && b.settings.name) o.settings.name = b.settings.name;
+    // 오늘의 학습 계획은 더 많이 진행한 쪽을 통째로 써요
+    o.plan = ((b.plan && b.plan.n) || 0) > ((a.plan && a.plan.n) || 0) ? b.plan : a.plan;
+    // 연속일은 더 최근에 한 쪽을 쓰고, 최고 기록만 큰 값으로 합쳐요
+    var sa = a.streak || {}, sb = b.streak || {};
+    var la = sa.last || '', lb = sb.last || '';
+    var pick = (lb > la || (lb === la && (sb.count || 0) > (sa.count || 0))) ? sb : sa;
+    o.streak = { count: pick.count || 0, last: pick.last || '', best: Math.max(sa.best || 0, sb.best || 0, pick.count || 0) };
+    o.v = 1;
+    return o;
+  }
+  function hasProgress(x) {
+    return (x.xp || 0) > 0 || ['days', 'phrases', 'groups', 'places'].some(function (k) { return Object.keys(x[k] || {}).length > 0; });
+  }
+
+  // 로그인 직후: 계정에 저장된 진도와 이 기기 진도를 합쳐요 (다른 사람 계정이면 바꿔요)
+  function applyCloud(cloud, user) {
+    var owner = '';
+    try { owner = localStorage.getItem(OWNER_KEY) || ''; } catch (e) {}
+    var c = cloud ? norm(cloud) : null;
+    if (owner && owner !== user.sub && hasProgress(S)) {
+      if (!window.confirm('이 기기에 있는 진도는 다른 구글 계정의 것이에요.\n' + user.email + ' 계정의 진도로 바꿀까요?\n(원래 계정의 진도는 그 계정에 그대로 남아 있어요.)')) return false;
+      S = c || defaults();
+    } else if (c) {
+      S = mergeState(S, c);
+    }
+    try { localStorage.setItem(OWNER_KEY, user.sub); } catch (e) {}
+    applyFont(); writeLocal();
+    return true;
+  }
+
+  function setNote(t) {
+    syncNote = t;
+    var el = $('#acct-note');
+    if (el) el.textContent = t;
+  }
+  function markDirty() {
+    if (!ACCT) return;
+    clearTimeout(syncT);
+    syncT = setTimeout(sync, 20000);
+  }
+  function sync() {
+    if (!ACCT || !acctOn() || syncing) return Promise.resolve();
+    if (ui.view === 'quiz' || ui.view === 'phrase') { // 문제 푸는 중에는 끝난 뒤에 저장해요
+      clearTimeout(syncT); syncT = setTimeout(sync, 30000);
+      return Promise.resolve();
+    }
+    syncing = true; setNote('저장하는 중…');
+    var sess = ACCT.session, failed = false;
+    return api('sync', { session: sess }).then(function (r) {
+      if (!r.ok) throw r;
+      if (r.state) { S = mergeState(S, norm(r.state)); applyFont(); writeLocal(); }
+      return api('save', { session: sess, state: JSON.stringify(S) });
+    }).then(function (r) {
+      if (!r.ok) throw r;
+      setNote('저장됨 · ' + new Date().toLocaleTimeString('ko-KR', { hour: 'numeric', minute: '2-digit' }));
+    }).catch(function (e) {
+      if (e && e.error === 'bad_session') {
+        ACCT = null; saveAcct();
+        toast('로그인이 풀렸어요. 설정에서 다시 로그인해 주세요');
+        if (ui.view === 'settings') rerender();
+      } else {
+        failed = true; setNote('저장 안 됨 (인터넷을 확인해 주세요)');
+      }
+    }).then(function () {
+      syncing = false;
+      if (failed && ACCT) { clearTimeout(syncT); syncT = setTimeout(sync, 60000); }
+    });
+  }
+  function resetCloud() {
+    if (!ACCT) return;
+    clearTimeout(syncT);
+    api('save', { session: ACCT.session, state: JSON.stringify(S) }).then(function (r) {
+      if (!r.ok) throw r;
+    }).catch(function () { toast('계정에 저장된 기록은 지우지 못했어요. 인터넷을 확인하고 다시 해 주세요'); });
+  }
+
+  var gsiP = null;
+  function loadGsi() {
+    if (window.google && google.accounts && google.accounts.id) return Promise.resolve();
+    if (gsiP) return gsiP;
+    gsiP = new Promise(function (res, rej) {
+      var s = document.createElement('script');
+      s.src = 'https://accounts.google.com/gsi/client'; s.async = true;
+      s.onload = res; s.onerror = function () { gsiP = null; rej(new Error('gsi')); };
+      document.head.appendChild(s);
+    });
+    return gsiP;
+  }
+  function loginError(code) {
+    var m = {
+      server_not_configured: '서버 설정이 아직 안 끝났어요 (GOOGLE_CLIENT_ID)',
+      wrong_audience: '로그인 설정이 서버와 달라요 (클라이언트 ID 확인)',
+      not_allowed: '이 구글 계정은 사용할 수 없어요',
+      email_not_verified: '이메일 인증이 안 된 구글 계정이에요',
+      busy: '지금 사람이 많아요. 잠시 뒤에 다시 해 주세요'
+    };
+    return m[code] || '로그인하지 못했어요. 잠시 뒤에 다시 해 주세요';
+  }
+  function onCredential(resp) {
+    toast('로그인하는 중이에요…');
+    api('login', { idToken: resp && resp.credential }).then(function (r) {
+      if (!r || !r.ok) throw r || {};
+      ACCT = { session: r.session, sub: r.user.sub, email: r.user.email, name: r.user.name };
+      if (!applyCloud(r.state, r.user)) {
+        api('logout', { session: r.session }).catch(function () {});
+        ACCT = null; saveAcct(); rerender();
+        return;
+      }
+      saveAcct();
+      toast(r.created ? '계정이 만들어졌어요' : '로그인했어요');
+      api('save', { session: r.session, state: JSON.stringify(S) }).then(function () {
+        setNote('저장됨 · ' + new Date().toLocaleTimeString('ko-KR', { hour: 'numeric', minute: '2-digit' }));
+      }).catch(function () {});
+      rerender();
+    }).catch(function (e) { toast(loginError(e && e.error)); });
+  }
+  function acctPanel() {
+    if (!acctOn()) return '';
+    if (ACCT) {
+      return '<section class="panel"><div class="setrow col"><span>구글 계정</span>' +
+        '<div class="acct-me">' + esc(ACCT.name || '') + ' <small class="muted">' + esc(ACCT.email || '') + '</small></div>' +
+        '<small class="muted" id="acct-note">' + esc(syncNote || '로그인되어 있어요. 진도가 자동으로 저장돼요.') + '</small>' +
+        '<div class="row"><button class="btn alt" data-act="acctSync"><span>지금 저장</span></button>' +
+        '<button class="btn ghost" data-act="acctOut"><span>로그아웃</span></button></div>' +
+        '<button class="btn ghost danger" data-act="acctDel">' + ic('trash') + '<span>계정과 저장된 진도 삭제</span></button></div></section>';
+    }
+    return '<section class="panel"><div class="setrow col"><span>구글 계정</span>' +
+      '<small class="muted">로그인하면 아이폰·아이패드 어디서나 같은 진도로 이어서 할 수 있어요. 처음 로그인하면 계정이 자동으로 만들어져요.</small>' +
+      '<div id="gbtn" class="gbtn"></div></div></section>';
+  }
+  function acctAfter() {
+    if (!acctOn() || ACCT) return;
+    var el = $('#gbtn');
+    if (!el) return;
+    loadGsi().then(function () {
+      var el2 = $('#gbtn');
+      if (!el2) return;
+      google.accounts.id.initialize({ client_id: CFG.GOOGLE_CLIENT_ID, callback: onCredential, auto_select: false });
+      google.accounts.id.renderButton(el2, { theme: 'outline', size: 'large', text: 'continue_with', shape: 'pill', locale: 'ko', width: 260 });
+    }).catch(function () {
+      var el3 = $('#gbtn');
+      if (el3) el3.innerHTML = '<small class="muted">인터넷에 연결되어 있어야 로그인할 수 있어요.</small>';
+    });
+  }
+  ACT.acctSync = function () { toast('저장하는 중이에요'); sync(); };
+  ACT.acctOut = function () {
+    if (!window.confirm('로그아웃할까요? 이 기기의 진도는 그대로 남아요.')) return;
+    var sess = ACCT && ACCT.session;
+    ACCT = null; saveAcct(); clearTimeout(syncT);
+    if (sess) api('logout', { session: sess }).catch(function () {});
+    rerender();
+  };
+  ACT.acctDel = function () {
+    if (!window.confirm('계정과 서버에 저장된 진도가 삭제돼요. (이 기기의 진도는 남아요.) 삭제할까요?')) return;
+    api('delete_account', { session: ACCT.session }).then(function (r) {
+      if (!r.ok) throw r;
+      ACCT = null; saveAcct(); clearTimeout(syncT);
+      try { localStorage.removeItem(OWNER_KEY); } catch (e) {}
+      toast('계정을 삭제했어요');
+      rerender();
+    }).catch(function () { toast('삭제하지 못했어요. 잠시 뒤에 다시 해 주세요'); });
+  };
+  document.addEventListener('visibilitychange', function () {
+    if (ACCT) sync();
+  });
+
   /* ===== 시작 ===== */
   S = load();
   loadClips();
   applyFont();
   render(false);
   loadSheet();
+  if (ACCT) sync();
 
   // 테스트용으로만 쓰는 연결 고리 (앱 동작에는 영향 없음)
-  window.__app = { get S() { return S; }, get Q() { return Q; }, ui: ui, ACT: ACT, go: go, today: today, get DATA() { return DATA; } };
+  window.__app = { get S() { return S; }, get ACCT() { return ACCT; }, mergeState: mergeState, norm: norm, defaults: defaults, sync: sync, get Q() { return Q; }, ui: ui, ACT: ACT, go: go, today: today, get DATA() { return DATA; } };
 })();
