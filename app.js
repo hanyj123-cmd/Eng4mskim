@@ -619,9 +619,10 @@
   }
   function render(keep) {
     var y = window.scrollY;
-    var fn = VIEWS[ui.view] || VIEWS.home;
+    var gate = ui.view === 'home' && acctOn() && !ACCT && !ui.skipLogin; // 구글 로그인을 켰으면 첫 화면은 로그인
+    var fn = gate ? VIEWS.welcome : (VIEWS[ui.view] || VIEWS.home);
     var out = fn(ui.params);
-    $('#app').innerHTML = header(out.title, ui.view !== 'home') + '<main class="view">' + out.html + '</main>';
+    $('#app').innerHTML = (gate ? '' : header(out.title, ui.view !== 'home')) + '<main class="view">' + out.html + '</main>';
     document.body.setAttribute('data-view', ui.view);
     applyFont();
     if (keep) window.scrollTo(0, y);
@@ -1990,6 +1991,7 @@
         ACCT = null; saveAcct(); rerender();
         return;
       }
+      if (r.user.name && (!S.settings.name || S.settings.name === '어머니')) { S.settings.name = r.user.name; writeLocal(); } // 구글 이름으로 불러 줘요
       saveAcct();
       toast(r.created ? '계정이 만들어졌어요' : '로그인했어요');
       api('save', { session: r.session, state: JSON.stringify(S) }).then(function () {
@@ -2026,6 +2028,15 @@
       if (el3) el3.innerHTML = '<small class="muted">인터넷에 연결되어 있어야 로그인할 수 있어요.</small>';
     });
   }
+  VIEWS.welcome = function () {
+    return { title: '영어 한 걸음', after: acctAfter, html:
+      '<section class="panel welcome"><h1>영어 한 걸음</h1>' +
+      '<p class="ko">구글 계정으로 로그인하면<br>어느 기기에서든 내 진도로 이어서 할 수 있어요.</p>' +
+      '<div id="gbtn" class="gbtn"></div>' +
+      '<small class="muted">처음이면 계정이 자동으로 만들어져요.</small>' +
+      '<button class="btn ghost" data-act="skipLogin"><span>나중에 할게요</span></button></section>' };
+  };
+  ACT.skipLogin = function () { ui.skipLogin = true; rerender(); };
   ACT.acctSync = function () { toast('저장하는 중이에요'); sync(); };
   ACT.acctOut = function () {
     if (!window.confirm('로그아웃할까요? 이 기기의 진도는 그대로 남아요.')) return;
@@ -2049,7 +2060,7 @@
   });
 
   /* ===== 버전 표시 (화면 맨 아래) ===== */
-  var APP_BUILD = 16; // sw.js 의 eng-mom-v 숫자와 같이 올려요
+  var APP_BUILD = 17; // sw.js 의 eng-mom-v 숫자와 같이 올려요
   (function () {
     var el = document.getElementById('ver');
     if (!el) return;
