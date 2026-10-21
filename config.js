@@ -6,11 +6,11 @@ window.APP_CONFIG = {
   SHEET_ID: "",
 
   // 2) 진도를 구글 시트에 기록하고 싶을 때: Apps Script 웹 앱 URL을 넣으세요. (README 참고)
-  APPS_SCRIPT_URL: "",
+  APPS_SCRIPT_URL: "https://script.google.com/macros/s/AKfycbzVEfcSqzIXgQWPTgnFx3QjNis2O0i-xT-gLuyRKaBpvt1eA2KU6ytfNLdlfhNXCW3r/exec",
 
   // 3) 구글 로그인(계정 만들기)을 켜고 싶을 때: 구글 클라우드에서 만든 웹 클라이언트 ID를 넣으세요.
   //    위의 APPS_SCRIPT_URL 도 함께 있어야 해요. (README "구글 로그인 켜기" 참고)
-  GOOGLE_CLIENT_ID: "",
+  GOOGLE_CLIENT_ID: "867576262439-d2i4gd3n6s1c624nlsi24nj9efe73hc1.apps.googleusercontent.com",
 
   // 시트 기록에 남는 이름
   USER_ID: "mom"
