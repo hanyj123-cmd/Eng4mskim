@@ -12,30 +12,35 @@
   },
   "people": {
     "teen_f": {
-      "voice_name": "Jessica",
-      "note": "young, playful, bright, warm (American)",
-      "tempo": 1.1
+      "voice_id": "GRD6HNshE7JaWxMMQl96",
+      "name": "Designed: young Canadian woman, 20s",
+      "tempo": 1.05
     },
     "teen_m": {
-      "voice_name": "Chris",
-      "note": "charming, down-to-earth, natural (American)",
-      "tempo": 1.1
+      "voice_id": "HkpZXSKfecVIPS9GuAhZ",
+      "name": "Designed: young Canadian man, 20s",
+      "tempo": 1.0
+    },
+    "india_f": {
+      "voice_id": "CY38Tbc4zeUKwVcdJUgl",
+      "name": "Designed: Indian-origin woman in Canada, 30s",
+      "tempo": 1.0
     },
     "man": {
       "voice_name": "Roger",
-      "note": "laid-back, casual, resonant (American)",
+      "note": "default voice: laid-back, casual (American)",
       "tempo": 1.0
     },
     "woman": {
       "voice_name": "Sarah",
-      "note": "mature, reassuring (American); skipped if not in My Voices",
+      "note": "default voice: mature, reassuring (American); skipped if not in My Voices",
       "tempo": 1.0
     },
     "grandpa": {
       "voice_name": "Bill",
-      "note": "wise, mature older man (American); skipped if not in My Voices",
+      "note": "default voice: wise older man (American); skipped if not in My Voices",
       "tempo": 0.9
     }
   },
-  "_comment": "Free-plan API cannot use Voice Library voices, so this uses the default (premade) voices found in My Voices by name."
+  "_comment": "Free-plan API cannot use Voice Library voices. Designed voices use voice_id; default voices are found in My Voices by voice_name. india_m (Indian-origin man) is pending a free custom-voice slot."
 }
