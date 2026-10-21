@@ -115,6 +115,32 @@ def one(job):
     except Exception as e:
         with lock: fails.append((person, s, repr(e)[:200]))
 
+def resolve_voices():
+    # 무료 요금제는 라이브러리 목소리를 API로 못 써요. My Voices 에 있는 기본 목소리를 이름으로 찾아요.
+    req = urllib.request.Request(f"{BASE}/v1/voices", headers={"xi-api-key": KEY})
+    try:
+        with urllib.request.urlopen(req, timeout=60) as r:
+            vs = json.loads(r.read()).get("voices", [])
+    except Exception as e:
+        print("목소리 목록을 못 가져왔어요:", repr(e)[:200], flush=True)
+        vs = []
+    by = {}
+    for v in vs:
+        key = re.split(r"\s+[-\u2013\u2014]\s+", v.get("name", ""))[0].strip().lower()
+        by.setdefault(key, v["voice_id"])
+    print("계정 목소리:", sorted(by)[:40], flush=True)
+    for person, cfg in PEOPLE.items():
+        if cfg.get("voice_id"): continue
+        vid = by.get(cfg.get("voice_name", "").lower())
+        if vid:
+            cfg["voice_id"] = vid
+            print(f"  [{person}] -> {cfg['voice_name']}", flush=True)
+        else:
+            blocked[person] = f"계정(My Voices)에 '{cfg.get('voice_name')}' 목소리가 없어요"
+            print(f"  [{person}] 건너뜀: {blocked[person]}", flush=True)
+
+resolve_voices()
+
 jobs = []
 if JOB == "sample":
     seen = set()

@@ -1,13 +1,41 @@
 {
   "model": "eleven_v4",
-  "fallback_models": ["eleven_multilingual_v2"],
+  "fallback_models": [
+    "eleven_multilingual_v2"
+  ],
   "max_chars_per_run": 6000,
-  "settings": { "stability": 0.4, "similarity_boost": 0.75, "style": 0.25, "use_speaker_boost": true },
+  "settings": {
+    "stability": 0.4,
+    "similarity_boost": 0.75,
+    "style": 0.25,
+    "use_speaker_boost": true
+  },
   "people": {
-    "teen_f":  { "voice_id": "mjCDbSbl8ga5ZmT77nF4", "name": "Esma (young Canadian woman)",       "tempo": 1.10 },
-    "teen_m":  { "voice_id": "6ERVtmmxU0xToHKMxwW2", "name": "Loyal (young Canadian man)",        "tempo": 1.10 },
-    "man":     { "voice_id": "Lcy5kkLckO3NCrnvaHJe", "name": "Hussein (laid-back Canadian man)",  "tempo": 1.00 },
-    "woman":   { "voice_id": "zHGX9VSXpW8cGSDRCqy0", "name": "Emily (warm American woman)",       "tempo": 1.00 },
-    "grandpa": { "voice_id": "4a0Khp1o5b79lIkuf4ia", "name": "Don Boucher (older Canadian man)",  "tempo": 0.90 }
-  }
+    "teen_f": {
+      "voice_name": "Jessica",
+      "note": "young, playful, bright, warm (American)",
+      "tempo": 1.1
+    },
+    "teen_m": {
+      "voice_name": "Chris",
+      "note": "charming, down-to-earth, natural (American)",
+      "tempo": 1.1
+    },
+    "man": {
+      "voice_name": "Roger",
+      "note": "laid-back, casual, resonant (American)",
+      "tempo": 1.0
+    },
+    "woman": {
+      "voice_name": "Sarah",
+      "note": "mature, reassuring (American); skipped if not in My Voices",
+      "tempo": 1.0
+    },
+    "grandpa": {
+      "voice_name": "Bill",
+      "note": "wise, mature older man (American); skipped if not in My Voices",
+      "tempo": 0.9
+    }
+  },
+  "_comment": "Free-plan API cannot use Voice Library voices, so this uses the default (premade) voices found in My Voices by name."
 }
