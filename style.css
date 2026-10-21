@@ -547,3 +547,5 @@ svg.stamp.mini .s-i { stroke-width: 0; }
 /* 구글 로그인 */
 .gbtn { display: flex; justify-content: center; min-height: 44px; padding: .2rem 0; }
 .acct-me { font-weight: 600; word-break: break-all; }
+
+.ver{text-align:center;font-size:.72rem;color:#7a8a82;padding:.4rem 0 calc(.8rem + env(safe-area-inset-bottom));position:relative;z-index:1}

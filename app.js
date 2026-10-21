@@ -2048,6 +2048,19 @@
     if (ACCT) sync();
   });
 
+  /* ===== 버전 표시 (화면 맨 아래) ===== */
+  var APP_BUILD = 16; // sw.js 의 eng-mom-v 숫자와 같이 올려요
+  (function () {
+    var el = document.getElementById('ver');
+    if (!el) return;
+    function show(c) { el.textContent = '버전 v' + APP_BUILD + (c && c !== String(APP_BUILD) ? ' (기기 저장본 v' + c + ')' : '') + (acctOn() ? ' · 구글 로그인 켜짐' : ''); }
+    show('');
+    if (window.caches && caches.keys) caches.keys().then(function (ks) {
+      var m = ks.map(function (k) { return (/^eng-mom-v(\d+)$/.exec(k) || [])[1]; }).filter(Boolean).sort(function (x, y) { return y - x; })[0];
+      show(m || '');
+    }).catch(function () {});
+  })();
+
   /* ===== 시작 ===== */
   S = load();
   loadClips();
