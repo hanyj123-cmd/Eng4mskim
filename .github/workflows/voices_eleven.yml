@@ -1,0 +1,37 @@
+name: make voices (ElevenLabs)
+on:
+  workflow_dispatch:
+    inputs:
+      job:
+        description: "sample = 5명 맛보기(크레딧 약 300), full = 상대방 말 전체"
+        required: true
+        default: sample
+        type: choice
+        options: [sample, full]
+permissions:
+  contents: write
+concurrency: voices
+jobs:
+  voices:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - name: make voices
+        env:
+          JOB: ${{ inputs.job }}
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+        run: python3 tools/make_voices_eleven.py . 2>&1 | tee eleven_log.txt
+        continue-on-error: true
+      - name: commit
+        if: always()
+        run: |
+          tail -c 20000 eleven_log.txt > tools/eleven_log.txt || true
+          git config user.name "voice-bot"
+          git config user.email "actions@github.com"
+          git add -A audio tools/eleven_log.txt
+          if [ -f tools/eleven_done.json ]; then git add tools/eleven_done.json; fi
+          git commit -m "Generate voices with ElevenLabs (${{ inputs.job }})" || echo "nothing to commit"
+          git pull --rebase -q origin main
+          git push origin HEAD:main
