@@ -3,11 +3,11 @@ on:
   workflow_dispatch:
     inputs:
       job:
-        description: "sample = 5명 맛보기(크레딧 약 300), full = 상대방 말 전체"
+        description: "sample = 맛보기, full = 상대방 말(6명), std = 기본 목소리(내가 하는 말·대답 → 단어·예문 순, 한 번에 약 5,300자까지)"
         required: true
         default: sample
         type: choice
-        options: [sample, full]
+        options: [sample, full, std]
 permissions:
   contents: write
 concurrency: voices

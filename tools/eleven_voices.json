@@ -42,5 +42,18 @@
       "tempo": 0.9
     }
   },
-  "_comment": "Free-plan API cannot use Voice Library voices. Designed voices use voice_id; default voices are found in My Voices by voice_name. india_m (Indian-origin man) is pending a free custom-voice slot."
+  "_comment": "Free-plan API cannot use Voice Library voices. Designed voices use voice_id; default voices are found in My Voices by voice_name. india_m (Indian-origin man) is pending a free custom-voice slot.",
+  "std": {
+    "voice_id": "GRD6HNshE7JaWxMMQl96",
+    "name": "Designed: young Canadian woman (main voice)",
+    "tempo": 0.95,
+    "slow_factor": 0.7,
+    "priority": [
+      "me",
+      "reply",
+      "them_std"
+    ],
+    "max_chars_per_run": 5300,
+    "_next_month": "Add 'words' then 'examples' to priority once enough credits are available, so each sound-pair is read in one voice."
+  }
 }

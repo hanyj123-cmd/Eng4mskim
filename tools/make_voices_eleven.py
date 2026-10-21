@@ -77,8 +77,8 @@ def synth(text, person):
             time.sleep(2 + attempt * 3)
     raise RuntimeError("재시도 실패")
 
-def to_mp3(raw_mp3, person, dst):
-    tempo = float(PEOPLE[person].get("tempo", 1.0))
+def to_mp3(raw_mp3, tempo, dst):
+    tempo = float(tempo)
     af = (f"atempo={tempo}," if abs(tempo - 1.0) > 0.01 else "") + AF
     os.makedirs(os.path.dirname(dst), exist_ok=True)
     with tempfile.TemporaryDirectory() as td:
@@ -91,16 +91,19 @@ def to_mp3(raw_mp3, person, dst):
         os.replace(out, dst)  # 성공했을 때만 기존 파일을 바꿔요
 
 def one(job):
-    person, s, text, dst, track = job
+    person, s, text, dst, track, dst_slow = job
     if stop_reason or person in blocked: return
     with lock:
-        if used_chars[0] + len(text) > CFG["max_chars_per_run"]:
-            if not stop_reason: stop_reason.append(f"이번 실행 한도({CFG['max_chars_per_run']}자)에 도달했어요")
+        if used_chars[0] + len(text) > CAP:
+            if not stop_reason: stop_reason.append(f"이번 실행 한도({CAP}자)에 도달했어요")
             return
         used_chars[0] += len(text)
     try:
         audio = synth(text, person)
-        to_mp3(audio, person, dst)
+        tempo = float(PEOPLE[person].get("tempo", 1.0))
+        to_mp3(audio, tempo, dst)
+        if dst_slow:
+            to_mp3(audio, tempo * float(PEOPLE[person].get("slow_factor", 0.7)), dst_slow)  # 천천히 듣기: 크레딧 없이 속도만 늦춰요
         with lock:
             ok_count[0] += 1
             if track: done.setdefault(person, []).append(s)
@@ -141,24 +144,43 @@ def resolve_voices():
 
 resolve_voices()
 
+CAP = CFG["max_chars_per_run"]
 jobs = []
-if JOB == "sample":
+if JOB == "std":
+    # 기본 목소리(내가 하는 말·대답 예시 등)를 우선순위대로 만들어요. 한도에 닿으면 멈추고 다음 실행에서 이어가요.
+    SC = CFG["std"]; PEOPLE["std"] = SC; CAP = SC["max_chars_per_run"]
+    cats = {
+        "me": [p["en"] for p in data["phrases"] if p["who"] != "them"],
+        "reply": [p.get("reply") for p in data["phrases"]],
+        "them_std": [p["en"] for p in data["phrases"] if p["who"] == "them" and p.get("spk") in ("std", "", None)],
+        "words": [p[k] for p in data["pairs"] for k in ("a", "b")],
+        "examples": [p[k] for p in data["pairs"] for k in ("aEx", "bEx")],
+    }
+    seen = set(done.get("std", []))
+    for cat in SC["priority"]:
+        for t in cats[cat]:
+            if not t: continue
+            sl = slug(t)
+            if sl in seen: continue
+            seen.add(sl)
+            jobs.append(("std", sl, t, os.path.join(REPO, "audio", f"{sl}.mp3"), True, os.path.join(REPO, "audio", f"{sl}.slow.mp3")))
+elif JOB == "sample":
     seen = set()
     for person, s, text in lines:
         if person in seen: continue
         seen.add(person)
-        jobs.append((person, s, text, os.path.join(REPO, "audio", "_samples", "eleven", f"{person}.mp3"), False))
+        jobs.append((person, s, text, os.path.join(REPO, "audio", "_samples", "eleven", f"{person}.mp3"), False, None))
 else:
     for person, s, text in lines:
         if s in set(done.get(person, [])): continue
-        jobs.append((person, s, text, os.path.join(REPO, "audio", "v", person, f"{s}.mp3"), True))
+        jobs.append((person, s, text, os.path.join(REPO, "audio", "v", person, f"{s}.mp3"), True, None))
 
 print(f"job={JOB} 만들 문장 {len(jobs)}개, 글자수 약 {sum(len(j[2]) for j in jobs)}", flush=True)
 # 무료 요금제는 동시 요청 2개까지라서 2개씩만 보내요
 with ThreadPoolExecutor(max_workers=2) as ex:
     list(ex.map(one, jobs))
 
-if JOB == "full":
+if JOB in ("full", "std"):
     for k in done: done[k] = sorted(set(done[k]))
     json.dump(done, open(DONE_PATH, "w", encoding="utf-8"), ensure_ascii=False, indent=0)
 print(f"완료 {ok_count[0]}개, 사용 글자 약 {used_chars[0]}, 실패 {len(fails)}, 막힌 목소리 {list(blocked)}", flush=True)
