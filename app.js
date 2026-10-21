@@ -454,26 +454,47 @@
     if (prefer && vs.indexOf(prefer) >= 0 && Math.random() < 0.5) return prefer;
     return vs[Math.floor(Math.random() * vs.length)];
   }
+  var playTok = 0, lastAudio = 0;
+  var SILENT_WARM = 'data:audio/wav;base64,UklGRoQJAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YWAJAACAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIA=';
   function playClip(text, slow, who) {
     return new Promise(function (resolve) {
       var id = slugOf(text);
       var alt = who && who !== 'std' && !slow && hasVoice(who, text);
       if (!alt && !CLIPS[id]) return resolve(false);
       try { player.pause(); } catch (e) {}
-      player.onended = function () { if (realEnd(player)) resolve(true); };
-      // 다른 사람 목소리 파일을 못 받으면 기본 목소리로 다시 읽어요
-      player.onerror = function () { if (alt) playClip(text, slow).then(resolve); else resolve(false); };
-      player.src = alt ? 'audio/v/' + who + '/' + id + '.mp3' : 'audio/' + id + (slow ? '.slow' : '') + '.mp3';
-      var pr;
-      try { pr = player.play(); } catch (e) { return resolve(false); }
-      if (pr && pr.catch) pr.catch(function (err) {
-        if (err && err.name === 'AbortError') return; // 다른 소리로 바뀌었어요
-        if (err && err.name === 'NotAllowedError') {
-          toast('소리 버튼을 눌러서 들어 보세요');
-          return resolve(true);
-        }
-        resolve(false);
-      });
+      var url = alt ? 'audio/v/' + who + '/' + id + '.mp3' : 'audio/' + id + (slow ? '.slow' : '') + '.mp3';
+      var tok = ++playTok; // 그 사이에 다른 소리를 눌렀으면 이 소리는 취소해요
+      function start() {
+        if (tok !== playTok) return resolve(true);
+        player.onended = function () { lastAudio = Date.now(); if (realEnd(player)) resolve(true); };
+        // 다른 사람 목소리 파일을 못 받으면 기본 목소리로 다시 읽어요
+        player.onerror = function () { if (alt) playClip(text, slow).then(resolve); else resolve(false); };
+        player.src = url;
+        lastAudio = Date.now();
+        var pr;
+        try { pr = player.play(); } catch (e) { return resolve(false); }
+        if (pr && pr.catch) pr.catch(function (err) {
+          if (err && err.name === 'AbortError') return; // 다른 소리로 바뀌었어요
+          if (err && err.name === 'NotAllowedError') {
+            toast('소리 버튼을 눌러서 들어 보세요');
+            return resolve(true);
+          }
+          resolve(false);
+        });
+      }
+      // 한동안 소리가 없었으면 아이폰 스피커가 잠들어 있어서 첫 소리 앞부분이 먹혀요.
+      // 아주 짧은 무음을 먼저 틀어 깨운 뒤 진짜 소리를 틀어요.
+      if (Date.now() - lastAudio > 6000) {
+        var go = false;
+        var once = function () { if (go) return; go = true; start(); };
+        player.onended = once;
+        player.onerror = once;
+        player.src = SILENT_WARM;
+        var wp;
+        try { wp = player.play(); } catch (e) { return once(); }
+        if (wp && wp.catch) wp.catch(function () { once(); });
+        setTimeout(once, 450);
+      } else start();
     });
   }
   function speak(text, rate, who) {
@@ -2060,7 +2081,7 @@
   });
 
   /* ===== 버전 표시 (화면 맨 아래) ===== */
-  var APP_BUILD = 17; // sw.js 의 eng-mom-v 숫자와 같이 올려요
+  var APP_BUILD = 18; // sw.js 의 eng-mom-v 숫자와 같이 올려요
   (function () {
     var el = document.getElementById('ver');
     if (!el) return;
