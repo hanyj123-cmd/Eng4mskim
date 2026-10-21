@@ -30,6 +30,10 @@ jobs:
           tail -c 20000 eleven_log.txt > tools/eleven_log.txt || true
           git config user.name "voice-bot"
           git config user.email "actions@github.com"
+          if [ -n "$(git status --porcelain audio)" ]; then
+            python3 -c "import re;s=open('sw.js',encoding='utf-8').read();s=re.sub(r\"eng-mom-v(\\d+)\",lambda m:'eng-mom-v'+str(int(m.group(1))+1),s,count=1);open('sw.js','w',encoding='utf-8').write(s)"
+            git add sw.js
+          fi
           git add -A audio tools/eleven_log.txt
           if [ -f tools/eleven_done.json ]; then git add tools/eleven_done.json; fi
           git commit -m "Generate voices with ElevenLabs (${{ inputs.job }})" || echo "nothing to commit"
